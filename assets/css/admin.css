@@ -155,3 +155,98 @@
 .geo-ai-woo-notice {
 	border-left-width: 4px;
 }
+
+/* Dashboard widget */
+.geo-ai-woo-dashboard-stats {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.geo-ai-woo-dashboard-stats li {
+	display: flex;
+	justify-content: space-between;
+	padding: 6px 0;
+	border-bottom: 1px solid #f0f0f1;
+}
+
+.geo-ai-woo-dashboard-stats li:last-child {
+	border-bottom: none;
+}
+
+.geo-ai-woo-dashboard-stats .label {
+	color: #646970;
+}
+
+.geo-ai-woo-dashboard-stats .value {
+	font-weight: 600;
+}
+
+.geo-ai-woo-dashboard-bots h4 {
+	margin: 12px 0 6px;
+}
+
+.geo-ai-woo-dashboard-bots table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.geo-ai-woo-dashboard-bots th,
+.geo-ai-woo-dashboard-bots td {
+	text-align: left;
+	padding: 4px 8px;
+	font-size: 12px;
+}
+
+.geo-ai-woo-dashboard-bots th {
+	font-weight: 600;
+	border-bottom: 1px solid #ddd;
+}
+
+.geo-ai-woo-dashboard-links {
+	margin-top: 12px;
+	padding-top: 8px;
+	border-top: 1px solid #f0f0f1;
+}
+
+/* AI Generate button */
+.geo-ai-woo-generate-btn {
+	margin-top: 5px !important;
+}
+
+.geo-ai-woo-generate-status {
+	margin-left: 8px;
+	font-style: italic;
+	font-size: 12px;
+	color: #666;
+}
+
+.geo-ai-woo-generate-status.success {
+	color: #46b450;
+}
+
+.geo-ai-woo-generate-status.error {
+	color: #dc3232;
+}
+
+/* Bulk generate progress bar */
+.geo-ai-woo-progress-bar {
+	height: 20px;
+	background: #f0f0f1;
+	border-radius: 3px;
+	overflow: hidden;
+	margin-bottom: 8px;
+}
+
+.geo-ai-woo-progress-fill {
+	height: 100%;
+	background: #0073aa;
+	border-radius: 3px;
+	transition: width 0.3s ease;
+	width: 0;
+}
+
+.geo-ai-woo-progress-text {
+	font-size: 12px;
+	color: #646970;
+}

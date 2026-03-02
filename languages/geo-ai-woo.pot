@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the GEO AI Woo package.
 msgid ""
 msgstr ""
-"Project-Id-Version: GEO AI Woo 0.2.0\n"
+"Project-Id-Version: GEO AI Woo 0.3.0\n"
 "Report-Msgid-Bugs-To: https://github.com/madebureau/geo-ai-woo/issues\n"
 "POT-Creation-Date: 2026-03-02 12:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
@@ -429,4 +429,238 @@ msgstr ""
 
 #: includes/class-admin-notices.php
 msgid "GEO AI Woo: Your permalink structure is set to \"Plain\". While the plugin uses static files, we recommend using pretty permalinks for best SEO results. <a href=\"%s\">Change permalink settings</a>"
+msgstr ""
+
+#. v0.3.0 — Main plugin file
+#: geo-ai-woo.php
+msgid "Generating..."
+msgstr ""
+
+#: geo-ai-woo.php
+msgid "Generated!"
+msgstr ""
+
+#: geo-ai-woo.php
+msgid "Processing..."
+msgstr ""
+
+#: geo-ai-woo.php
+msgid "Complete!"
+msgstr ""
+
+#. Settings — AI Generation
+#: includes/class-settings.php
+msgid "AI Description Generation"
+msgstr ""
+
+#: includes/class-settings.php
+msgid "Use Claude or OpenAI to automatically generate AI descriptions for your posts and products."
+msgstr ""
+
+#: includes/class-settings.php
+msgid "AI Provider"
+msgstr ""
+
+#: includes/class-settings.php
+msgid "Disabled"
+msgstr ""
+
+#: includes/class-settings.php
+msgid "Claude (Anthropic)"
+msgstr ""
+
+#: includes/class-settings.php
+msgid "OpenAI"
+msgstr ""
+
+#: includes/class-settings.php
+msgid "API Key"
+msgstr ""
+
+#: includes/class-settings.php
+msgid "API key is saved. Enter a new key to replace it, or leave as-is."
+msgstr ""
+
+#: includes/class-settings.php
+msgid "Enter your API key. It will be stored encrypted."
+msgstr ""
+
+#: includes/class-settings.php
+msgid "Model"
+msgstr ""
+
+#: includes/class-settings.php
+msgid "Leave empty to use the default model for your provider."
+msgstr ""
+
+#: includes/class-settings.php
+msgid "Max Tokens"
+msgstr ""
+
+#: includes/class-settings.php
+msgid "Maximum tokens for generated descriptions (50-500)."
+msgstr ""
+
+#: includes/class-settings.php
+msgid "Prompt Template"
+msgstr ""
+
+#. translators: %s: available placeholders
+#: includes/class-settings.php
+msgid "Available placeholders: %s"
+msgstr ""
+
+#: includes/class-settings.php
+msgid "Bulk Generate"
+msgstr ""
+
+#: includes/class-settings.php
+msgid "Generate AI Descriptions for All Posts"
+msgstr ""
+
+#: includes/class-settings.php
+msgid "Generate descriptions for all published posts that do not have one yet. Processes up to 50 posts."
+msgstr ""
+
+#. Settings — Advanced
+#: includes/class-settings.php
+msgid "Advanced Settings"
+msgstr ""
+
+#: includes/class-settings.php
+msgid "Additional features for multilingual sites and bot tracking."
+msgstr ""
+
+#: includes/class-settings.php
+msgid "Multilingual Support"
+msgstr ""
+
+#: includes/class-settings.php
+msgid "Generate separate llms.txt files for each language"
+msgstr ""
+
+#: includes/class-settings.php
+msgid "No multilingual plugin detected. Install WPML, Polylang, or TranslatePress to enable."
+msgstr ""
+
+#. translators: %s: multilingual provider name
+#: includes/class-settings.php
+msgid "Detected: %s"
+msgstr ""
+
+#: includes/class-settings.php
+msgid "Crawl Tracking"
+msgstr ""
+
+#: includes/class-settings.php
+msgid "Track AI bot visits to llms.txt files"
+msgstr ""
+
+#: includes/class-settings.php
+msgid "Logs bot visits for the dashboard widget. IP addresses are anonymized (GDPR-compliant)."
+msgstr ""
+
+#. Meta box & WooCommerce — AI Generate
+#: includes/class-meta-box.php includes/class-woocommerce.php
+msgid "Generate with AI"
+msgstr ""
+
+#. AI Generator
+#: includes/class-ai-generator.php
+msgid "AI generation is not configured."
+msgstr ""
+
+#: includes/class-ai-generator.php
+msgid "Rate limit exceeded. Please wait before generating more descriptions."
+msgstr ""
+
+#: includes/class-ai-generator.php
+msgid "Post not found."
+msgstr ""
+
+#: includes/class-ai-generator.php
+msgid "Invalid AI provider."
+msgstr ""
+
+#: includes/class-ai-generator.php
+msgid "Claude API error."
+msgstr ""
+
+#: includes/class-ai-generator.php
+msgid "OpenAI API error."
+msgstr ""
+
+#: includes/class-ai-generator.php
+msgid "Unexpected API response format."
+msgstr ""
+
+#: includes/class-ai-generator.php
+msgid "Permission denied."
+msgstr ""
+
+#: includes/class-ai-generator.php
+msgid "All posts already have AI descriptions."
+msgstr ""
+
+#. REST API
+#: includes/class-rest-api.php
+msgid "You do not have permission to access this resource."
+msgstr ""
+
+#: includes/class-rest-api.php
+msgid "Please wait at least 60 seconds between regeneration requests."
+msgstr ""
+
+#: includes/class-rest-api.php
+msgid "llms.txt files regenerated successfully."
+msgstr ""
+
+#. Dashboard Widget
+#: includes/class-dashboard-widget.php
+msgid "Indexed Posts"
+msgstr ""
+
+#: includes/class-dashboard-widget.php
+msgid "Excluded Posts"
+msgstr ""
+
+#: includes/class-dashboard-widget.php
+msgid "llms.txt Files"
+msgstr ""
+
+#: includes/class-dashboard-widget.php
+msgid "Last Regenerated"
+msgstr ""
+
+#: includes/class-dashboard-widget.php
+msgid "Never"
+msgstr ""
+
+#: includes/class-dashboard-widget.php
+msgid "Recent Bot Activity"
+msgstr ""
+
+#: includes/class-dashboard-widget.php
+msgid "No bot activity recorded yet."
+msgstr ""
+
+#: includes/class-dashboard-widget.php
+msgid "Bot Name"
+msgstr ""
+
+#: includes/class-dashboard-widget.php
+msgid "Visits"
+msgstr ""
+
+#: includes/class-dashboard-widget.php
+msgid "Last Visit"
+msgstr ""
+
+#. translators: %s: human time difference
+#: includes/class-dashboard-widget.php
+msgid "%s ago"
+msgstr ""
+
+#: includes/class-dashboard-widget.php
+msgid "View llms.txt"
 msgstr ""

@@ -2,6 +2,66 @@
 
 All notable changes to GEO AI Woo will be documented in this file.
 
+## [0.3.0] - 2026-03-02
+
+### Added — Multilingual Support
+- WPML, Polylang, and TranslatePress abstraction layer
+- Per-language `llms-{lang}.txt` and `llms-full-{lang}.txt` static file generation
+- Hreflang alternate `<link>` tags in SEO meta output
+- Language-aware HTTP Link header
+- Configurable multilingual toggle in Advanced Settings
+- Filter `geo_ai_woo_multilingual_provider` for custom provider override
+
+### Added — Dashboard Widget & Statistics
+- WordPress Dashboard widget with content overview (indexed/excluded counts, file status)
+- AI bot crawl tracker with database-backed visit logging
+- Bot activity summary for last 30 days in dashboard widget
+- GDPR-compliant IP anonymization (hashed, not stored raw)
+- Auto-cleanup of tracking records older than 90 days
+- Quick links to Settings and View llms.txt in dashboard widget
+- Configurable crawl tracking toggle in Advanced Settings
+
+### Added — REST API
+- `GET /wp-json/geo-ai-woo/v1/llms` — public llms.txt content
+- `GET /wp-json/geo-ai-woo/v1/llms/full` — public llms-full.txt content
+- `GET /wp-json/geo-ai-woo/v1/status` — admin-only file status and statistics
+- `POST /wp-json/geo-ai-woo/v1/regenerate` — admin-only force regeneration (rate-limited)
+- `GET /wp-json/geo-ai-woo/v1/settings` — admin-only current settings (API key masked)
+
+### Added — WP-CLI Commands
+- `wp geo-ai-woo regenerate` — regenerate all llms.txt files
+- `wp geo-ai-woo status` — show file status, content counts, multilingual info
+- `wp geo-ai-woo export [--file=path]` — export settings to JSON (excludes API keys)
+- `wp geo-ai-woo import <file> [--regenerate]` — import settings with key validation
+
+### Added — AI Auto-Generation
+- Claude (Anthropic) and OpenAI API integration for AI description generation
+- "Generate with AI" button in post meta box and WooCommerce product panel
+- Customizable prompt template with `{title}`, `{content}`, `{type}` placeholders
+- Bulk generation for posts without descriptions (up to 50, batched)
+- Progress bar UI for bulk generation
+- Rate limiting (10 requests/minute)
+- Encrypted API key storage (base64)
+- Settings section: provider, API key, model, max tokens, prompt template
+
+### Added — New Files
+- `includes/class-multilingual.php` — WPML/Polylang/TranslatePress abstraction
+- `includes/class-dashboard-widget.php` — Dashboard stats widget
+- `includes/class-crawl-tracker.php` — AI bot visit tracking
+- `includes/class-rest-api.php` — REST API endpoints
+- `includes/class-cli.php` — WP-CLI commands
+- `includes/class-ai-generator.php` — Claude/OpenAI AI generation
+
+### Changed
+- Version bump 0.2.0 → 0.3.0
+- Settings migration adds v0.3 defaults (multilingual, crawl tracking, AI generation)
+- `generate()` method now accepts optional `$lang_code` parameter
+- `write_static_files()` generates per-language files when multilingual is active
+- `regenerate_cache()` stores `geo_ai_woo_last_regenerated` timestamp
+- `serve_llms_txt()` fallback now logs bot visits via crawl tracker
+- Admin JS extended with AI generate button and bulk generate handlers
+- Uninstall cleanup extended for crawl table, multilingual files, and new transients
+
 ## [0.2.0] - 2026-03-02
 
 ### Added — Architecture & Performance

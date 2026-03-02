@@ -3,7 +3,7 @@
  * Plugin Name: GEO AI Woo
  * Plugin URI: https://github.com/madebureau/geo-ai-woo
  * Description: Generative Engine Optimization for WordPress & WooCommerce. Optimize your site for AI search engines like ChatGPT, Claude, Gemini, Perplexity, YandexGPT, GigaChat, and more.
- * Version: 0.2.0
+ * Version: 0.3.0
  * Author: Made Büro
  * Author URI: https://madeburo.com
  * License: GPL v2 or later
@@ -21,7 +21,7 @@
 defined( 'ABSPATH' ) || exit;
 
 // Plugin constants
-define( 'GEO_AI_WOO_VERSION', '0.2.0' );
+define( 'GEO_AI_WOO_VERSION', '0.3.0' );
 define( 'GEO_AI_WOO_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'GEO_AI_WOO_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'GEO_AI_WOO_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
@@ -67,9 +67,20 @@ final class Geo_Ai_Woo {
         require_once GEO_AI_WOO_PLUGIN_DIR . 'includes/class-settings.php';
         require_once GEO_AI_WOO_PLUGIN_DIR . 'includes/class-seo-headers.php';
         require_once GEO_AI_WOO_PLUGIN_DIR . 'includes/class-admin-notices.php';
+        require_once GEO_AI_WOO_PLUGIN_DIR . 'includes/class-multilingual.php';
+        require_once GEO_AI_WOO_PLUGIN_DIR . 'includes/class-crawl-tracker.php';
+        require_once GEO_AI_WOO_PLUGIN_DIR . 'includes/class-rest-api.php';
+        require_once GEO_AI_WOO_PLUGIN_DIR . 'includes/class-ai-generator.php';
 
         if ( is_admin() ) {
             require_once GEO_AI_WOO_PLUGIN_DIR . 'includes/class-bulk-edit.php';
+            require_once GEO_AI_WOO_PLUGIN_DIR . 'includes/class-dashboard-widget.php';
+        }
+
+        // WP-CLI commands
+        if ( defined( 'WP_CLI' ) && WP_CLI ) {
+            require_once GEO_AI_WOO_PLUGIN_DIR . 'includes/class-cli.php';
+            WP_CLI::add_command( 'geo-ai-woo', 'Geo_Ai_Woo_CLI' );
         }
     }
 
@@ -137,10 +148,23 @@ final class Geo_Ai_Woo {
         // Initialize SEO Headers
         Geo_Ai_Woo_SEO_Headers::instance();
 
-        // Initialize Admin Notices
+        // Initialize Multilingual
+        Geo_Ai_Woo_Multilingual::instance();
+
+        // Initialize Crawl Tracker
+        Geo_Ai_Woo_Crawl_Tracker::instance();
+
+        // Initialize REST API
+        Geo_Ai_Woo_REST_API::instance();
+
+        // Initialize AI Generator
+        Geo_Ai_Woo_AI_Generator::instance();
+
+        // Initialize Admin components
         if ( is_admin() ) {
             Geo_Ai_Woo_Admin_Notices::instance();
             Geo_Ai_Woo_Bulk_Edit::instance();
+            Geo_Ai_Woo_Dashboard_Widget::instance();
         }
 
         // Lazy-load WooCommerce integration (WC is loaded by plugins_loaded)
@@ -183,12 +207,18 @@ final class Geo_Ai_Woo {
         );
 
         wp_localize_script( 'geo-ai-woo-admin', 'geo_ai_woo_admin', array(
-            'nonce'         => wp_create_nonce( 'geo_ai_woo_regenerate' ),
-            'preview_nonce' => wp_create_nonce( 'geo_ai_woo_preview' ),
-            'regenerating'  => __( 'Regenerating...', 'geo-ai-woo' ),
-            'done'          => __( 'Done!', 'geo-ai-woo' ),
-            'error'         => __( 'Error', 'geo-ai-woo' ),
-            'loading'       => __( 'Loading preview...', 'geo-ai-woo' ),
+            'nonce'            => wp_create_nonce( 'geo_ai_woo_regenerate' ),
+            'preview_nonce'    => wp_create_nonce( 'geo_ai_woo_preview' ),
+            'ai_nonce'         => wp_create_nonce( 'geo_ai_woo_ai_generate' ),
+            'ai_bulk_nonce'    => wp_create_nonce( 'geo_ai_woo_ai_bulk' ),
+            'regenerating'     => __( 'Regenerating...', 'geo-ai-woo' ),
+            'done'             => __( 'Done!', 'geo-ai-woo' ),
+            'error'            => __( 'Error', 'geo-ai-woo' ),
+            'loading'          => __( 'Loading preview...', 'geo-ai-woo' ),
+            'ai_generating'    => __( 'Generating...', 'geo-ai-woo' ),
+            'ai_generated'     => __( 'Generated!', 'geo-ai-woo' ),
+            'ai_bulk_running'  => __( 'Processing...', 'geo-ai-woo' ),
+            'ai_bulk_complete' => __( 'Complete!', 'geo-ai-woo' ),
         ) );
     }
 
@@ -211,8 +241,8 @@ final class Geo_Ai_Woo {
     public function activate() {
         // Set default options
         $defaults = array(
-            'post_types'         => array( 'post', 'page', 'product' ),
-            'bot_rules'          => array(
+            'post_types'             => array( 'post', 'page', 'product' ),
+            'bot_rules'              => array(
                 'GPTBot'           => 'allow',
                 'ClaudeBot'        => 'allow',
                 'Google-Extended'  => 'allow',
@@ -222,24 +252,36 @@ final class Geo_Ai_Woo {
                 'Bytespider'       => 'allow',
                 'Baiduspider'      => 'allow',
             ),
-            'cache_duration'     => 'daily',
-            'site_description'   => get_bloginfo( 'description' ),
-            'include_taxonomies' => '1',
-            'hide_out_of_stock'  => 'wc_default',
-            'seo_meta_enabled'   => '1',
-            'seo_link_header'    => '1',
-            'seo_jsonld_enabled' => '1',
-            'robots_txt_enabled' => '1',
+            'cache_duration'         => 'daily',
+            'site_description'       => get_bloginfo( 'description' ),
+            'include_taxonomies'     => '1',
+            'hide_out_of_stock'      => 'wc_default',
+            'seo_meta_enabled'       => '1',
+            'seo_link_header'        => '1',
+            'seo_jsonld_enabled'     => '1',
+            'robots_txt_enabled'     => '1',
+            // v0.3.0 defaults
+            'multilingual_enabled'   => '1',
+            'crawl_tracking_enabled' => '1',
+            'ai_provider'            => 'none',
+            'ai_api_key'             => '',
+            'ai_model'               => '',
+            'ai_max_tokens'          => 150,
+            'ai_prompt_template'     => '',
         );
 
         if ( ! get_option( 'geo_ai_woo_settings' ) ) {
             add_option( 'geo_ai_woo_settings', $defaults );
         } else {
-            // Merge new defaults into existing settings (v0.1 → v0.2 migration)
+            // Merge new defaults into existing settings (migration)
             $existing = get_option( 'geo_ai_woo_settings', array() );
             $merged   = array_merge( $defaults, $existing );
             update_option( 'geo_ai_woo_settings', $merged );
         }
+
+        // Create crawl tracking database table
+        require_once GEO_AI_WOO_PLUGIN_DIR . 'includes/class-crawl-tracker.php';
+        Geo_Ai_Woo_Crawl_Tracker::create_table();
 
         // Generate static files
         require_once GEO_AI_WOO_PLUGIN_DIR . 'includes/class-llms-generator.php';
@@ -272,6 +314,11 @@ final class Geo_Ai_Woo {
             if ( file_exists( $file ) ) {
                 wp_delete_file( $file );
             }
+        }
+
+        // Delete multilingual files
+        if ( class_exists( 'Geo_Ai_Woo_Multilingual' ) ) {
+            Geo_Ai_Woo_Multilingual::instance()->delete_all_files();
         }
 
         // Flush rewrite rules

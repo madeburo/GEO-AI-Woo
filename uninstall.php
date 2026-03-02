@@ -14,6 +14,7 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 
 // Delete plugin options.
 delete_option( 'geo_ai_woo_settings' );
+delete_option( 'geo_ai_woo_last_regenerated' );
 
 // Delete transients.
 delete_transient( 'geo_ai_woo_llms' );
@@ -21,12 +22,20 @@ delete_transient( 'geo_ai_woo_llms_full' );
 delete_transient( 'geo_ai_woo_activation_notice' );
 delete_transient( 'geo_ai_woo_dismiss_file_health' );
 delete_transient( 'geo_ai_woo_dismiss_permalink' );
+delete_transient( 'geo_ai_woo_dashboard_stats' );
+delete_transient( 'geo_ai_woo_ai_rate_limit' );
+
+// Delete user-specific transients.
+global $wpdb;
+$wpdb->query( "DELETE FROM {$wpdb->options} WHERE option_name LIKE '_transient_geo_ai_woo_bulk_progress_%'" ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery
+$wpdb->query( "DELETE FROM {$wpdb->options} WHERE option_name LIKE '_transient_timeout_geo_ai_woo_bulk_progress_%'" ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery
+$wpdb->query( "DELETE FROM {$wpdb->options} WHERE option_name LIKE '_transient_geo_ai_woo_api_rate_limit_%'" ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery
+$wpdb->query( "DELETE FROM {$wpdb->options} WHERE option_name LIKE '_transient_timeout_geo_ai_woo_api_rate_limit_%'" ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery
 
 // Clear scheduled events.
 wp_clear_scheduled_hook( 'geo_ai_woo_regenerate_llms' );
 
 // Delete post meta for all posts.
-global $wpdb;
 $meta_keys    = array(
 	'_geo_ai_woo_description',
 	'_geo_ai_woo_keywords',
@@ -41,6 +50,10 @@ $wpdb->query(
 	)
 );
 
+// Drop crawl tracking table.
+$table_name = $wpdb->prefix . 'geo_ai_woo_crawl_log';
+$wpdb->query( "DROP TABLE IF EXISTS {$table_name}" ); // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+
 // Delete static files.
 $static_files = array(
 	ABSPATH . 'llms.txt',
@@ -49,6 +62,20 @@ $static_files = array(
 foreach ( $static_files as $file ) {
 	if ( file_exists( $file ) ) {
 		wp_delete_file( $file );
+	}
+}
+
+// Delete multilingual files (llms-*.txt, llms-full-*.txt).
+$language_codes = array( 'en', 'ru', 'kk', 'uz', 'zh', 'id', 'hi', 'de', 'fr', 'es', 'it', 'pt', 'ja', 'ko', 'ar', 'tr', 'pl', 'nl', 'sv', 'da', 'fi', 'no', 'cs', 'sk', 'uk', 'bg', 'ro', 'hr', 'sl', 'el', 'hu', 'th', 'vi', 'ms' );
+foreach ( $language_codes as $code ) {
+	$files = array(
+		ABSPATH . 'llms-' . $code . '.txt',
+		ABSPATH . 'llms-full-' . $code . '.txt',
+	);
+	foreach ( $files as $file ) {
+		if ( file_exists( $file ) ) {
+			wp_delete_file( $file );
+		}
 	}
 }
 

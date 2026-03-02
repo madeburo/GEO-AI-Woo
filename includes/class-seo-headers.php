@@ -62,6 +62,21 @@ class Geo_Ai_Woo_SEO_Headers {
         echo '<meta name="llms" content="' . $llms_url . '" />' . "\n";
         echo '<meta name="llms-full" content="' . $llms_full_url . '" />' . "\n";
 
+        // Multilingual hreflang alternate links
+        if ( class_exists( 'Geo_Ai_Woo_Multilingual' ) ) {
+            $multilingual = Geo_Ai_Woo_Multilingual::instance();
+
+            if ( $multilingual->is_active() ) {
+                $languages = $multilingual->get_active_languages();
+
+                foreach ( $languages as $lang ) {
+                    $lang_file = $multilingual->get_llms_filename( $lang['code'], false );
+                    $lang_url  = esc_url( home_url( '/' . $lang_file ) );
+                    echo '<link rel="alternate" hreflang="' . esc_attr( $lang['code'] ) . '" href="' . $lang_url . '" type="text/plain" />' . "\n";
+                }
+            }
+        }
+
         // Per-post AI description meta tag
         if ( is_singular() ) {
             $post_id        = get_queried_object_id();
@@ -160,7 +175,20 @@ class Geo_Ai_Woo_SEO_Headers {
             return;
         }
 
-        $llms_url = home_url( '/llms.txt' );
+        $llms_file = 'llms.txt';
+
+        // Use language-specific file if multilingual is active
+        if ( class_exists( 'Geo_Ai_Woo_Multilingual' ) ) {
+            $multilingual = Geo_Ai_Woo_Multilingual::instance();
+            if ( $multilingual->is_active() ) {
+                $current_lang = $multilingual->get_current_language();
+                if ( $current_lang ) {
+                    $llms_file = $multilingual->get_llms_filename( $current_lang, false );
+                }
+            }
+        }
+
+        $llms_url = home_url( '/' . $llms_file );
 
         if ( ! headers_sent() ) {
             header( 'Link: <' . esc_url( $llms_url ) . '>; rel="ai-content-index"; type="text/plain"', false );

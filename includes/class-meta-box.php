@@ -85,13 +85,19 @@ class Geo_Ai_Woo_Meta_Box {
                 <label for="geo_ai_woo_description">
                     <strong><?php esc_html_e( 'AI Description', 'geo-ai-woo' ); ?></strong>
                 </label>
-                <textarea 
-                    id="geo_ai_woo_description" 
-                    name="geo_ai_woo_description" 
-                    rows="3" 
+                <textarea
+                    id="geo_ai_woo_description"
+                    name="geo_ai_woo_description"
+                    rows="3"
                     style="width: 100%;"
                     placeholder="<?php esc_attr_e( 'Brief summary for AI systems...', 'geo-ai-woo' ); ?>"
                 ><?php echo esc_textarea( $description ); ?></textarea>
+                <?php if ( class_exists( 'Geo_Ai_Woo_AI_Generator' ) && Geo_Ai_Woo_AI_Generator::instance()->is_configured() ) : ?>
+                <button type="button" class="button button-small geo-ai-woo-generate-btn" data-post-id="<?php echo esc_attr( $post->ID ); ?>">
+                    <?php esc_html_e( 'Generate with AI', 'geo-ai-woo' ); ?>
+                </button>
+                <span class="geo-ai-woo-generate-status"></span>
+                <?php endif; ?>
                 <span class="description">
                     <?php esc_html_e( 'Concise description for LLMs (max 200 characters)', 'geo-ai-woo' ); ?>
                 </span>

@@ -4,7 +4,7 @@ Tags: ai, seo, woocommerce, llms.txt, chatgpt, claude, gemini, perplexity
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 0.2.0
+Stable tag: 0.3.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,7 +29,12 @@ GEO AI Woo generates `/llms.txt` and `/llms-full.txt` files that help AI search 
 * Admin notices and file health checks
 * Configurable cache and regeneration
 * WooCommerce HPOS compatibility
-* Multilingual support (7 languages)
+* Multilingual support (WPML, Polylang, TranslatePress)
+* REST API for programmatic access
+* WP-CLI commands for terminal management
+* AI auto-generation of descriptions (Claude / OpenAI)
+* Dashboard widget with statistics and bot tracking
+* Crawl tracker with GDPR-compliant IP anonymization
 
 **Supported AI Crawlers:**
 
@@ -90,6 +95,48 @@ Yes. Go to Settings > GEO AI Woo and set the "Out-of-Stock Products" option to "
 
 == Changelog ==
 
+= 0.3.0 =
+**Multilingual Support**
+* WPML, Polylang, and TranslatePress integration
+* Per-language llms.txt and llms-full.txt file generation
+* Hreflang alternate links in SEO meta tags
+* Language-aware HTTP Link header
+
+**Dashboard Widget & Statistics**
+* Dashboard widget with content overview (indexed/excluded counts)
+* AI bot crawl tracking with visit logging
+* GDPR-compliant IP anonymization via hashing
+* Bot activity summary (last 30 days)
+* Auto-cleanup of tracking records older than 90 days
+
+**REST API**
+* GET /wp-json/geo-ai-woo/v1/llms — public llms.txt content
+* GET /wp-json/geo-ai-woo/v1/llms/full — public full content
+* GET /wp-json/geo-ai-woo/v1/status — admin file status and statistics
+* POST /wp-json/geo-ai-woo/v1/regenerate — admin force regeneration
+* GET /wp-json/geo-ai-woo/v1/settings — admin current settings
+* Rate limiting on regeneration endpoint
+
+**WP-CLI Commands**
+* `wp geo-ai-woo regenerate` — regenerate llms.txt files
+* `wp geo-ai-woo status` — show file status, content counts, multilingual info
+* `wp geo-ai-woo export` — export settings to JSON file
+* `wp geo-ai-woo import` — import settings from JSON file
+
+**AI Auto-Generation**
+* Claude (Anthropic) and OpenAI API integration
+* "Generate with AI" button in meta box and WooCommerce product panel
+* Customizable prompt template with {title}, {content}, {type} placeholders
+* Bulk generation for all posts without descriptions (up to 50 posts)
+* Rate limiting (10 requests per minute)
+* Encrypted API key storage
+* Progress bar for bulk generation
+
+**Settings**
+* New "AI Description Generation" settings section
+* New "Advanced Settings" section (multilingual, crawl tracking)
+* API provider, key, model, max tokens, and prompt template configuration
+
 = 0.2.0 =
 **Architecture & Performance**
 * Static llms.txt file generation (no more rewrite rules dependency)
@@ -135,6 +182,9 @@ Yes. Go to Settings > GEO AI Woo and set the "Out-of-Stock Products" option to "
 * Multilingual support (7 languages)
 
 == Upgrade Notice ==
+
+= 0.3.0 =
+New features: multilingual support (WPML/Polylang/TranslatePress), REST API, WP-CLI commands, AI auto-generation (Claude/OpenAI), dashboard widget with bot tracking. Settings are automatically migrated.
 
 = 0.2.0 =
 Major update with static file generation, robots.txt integration, extended WooCommerce support (variable products, reviews, sale prices), SEO meta tags, JSON-LD, bulk edit, and live preview. Settings are automatically migrated.

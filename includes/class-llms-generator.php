@@ -126,6 +126,11 @@ class Geo_Ai_Woo_LLMS_Generator {
             }
         }
 
+        // Log bot visit if crawl tracker is available
+        if ( class_exists( 'Geo_Ai_Woo_Crawl_Tracker' ) ) {
+            Geo_Ai_Woo_Crawl_Tracker::instance()->log_visit( $is_full ? 'full' : 'standard' );
+        }
+
         echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Plain text output, all content sanitized in generate().
         exit;
     }
@@ -133,10 +138,11 @@ class Geo_Ai_Woo_LLMS_Generator {
     /**
      * Generate llms.txt content
      *
-     * @param bool $is_full Whether to generate full version.
+     * @param bool        $is_full   Whether to generate full version.
+     * @param string|null $lang_code Language code for multilingual generation.
      * @return string
      */
-    public function generate( $is_full = false ) {
+    public function generate( $is_full = false, $lang_code = null ) {
         $settings = get_option( 'geo_ai_woo_settings', array() );
         $output   = array();
 
@@ -159,6 +165,23 @@ class Geo_Ai_Woo_LLMS_Generator {
         $output[] = '- URL: ' . esc_url( home_url( '/' ) );
         $output[] = '- llms.txt: ' . esc_url( home_url( '/llms.txt' ) );
         $output[] = '- llms-full.txt: ' . esc_url( home_url( '/llms-full.txt' ) );
+
+        // Language indicator for multilingual files
+        if ( $lang_code ) {
+            $multilingual = Geo_Ai_Woo_Multilingual::instance();
+            $languages    = $multilingual->get_active_languages();
+            $lang_name    = $lang_code;
+
+            foreach ( $languages as $lang ) {
+                if ( $lang['code'] === $lang_code ) {
+                    $lang_name = $lang['name'];
+                    break;
+                }
+            }
+
+            $output[] = '- Language: ' . $lang_name;
+        }
+
         $output[] = '';
 
         // Bot rules section
@@ -486,6 +509,9 @@ class Geo_Ai_Woo_LLMS_Generator {
 
         // Write static files
         $this->write_static_files( $content, $content_full );
+
+        // Store last regeneration timestamp
+        update_option( 'geo_ai_woo_last_regenerated', time(), false );
     }
 
     /**
@@ -499,7 +525,7 @@ class Geo_Ai_Woo_LLMS_Generator {
             return;
         }
 
-        // Generate content if not provided
+        // Generate default language content if not provided
         if ( null === $content ) {
             $content = $this->generate( false );
         }
@@ -507,30 +533,67 @@ class Geo_Ai_Woo_LLMS_Generator {
             $content_full = $this->generate( true );
         }
 
-        // Attempt to write static files
+        // Default language files
         $files = array(
             ABSPATH . 'llms.txt'      => $content,
             ABSPATH . 'llms-full.txt' => $content_full,
         );
 
-        foreach ( $files as $file_path => $file_content ) {
-            // Use WordPress filesystem API if available
-            if ( function_exists( 'WP_Filesystem' ) ) {
-                global $wp_filesystem;
-                if ( empty( $wp_filesystem ) ) {
-                    require_once ABSPATH . 'wp-admin/includes/file.php';
-                    WP_Filesystem();
-                }
-                if ( $wp_filesystem ) {
-                    $wp_filesystem->put_contents( $file_path, $file_content, FS_CHMOD_FILE );
-                    continue;
+        // Generate multilingual files
+        if ( class_exists( 'Geo_Ai_Woo_Multilingual' ) ) {
+            $multilingual = Geo_Ai_Woo_Multilingual::instance();
+
+            if ( $multilingual->is_active() ) {
+                $languages = $multilingual->get_active_languages();
+
+                foreach ( $languages as $lang ) {
+                    // Skip default language — already generated above
+                    if ( ! empty( $lang['default'] ) ) {
+                        continue;
+                    }
+
+                    $multilingual->switch_language( $lang['code'] );
+
+                    $lang_file      = $multilingual->get_llms_filename( $lang['code'], false );
+                    $lang_file_full = $multilingual->get_llms_filename( $lang['code'], true );
+
+                    $files[ ABSPATH . $lang_file ]      = $this->generate( false, $lang['code'] );
+                    $files[ ABSPATH . $lang_file_full ]  = $this->generate( true, $lang['code'] );
+
+                    $multilingual->restore_language();
                 }
             }
-
-            // Direct fallback
-            // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_file_put_contents
-            file_put_contents( $file_path, $file_content );
         }
+
+        // Write all files
+        foreach ( $files as $file_path => $file_content ) {
+            $this->write_file( $file_path, $file_content );
+        }
+    }
+
+    /**
+     * Write a single file using WP_Filesystem or direct fallback
+     *
+     * @param string $file_path    Full path to the file.
+     * @param string $file_content File content to write.
+     */
+    private function write_file( $file_path, $file_content ) {
+        // Use WordPress filesystem API if available
+        if ( function_exists( 'WP_Filesystem' ) ) {
+            global $wp_filesystem;
+            if ( empty( $wp_filesystem ) ) {
+                require_once ABSPATH . 'wp-admin/includes/file.php';
+                WP_Filesystem();
+            }
+            if ( $wp_filesystem ) {
+                $wp_filesystem->put_contents( $file_path, $file_content, FS_CHMOD_FILE );
+                return;
+            }
+        }
+
+        // Direct fallback
+        // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_file_put_contents
+        file_put_contents( $file_path, $file_content );
     }
 
     /**

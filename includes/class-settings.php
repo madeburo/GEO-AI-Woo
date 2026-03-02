@@ -192,6 +192,86 @@ class Geo_Ai_Woo_Settings {
             'geo-ai-woo',
             'geo_ai_woo_cache'
         );
+
+        // AI Generation section
+        add_settings_section(
+            'geo_ai_woo_ai',
+            __( 'AI Description Generation', 'geo-ai-woo' ),
+            array( $this, 'render_ai_section' ),
+            'geo-ai-woo'
+        );
+
+        add_settings_field(
+            'ai_provider',
+            __( 'AI Provider', 'geo-ai-woo' ),
+            array( $this, 'render_ai_provider_field' ),
+            'geo-ai-woo',
+            'geo_ai_woo_ai'
+        );
+
+        add_settings_field(
+            'ai_api_key',
+            __( 'API Key', 'geo-ai-woo' ),
+            array( $this, 'render_ai_api_key_field' ),
+            'geo-ai-woo',
+            'geo_ai_woo_ai'
+        );
+
+        add_settings_field(
+            'ai_model',
+            __( 'Model', 'geo-ai-woo' ),
+            array( $this, 'render_ai_model_field' ),
+            'geo-ai-woo',
+            'geo_ai_woo_ai'
+        );
+
+        add_settings_field(
+            'ai_max_tokens',
+            __( 'Max Tokens', 'geo-ai-woo' ),
+            array( $this, 'render_ai_max_tokens_field' ),
+            'geo-ai-woo',
+            'geo_ai_woo_ai'
+        );
+
+        add_settings_field(
+            'ai_prompt_template',
+            __( 'Prompt Template', 'geo-ai-woo' ),
+            array( $this, 'render_ai_prompt_template_field' ),
+            'geo-ai-woo',
+            'geo_ai_woo_ai'
+        );
+
+        add_settings_field(
+            'ai_bulk_generate',
+            __( 'Bulk Generate', 'geo-ai-woo' ),
+            array( $this, 'render_ai_bulk_generate_field' ),
+            'geo-ai-woo',
+            'geo_ai_woo_ai'
+        );
+
+        // Advanced section
+        add_settings_section(
+            'geo_ai_woo_advanced',
+            __( 'Advanced Settings', 'geo-ai-woo' ),
+            array( $this, 'render_advanced_section' ),
+            'geo-ai-woo'
+        );
+
+        add_settings_field(
+            'multilingual_enabled',
+            __( 'Multilingual Support', 'geo-ai-woo' ),
+            array( $this, 'render_multilingual_field' ),
+            'geo-ai-woo',
+            'geo_ai_woo_advanced'
+        );
+
+        add_settings_field(
+            'crawl_tracking_enabled',
+            __( 'Crawl Tracking', 'geo-ai-woo' ),
+            array( $this, 'render_crawl_tracking_field' ),
+            'geo-ai-woo',
+            'geo_ai_woo_advanced'
+        );
     }
 
     /**
@@ -249,6 +329,41 @@ class Geo_Ai_Woo_Settings {
         $sanitized['seo_link_header']    = isset( $input['seo_link_header'] ) ? '1' : '0';
         $sanitized['seo_jsonld_enabled'] = isset( $input['seo_jsonld_enabled'] ) ? '1' : '0';
         $sanitized['robots_txt_enabled'] = isset( $input['robots_txt_enabled'] ) ? '1' : '0';
+
+        // AI Generation settings
+        if ( isset( $input['ai_provider'] ) ) {
+            $sanitized['ai_provider'] = in_array( $input['ai_provider'], array( 'none', 'claude', 'openai' ), true )
+                ? $input['ai_provider']
+                : 'none';
+        }
+
+        // API key — encrypt for storage, preserve existing if masked value submitted
+        if ( isset( $input['ai_api_key'] ) ) {
+            $key = sanitize_text_field( $input['ai_api_key'] );
+            if ( '' === $key || '****' === $key ) {
+                // Preserve existing key
+                $existing = get_option( $this->option_name, array() );
+                $sanitized['ai_api_key'] = isset( $existing['ai_api_key'] ) ? $existing['ai_api_key'] : '';
+            } else {
+                $sanitized['ai_api_key'] = Geo_Ai_Woo_AI_Generator::encrypt_api_key( $key );
+            }
+        }
+
+        if ( isset( $input['ai_model'] ) ) {
+            $sanitized['ai_model'] = sanitize_text_field( $input['ai_model'] );
+        }
+
+        if ( isset( $input['ai_max_tokens'] ) ) {
+            $sanitized['ai_max_tokens'] = min( 500, max( 50, absint( $input['ai_max_tokens'] ) ) );
+        }
+
+        if ( isset( $input['ai_prompt_template'] ) ) {
+            $sanitized['ai_prompt_template'] = sanitize_textarea_field( $input['ai_prompt_template'] );
+        }
+
+        // Advanced settings
+        $sanitized['multilingual_enabled']     = isset( $input['multilingual_enabled'] ) ? '1' : '0';
+        $sanitized['crawl_tracking_enabled']   = isset( $input['crawl_tracking_enabled'] ) ? '1' : '0';
 
         // Clear cache and regenerate static files when settings are saved
         Geo_Ai_Woo_LLMS_Generator::instance()->regenerate_cache();
@@ -591,6 +706,220 @@ class Geo_Ai_Woo_Settings {
                 <?php esc_html_e( 'Weekly', 'geo-ai-woo' ); ?>
             </option>
         </select>
+        <?php
+    }
+
+    /**
+     * Render AI section description
+     */
+    public function render_ai_section() {
+        echo '<p>' . esc_html__( 'Use Claude or OpenAI to automatically generate AI descriptions for your posts and products.', 'geo-ai-woo' ) . '</p>';
+    }
+
+    /**
+     * Render AI provider field
+     */
+    public function render_ai_provider_field() {
+        $settings = get_option( $this->option_name, array() );
+        $provider = isset( $settings['ai_provider'] ) ? $settings['ai_provider'] : 'none';
+        ?>
+        <select name="<?php echo esc_attr( $this->option_name ); ?>[ai_provider]">
+            <option value="none" <?php selected( $provider, 'none' ); ?>>
+                <?php esc_html_e( 'Disabled', 'geo-ai-woo' ); ?>
+            </option>
+            <option value="claude" <?php selected( $provider, 'claude' ); ?>>
+                <?php esc_html_e( 'Claude (Anthropic)', 'geo-ai-woo' ); ?>
+            </option>
+            <option value="openai" <?php selected( $provider, 'openai' ); ?>>
+                <?php esc_html_e( 'OpenAI', 'geo-ai-woo' ); ?>
+            </option>
+        </select>
+        <?php
+    }
+
+    /**
+     * Render AI API key field
+     */
+    public function render_ai_api_key_field() {
+        $settings = get_option( $this->option_name, array() );
+        $has_key  = ! empty( $settings['ai_api_key'] );
+        ?>
+        <input
+            type="password"
+            name="<?php echo esc_attr( $this->option_name ); ?>[ai_api_key]"
+            value="<?php echo $has_key ? '****' : ''; ?>"
+            class="regular-text"
+            autocomplete="off"
+        />
+        <p class="description">
+            <?php if ( $has_key ) : ?>
+                <?php esc_html_e( 'API key is saved. Enter a new key to replace it, or leave as-is.', 'geo-ai-woo' ); ?>
+            <?php else : ?>
+                <?php esc_html_e( 'Enter your API key. It will be stored encrypted.', 'geo-ai-woo' ); ?>
+            <?php endif; ?>
+        </p>
+        <?php
+    }
+
+    /**
+     * Render AI model field
+     */
+    public function render_ai_model_field() {
+        $settings = get_option( $this->option_name, array() );
+        $model    = isset( $settings['ai_model'] ) ? $settings['ai_model'] : '';
+        $provider = isset( $settings['ai_provider'] ) ? $settings['ai_provider'] : 'none';
+        $placeholder = 'claude' === $provider ? 'claude-sonnet-4-5-20250514' : 'gpt-4o-mini';
+        ?>
+        <input
+            type="text"
+            name="<?php echo esc_attr( $this->option_name ); ?>[ai_model]"
+            value="<?php echo esc_attr( $model ); ?>"
+            class="regular-text"
+            placeholder="<?php echo esc_attr( $placeholder ); ?>"
+        />
+        <p class="description">
+            <?php esc_html_e( 'Leave empty to use the default model for your provider.', 'geo-ai-woo' ); ?>
+        </p>
+        <?php
+    }
+
+    /**
+     * Render AI max tokens field
+     */
+    public function render_ai_max_tokens_field() {
+        $settings   = get_option( $this->option_name, array() );
+        $max_tokens = isset( $settings['ai_max_tokens'] ) ? $settings['ai_max_tokens'] : 150;
+        ?>
+        <input
+            type="number"
+            name="<?php echo esc_attr( $this->option_name ); ?>[ai_max_tokens]"
+            value="<?php echo esc_attr( $max_tokens ); ?>"
+            min="50"
+            max="500"
+            step="10"
+            class="small-text"
+        />
+        <p class="description">
+            <?php esc_html_e( 'Maximum tokens for generated descriptions (50-500).', 'geo-ai-woo' ); ?>
+        </p>
+        <?php
+    }
+
+    /**
+     * Render AI prompt template field
+     */
+    public function render_ai_prompt_template_field() {
+        $settings = get_option( $this->option_name, array() );
+        $template = isset( $settings['ai_prompt_template'] ) && ! empty( $settings['ai_prompt_template'] )
+            ? $settings['ai_prompt_template']
+            : Geo_Ai_Woo_AI_Generator::DEFAULT_PROMPT;
+        ?>
+        <textarea
+            name="<?php echo esc_attr( $this->option_name ); ?>[ai_prompt_template]"
+            rows="5"
+            class="large-text"
+        ><?php echo esc_textarea( $template ); ?></textarea>
+        <p class="description">
+            <?php
+            printf(
+                /* translators: %s: available placeholders */
+                esc_html__( 'Available placeholders: %s', 'geo-ai-woo' ),
+                '<code>{title}</code>, <code>{content}</code>, <code>{type}</code>'
+            );
+            ?>
+        </p>
+        <?php
+    }
+
+    /**
+     * Render AI bulk generate field
+     */
+    public function render_ai_bulk_generate_field() {
+        $is_configured = class_exists( 'Geo_Ai_Woo_AI_Generator' ) && Geo_Ai_Woo_AI_Generator::instance()->is_configured();
+        ?>
+        <button type="button" class="button" id="geo-ai-woo-bulk-generate" <?php disabled( ! $is_configured ); ?>>
+            <?php esc_html_e( 'Generate AI Descriptions for All Posts', 'geo-ai-woo' ); ?>
+        </button>
+        <div id="geo-ai-woo-bulk-progress" style="display: none; margin-top: 10px;">
+            <div class="geo-ai-woo-progress-bar">
+                <div class="geo-ai-woo-progress-fill"></div>
+            </div>
+            <span class="geo-ai-woo-progress-text"></span>
+        </div>
+        <p class="description">
+            <?php esc_html_e( 'Generate descriptions for all published posts that do not have one yet. Processes up to 50 posts.', 'geo-ai-woo' ); ?>
+        </p>
+        <?php
+    }
+
+    /**
+     * Render advanced section description
+     */
+    public function render_advanced_section() {
+        echo '<p>' . esc_html__( 'Additional features for multilingual sites and bot tracking.', 'geo-ai-woo' ) . '</p>';
+    }
+
+    /**
+     * Render multilingual support field
+     */
+    public function render_multilingual_field() {
+        $settings = get_option( $this->option_name, array() );
+        $enabled  = isset( $settings['multilingual_enabled'] ) ? $settings['multilingual_enabled'] : '1';
+
+        $has_plugin = defined( 'ICL_SITEPRESS_VERSION' )
+            || function_exists( 'pll_languages_list' )
+            || class_exists( 'TRP_Translate_Press' );
+        ?>
+        <label>
+            <input
+                type="checkbox"
+                name="<?php echo esc_attr( $this->option_name ); ?>[multilingual_enabled]"
+                value="1"
+                <?php checked( $enabled, '1' ); ?>
+                <?php disabled( ! $has_plugin ); ?>
+            />
+            <?php esc_html_e( 'Generate separate llms.txt files for each language', 'geo-ai-woo' ); ?>
+        </label>
+        <?php if ( ! $has_plugin ) : ?>
+            <p class="description">
+                <?php esc_html_e( 'No multilingual plugin detected. Install WPML, Polylang, or TranslatePress to enable.', 'geo-ai-woo' ); ?>
+            </p>
+        <?php else : ?>
+            <p class="description">
+                <?php
+                if ( class_exists( 'Geo_Ai_Woo_Multilingual' ) ) {
+                    $multilingual = Geo_Ai_Woo_Multilingual::instance();
+                    printf(
+                        /* translators: %s: multilingual provider name */
+                        esc_html__( 'Detected: %s', 'geo-ai-woo' ),
+                        '<strong>' . esc_html( ucfirst( $multilingual->get_provider() ) ) . '</strong>'
+                    );
+                }
+                ?>
+            </p>
+        <?php endif; ?>
+        <?php
+    }
+
+    /**
+     * Render crawl tracking field
+     */
+    public function render_crawl_tracking_field() {
+        $settings = get_option( $this->option_name, array() );
+        $enabled  = isset( $settings['crawl_tracking_enabled'] ) ? $settings['crawl_tracking_enabled'] : '1';
+        ?>
+        <label>
+            <input
+                type="checkbox"
+                name="<?php echo esc_attr( $this->option_name ); ?>[crawl_tracking_enabled]"
+                value="1"
+                <?php checked( $enabled, '1' ); ?>
+            />
+            <?php esc_html_e( 'Track AI bot visits to llms.txt files', 'geo-ai-woo' ); ?>
+        </label>
+        <p class="description">
+            <?php esc_html_e( 'Logs bot visits for the dashboard widget. IP addresses are anonymized (GDPR-compliant).', 'geo-ai-woo' ); ?>
+        </p>
         <?php
     }
 }

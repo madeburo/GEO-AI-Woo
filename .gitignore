@@ -16,6 +16,7 @@ Thumbs.db
 *~
 *.bak
 .claude/
+.kiro/
 
 # Node/NPM
 node_modules/

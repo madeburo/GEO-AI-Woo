@@ -99,6 +99,17 @@ class Geo_Ai_Woo_WooCommerce {
                     'value'       => $description,
                 ) );
 
+                if ( class_exists( 'Geo_Ai_Woo_AI_Generator' ) && Geo_Ai_Woo_AI_Generator::instance()->is_configured() ) :
+                ?>
+                <p class="form-field" style="padding-left: 12px;">
+                    <button type="button" class="button button-small geo-ai-woo-generate-btn" data-post-id="<?php echo esc_attr( $post->ID ); ?>">
+                        <?php esc_html_e( 'Generate with AI', 'geo-ai-woo' ); ?>
+                    </button>
+                    <span class="geo-ai-woo-generate-status"></span>
+                </p>
+                <?php
+                endif;
+
                 // AI Keywords
                 woocommerce_wp_text_input( array(
                     'id'          => '_geo_ai_woo_keywords',

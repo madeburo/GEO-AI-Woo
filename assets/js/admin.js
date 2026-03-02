@@ -117,4 +117,132 @@
 			});
 		}
 	});
+
+	// AI Generate button (single post — meta box & WC panel)
+	$(document).on('click', '.geo-ai-woo-generate-btn', function () {
+		var $btn = $(this);
+		var $status = $btn.siblings('.geo-ai-woo-generate-status');
+		var postId = $btn.data('post-id');
+
+		$btn.prop('disabled', true);
+		$status.text(geo_ai_woo_admin.ai_generating || 'Generating...');
+
+		$.post(
+			ajaxurl,
+			{
+				action: 'geo_ai_woo_ai_generate',
+				nonce: geo_ai_woo_admin.ai_nonce,
+				post_id: postId,
+			},
+			function (response) {
+				$btn.prop('disabled', false);
+				if (response.success && response.data.description) {
+					// Fill the description textarea
+					var $textarea =
+						$('#geo_ai_woo_description, #_geo_ai_woo_description');
+					$textarea.val(response.data.description).trigger('input');
+					$status
+						.addClass('success')
+						.text(geo_ai_woo_admin.ai_generated || 'Generated!');
+				} else {
+					var msg =
+						response.data && response.data.message
+							? response.data.message
+							: geo_ai_woo_admin.error;
+					$status.addClass('error').text(msg);
+				}
+				setTimeout(function () {
+					$status.removeClass('success error').text('');
+				}, 3000);
+			}
+		).fail(function () {
+			$btn.prop('disabled', false);
+			$status.addClass('error').text(geo_ai_woo_admin.error);
+		});
+	});
+
+	// Bulk AI Generate button (settings page)
+	$('#geo-ai-woo-bulk-generate').on('click', function () {
+		var $btn = $(this);
+		var $progress = $('#geo-ai-woo-bulk-progress');
+		var $fill = $progress.find('.geo-ai-woo-progress-fill');
+		var $text = $progress.find('.geo-ai-woo-progress-text');
+
+		$btn.prop('disabled', true);
+		$progress.show();
+		$fill.css('width', '0%');
+		$text.text(geo_ai_woo_admin.ai_bulk_running || 'Processing...');
+
+		// Start bulk generation
+		$.post(
+			ajaxurl,
+			{
+				action: 'geo_ai_woo_ai_bulk_generate',
+				nonce: geo_ai_woo_admin.ai_bulk_nonce,
+			},
+			function (response) {
+				if (response.success) {
+					updateBulkProgress(response.data);
+				} else {
+					$btn.prop('disabled', false);
+					var msg =
+						response.data && response.data.message
+							? response.data.message
+							: geo_ai_woo_admin.error;
+					$text.text(msg);
+				}
+			}
+		).fail(function () {
+			$btn.prop('disabled', false);
+			$text.text(geo_ai_woo_admin.error);
+		});
+	});
+
+	/**
+	 * Update bulk progress and continue if needed
+	 */
+	function updateBulkProgress(data) {
+		var $btn = $('#geo-ai-woo-bulk-generate');
+		var $fill = $('#geo-ai-woo-bulk-progress .geo-ai-woo-progress-fill');
+		var $text = $('#geo-ai-woo-bulk-progress .geo-ai-woo-progress-text');
+
+		var percent = data.total > 0 ? (data.processed / data.total) * 100 : 100;
+		$fill.css('width', percent + '%');
+		$text.text(data.processed + '/' + data.total + ' (' + data.succeeded + ' succeeded, ' + data.failed + ' failed)');
+
+		if (data.completed) {
+			$btn.prop('disabled', false);
+			$text.text(
+				(geo_ai_woo_admin.ai_bulk_complete || 'Complete!') +
+					' ' +
+					data.succeeded +
+					' generated, ' +
+					data.failed +
+					' failed.'
+			);
+			return;
+		}
+
+		// Continue processing next batch after a short delay
+		setTimeout(function () {
+			$.post(
+				ajaxurl,
+				{
+					action: 'geo_ai_woo_ai_bulk_progress',
+					nonce: geo_ai_woo_admin.ai_bulk_nonce,
+				},
+				function (response) {
+					if (response.success) {
+						updateBulkProgress(response.data);
+					} else {
+						$btn.prop('disabled', false);
+						$text.text(geo_ai_woo_admin.error);
+					}
+				}
+			).fail(function () {
+				$btn.prop('disabled', false);
+				$text.text(geo_ai_woo_admin.error);
+			});
+		}, 2000);
+	}
 })(jQuery);
