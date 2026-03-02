@@ -95,6 +95,26 @@ class Geo_Ai_Woo_Settings {
             'geo_ai_woo_general'
         );
 
+        // Include taxonomies
+        add_settings_field(
+            'include_taxonomies',
+            __( 'Include Taxonomies', 'geo-ai-woo' ),
+            array( $this, 'render_include_taxonomies_field' ),
+            'geo-ai-woo',
+            'geo_ai_woo_general'
+        );
+
+        // Hide out-of-stock (only if WC active)
+        if ( class_exists( 'WooCommerce' ) ) {
+            add_settings_field(
+                'hide_out_of_stock',
+                __( 'Out-of-Stock Products', 'geo-ai-woo' ),
+                array( $this, 'render_hide_out_of_stock_field' ),
+                'geo-ai-woo',
+                'geo_ai_woo_general'
+            );
+        }
+
         // Bot rules section
         add_settings_section(
             'geo_ai_woo_bots',
@@ -110,6 +130,50 @@ class Geo_Ai_Woo_Settings {
             array( $this, 'render_bot_rules_field' ),
             'geo-ai-woo',
             'geo_ai_woo_bots'
+        );
+
+        // robots.txt integration
+        add_settings_field(
+            'robots_txt_enabled',
+            __( 'robots.txt Integration', 'geo-ai-woo' ),
+            array( $this, 'render_robots_txt_field' ),
+            'geo-ai-woo',
+            'geo_ai_woo_bots'
+        );
+
+        // SEO section
+        add_settings_section(
+            'geo_ai_woo_seo',
+            __( 'SEO & AI Visibility', 'geo-ai-woo' ),
+            array( $this, 'render_seo_section' ),
+            'geo-ai-woo'
+        );
+
+        // SEO meta tags
+        add_settings_field(
+            'seo_meta_enabled',
+            __( 'Meta Tags', 'geo-ai-woo' ),
+            array( $this, 'render_seo_meta_field' ),
+            'geo-ai-woo',
+            'geo_ai_woo_seo'
+        );
+
+        // HTTP Link header
+        add_settings_field(
+            'seo_link_header',
+            __( 'HTTP Link Header', 'geo-ai-woo' ),
+            array( $this, 'render_seo_link_header_field' ),
+            'geo-ai-woo',
+            'geo_ai_woo_seo'
+        );
+
+        // JSON-LD schema
+        add_settings_field(
+            'seo_jsonld_enabled',
+            __( 'JSON-LD Schema', 'geo-ai-woo' ),
+            array( $this, 'render_seo_jsonld_field' ),
+            'geo-ai-woo',
+            'geo_ai_woo_seo'
         );
 
         // Cache section
@@ -169,9 +233,25 @@ class Geo_Ai_Woo_Settings {
             $sanitized['cache_duration'] = sanitize_key( $input['cache_duration'] );
         }
 
-        // Clear cache when settings are saved
-        delete_transient( 'geo_ai_woo_llms' );
-        delete_transient( 'geo_ai_woo_llms_full' );
+        // Include taxonomies
+        $sanitized['include_taxonomies'] = isset( $input['include_taxonomies'] ) ? '1' : '0';
+
+        // Hide out-of-stock
+        if ( isset( $input['hide_out_of_stock'] ) ) {
+            $valid_values = array( 'wc_default', 'yes', 'no' );
+            $sanitized['hide_out_of_stock'] = in_array( $input['hide_out_of_stock'], $valid_values, true )
+                ? $input['hide_out_of_stock']
+                : 'wc_default';
+        }
+
+        // SEO settings (checkboxes)
+        $sanitized['seo_meta_enabled']   = isset( $input['seo_meta_enabled'] ) ? '1' : '0';
+        $sanitized['seo_link_header']    = isset( $input['seo_link_header'] ) ? '1' : '0';
+        $sanitized['seo_jsonld_enabled'] = isset( $input['seo_jsonld_enabled'] ) ? '1' : '0';
+        $sanitized['robots_txt_enabled'] = isset( $input['robots_txt_enabled'] ) ? '1' : '0';
+
+        // Clear cache and regenerate static files when settings are saved
+        Geo_Ai_Woo_LLMS_Generator::instance()->regenerate_cache();
 
         return $sanitized;
     }
@@ -197,6 +277,11 @@ class Geo_Ai_Woo_Settings {
                     <a href="<?php echo esc_url( $llms_url ); ?>" target="_blank">
                         <?php echo esc_html( $llms_url ); ?>
                     </a>
+                    <?php if ( file_exists( ABSPATH . 'llms.txt' ) ) : ?>
+                        <span class="geo-ai-woo-file-status active">&#10003; <?php esc_html_e( 'Static file active', 'geo-ai-woo' ); ?></span>
+                    <?php else : ?>
+                        <span class="geo-ai-woo-file-status inactive"><?php esc_html_e( 'Dynamic (rewrite rules)', 'geo-ai-woo' ); ?></span>
+                    <?php endif; ?>
                 </p>
                 <p>
                     <strong><?php esc_html_e( 'Full version:', 'geo-ai-woo' ); ?></strong>
@@ -219,6 +304,16 @@ class Geo_Ai_Woo_Settings {
                 submit_button();
                 ?>
             </form>
+
+            <div class="geo-ai-woo-preview-section">
+                <h2><?php esc_html_e( 'llms.txt Preview', 'geo-ai-woo' ); ?></h2>
+                <p>
+                    <button type="button" class="button" id="geo-ai-woo-load-preview">
+                        <?php esc_html_e( 'Load Preview', 'geo-ai-woo' ); ?>
+                    </button>
+                </p>
+                <pre id="geo-ai-woo-preview-content" class="geo-ai-woo-preview-box"><?php esc_html_e( 'Click "Load Preview" to see your llms.txt content.', 'geo-ai-woo' ); ?></pre>
+            </div>
         </div>
         <?php
     }
@@ -235,13 +330,13 @@ class Geo_Ai_Woo_Settings {
      */
     public function render_site_description_field() {
         $settings    = get_option( $this->option_name, array() );
-        $description = isset( $settings['site_description'] ) 
-            ? $settings['site_description'] 
+        $description = isset( $settings['site_description'] )
+            ? $settings['site_description']
             : get_bloginfo( 'description' );
         ?>
-        <textarea 
-            name="<?php echo esc_attr( $this->option_name ); ?>[site_description]" 
-            rows="3" 
+        <textarea
+            name="<?php echo esc_attr( $this->option_name ); ?>[site_description]"
+            rows="3"
             class="large-text"
         ><?php echo esc_textarea( $description ); ?></textarea>
         <p class="description">
@@ -265,9 +360,9 @@ class Geo_Ai_Woo_Settings {
             }
             ?>
             <label style="display: block; margin-bottom: 5px;">
-                <input 
-                    type="checkbox" 
-                    name="<?php echo esc_attr( $this->option_name ); ?>[post_types][]" 
+                <input
+                    type="checkbox"
+                    name="<?php echo esc_attr( $this->option_name ); ?>[post_types][]"
                     value="<?php echo esc_attr( $post_type->name ); ?>"
                     <?php checked( in_array( $post_type->name, $selected, true ) ); ?>
                 />
@@ -275,6 +370,49 @@ class Geo_Ai_Woo_Settings {
             </label>
             <?php
         }
+    }
+
+    /**
+     * Render include taxonomies field
+     */
+    public function render_include_taxonomies_field() {
+        $settings = get_option( $this->option_name, array() );
+        $enabled  = isset( $settings['include_taxonomies'] ) ? $settings['include_taxonomies'] : '1';
+        ?>
+        <label>
+            <input
+                type="checkbox"
+                name="<?php echo esc_attr( $this->option_name ); ?>[include_taxonomies]"
+                value="1"
+                <?php checked( $enabled, '1' ); ?>
+            />
+            <?php esc_html_e( 'Include categories, tags, and product taxonomies in llms.txt', 'geo-ai-woo' ); ?>
+        </label>
+        <?php
+    }
+
+    /**
+     * Render hide out-of-stock products field
+     */
+    public function render_hide_out_of_stock_field() {
+        $settings = get_option( $this->option_name, array() );
+        $value    = isset( $settings['hide_out_of_stock'] ) ? $settings['hide_out_of_stock'] : 'wc_default';
+        ?>
+        <select name="<?php echo esc_attr( $this->option_name ); ?>[hide_out_of_stock]">
+            <option value="wc_default" <?php selected( $value, 'wc_default' ); ?>>
+                <?php esc_html_e( 'Use WooCommerce setting', 'geo-ai-woo' ); ?>
+            </option>
+            <option value="yes" <?php selected( $value, 'yes' ); ?>>
+                <?php esc_html_e( 'Always hide out-of-stock products', 'geo-ai-woo' ); ?>
+            </option>
+            <option value="no" <?php selected( $value, 'no' ); ?>>
+                <?php esc_html_e( 'Always show all products', 'geo-ai-woo' ); ?>
+            </option>
+        </select>
+        <p class="description">
+            <?php esc_html_e( 'Control whether out-of-stock products appear in llms.txt.', 'geo-ai-woo' ); ?>
+        </p>
+        <?php
     }
 
     /**
@@ -301,7 +439,7 @@ class Geo_Ai_Woo_Settings {
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ( $ai_bots as $bot => $provider ) : 
+                <?php foreach ( $ai_bots as $bot => $provider ) :
                     $rule = isset( $bot_rules[ $bot ] ) ? $bot_rules[ $bot ] : 'allow';
                 ?>
                 <tr>
@@ -321,6 +459,107 @@ class Geo_Ai_Woo_Settings {
                 <?php endforeach; ?>
             </tbody>
         </table>
+        <?php
+    }
+
+    /**
+     * Render robots.txt integration field
+     */
+    public function render_robots_txt_field() {
+        $settings = get_option( $this->option_name, array() );
+        $enabled  = isset( $settings['robots_txt_enabled'] ) ? $settings['robots_txt_enabled'] : '1';
+        ?>
+        <label>
+            <input
+                type="checkbox"
+                name="<?php echo esc_attr( $this->option_name ); ?>[robots_txt_enabled]"
+                value="1"
+                <?php checked( $enabled, '1' ); ?>
+            />
+            <?php esc_html_e( 'Add AI bot rules to robots.txt automatically', 'geo-ai-woo' ); ?>
+        </label>
+        <p class="description">
+            <?php esc_html_e( 'Adds User-agent/Allow/Disallow directives for each AI crawler based on the permissions above.', 'geo-ai-woo' ); ?>
+        </p>
+        <?php
+    }
+
+    /**
+     * Render SEO section description
+     */
+    public function render_seo_section() {
+        echo '<p>' . esc_html__( 'Configure how your site communicates with AI systems through meta tags, HTTP headers, and structured data.', 'geo-ai-woo' ) . '</p>';
+    }
+
+    /**
+     * Render SEO meta tags field
+     */
+    public function render_seo_meta_field() {
+        $settings = get_option( $this->option_name, array() );
+        $enabled  = isset( $settings['seo_meta_enabled'] ) ? $settings['seo_meta_enabled'] : '1';
+        ?>
+        <label>
+            <input
+                type="checkbox"
+                name="<?php echo esc_attr( $this->option_name ); ?>[seo_meta_enabled]"
+                value="1"
+                <?php checked( $enabled, '1' ); ?>
+            />
+            <?php esc_html_e( 'Add AI meta tags to page head', 'geo-ai-woo' ); ?>
+        </label>
+        <p class="description">
+            <?php esc_html_e( 'Outputs <meta name="llms"> and <meta name="ai-description"> tags.', 'geo-ai-woo' ); ?>
+        </p>
+        <?php
+    }
+
+    /**
+     * Render HTTP Link header field
+     */
+    public function render_seo_link_header_field() {
+        $settings = get_option( $this->option_name, array() );
+        $enabled  = isset( $settings['seo_link_header'] ) ? $settings['seo_link_header'] : '1';
+        ?>
+        <label>
+            <input
+                type="checkbox"
+                name="<?php echo esc_attr( $this->option_name ); ?>[seo_link_header]"
+                value="1"
+                <?php checked( $enabled, '1' ); ?>
+            />
+            <?php esc_html_e( 'Send HTTP Link header pointing to llms.txt', 'geo-ai-woo' ); ?>
+        </label>
+        <p class="description">
+            <?php
+            /* translators: %s: example HTTP header */
+            printf(
+                esc_html__( 'Adds %s to HTTP response headers.', 'geo-ai-woo' ),
+                '<code>Link: &lt;.../llms.txt&gt;; rel="ai-content-index"</code>'
+            );
+            ?>
+        </p>
+        <?php
+    }
+
+    /**
+     * Render JSON-LD schema field
+     */
+    public function render_seo_jsonld_field() {
+        $settings = get_option( $this->option_name, array() );
+        $enabled  = isset( $settings['seo_jsonld_enabled'] ) ? $settings['seo_jsonld_enabled'] : '1';
+        ?>
+        <label>
+            <input
+                type="checkbox"
+                name="<?php echo esc_attr( $this->option_name ); ?>[seo_jsonld_enabled]"
+                value="1"
+                <?php checked( $enabled, '1' ); ?>
+            />
+            <?php esc_html_e( 'Add JSON-LD structured data for AI', 'geo-ai-woo' ); ?>
+        </label>
+        <p class="description">
+            <?php esc_html_e( 'Adds Schema.org WebSite/Article markup with AI descriptions. Skipped if Yoast, Rank Math, or other SEO plugins are detected.', 'geo-ai-woo' ); ?>
+        </p>
         <?php
     }
 
@@ -366,4 +605,16 @@ add_action( 'wp_ajax_geo_ai_woo_regenerate', function() {
 
     Geo_Ai_Woo_LLMS_Generator::instance()->regenerate_cache();
     wp_send_json_success();
+} );
+
+// AJAX handler for live preview
+add_action( 'wp_ajax_geo_ai_woo_preview', function() {
+    check_ajax_referer( 'geo_ai_woo_preview', 'nonce' );
+
+    if ( ! current_user_can( 'manage_options' ) ) {
+        wp_send_json_error();
+    }
+
+    $content = Geo_Ai_Woo_LLMS_Generator::instance()->generate( false );
+    wp_send_json_success( array( 'content' => $content ) );
 } );

@@ -213,6 +213,16 @@ class Geo_Ai_Woo_WooCommerce {
             }
         }
 
+        // Add aggregate rating data
+        $review_count = $product->get_review_count();
+        if ( $review_count > 0 ) {
+            $markup['aggregateRating'] = array(
+                '@type'       => 'AggregateRating',
+                'ratingValue' => $product->get_average_rating(),
+                'reviewCount' => $review_count,
+            );
+        }
+
         return $markup;
     }
 
@@ -244,8 +254,35 @@ class Geo_Ai_Woo_WooCommerce {
 
         $parts = array();
 
-        // Price
-        if ( $product->get_price() ) {
+        // Price — handle variable products with price ranges
+        if ( $product->is_type( 'variable' ) ) {
+            $min_price = $product->get_variation_price( 'min' );
+            $max_price = $product->get_variation_price( 'max' );
+            if ( $min_price && $max_price ) {
+                if ( $min_price === $max_price ) {
+                    $parts[] = sprintf(
+                        /* translators: %s: product price */
+                        __( 'Price: %s', 'geo-ai-woo' ),
+                        wp_strip_all_tags( wc_price( $min_price ) )
+                    );
+                } else {
+                    $parts[] = sprintf(
+                        /* translators: %1$s: min price, %2$s: max price */
+                        __( 'Price: %1$s – %2$s', 'geo-ai-woo' ),
+                        wp_strip_all_tags( wc_price( $min_price ) ),
+                        wp_strip_all_tags( wc_price( $max_price ) )
+                    );
+                }
+            }
+        } elseif ( $product->is_on_sale() && $product->get_regular_price() ) {
+            // Sale price display
+            $parts[] = sprintf(
+                /* translators: %1$s: sale price, %2$s: regular price */
+                __( 'Price: %1$s (was %2$s)', 'geo-ai-woo' ),
+                wp_strip_all_tags( wc_price( $product->get_sale_price() ) ),
+                wp_strip_all_tags( wc_price( $product->get_regular_price() ) )
+            );
+        } elseif ( $product->get_price() ) {
             $parts[] = sprintf(
                 /* translators: %s: product price */
                 __( 'Price: %s', 'geo-ai-woo' ),
@@ -258,6 +295,43 @@ class Geo_Ai_Woo_WooCommerce {
             $parts[] = __( 'In Stock', 'geo-ai-woo' );
         } else {
             $parts[] = __( 'Out of Stock', 'geo-ai-woo' );
+        }
+
+        // Reviews and rating
+        $review_count = $product->get_review_count();
+        if ( $review_count > 0 ) {
+            $avg_rating = $product->get_average_rating();
+            $parts[] = sprintf(
+                /* translators: %1$s: average rating, %2$d: review count */
+                __( 'Rating: %1$s/5 (%2$d reviews)', 'geo-ai-woo' ),
+                number_format( (float) $avg_rating, 1 ),
+                $review_count
+            );
+        }
+
+        // Variable product attributes (available variations)
+        if ( $product->is_type( 'variable' ) ) {
+            $variation_attributes = $product->get_variation_attributes();
+            if ( ! empty( $variation_attributes ) ) {
+                foreach ( $variation_attributes as $attr_name => $attr_values ) {
+                    $attr_label = wc_attribute_label( $attr_name, $product );
+                    $values     = array_filter( $attr_values );
+                    if ( ! empty( $values ) ) {
+                        // Decode taxonomy term slugs to names
+                        $decoded_values = array();
+                        foreach ( $values as $value ) {
+                            $term = get_term_by( 'slug', $value, $attr_name );
+                            $decoded_values[] = $term ? $term->name : $value;
+                        }
+                        $parts[] = sprintf(
+                            /* translators: %1$s: attribute label, %2$s: attribute values */
+                            __( '%1$s: %2$s', 'geo-ai-woo' ),
+                            $attr_label,
+                            implode( ', ', $decoded_values )
+                        );
+                    }
+                }
+            }
         }
 
         // Categories

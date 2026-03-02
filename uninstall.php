@@ -18,6 +18,9 @@ delete_option( 'geo_ai_woo_settings' );
 // Delete transients.
 delete_transient( 'geo_ai_woo_llms' );
 delete_transient( 'geo_ai_woo_llms_full' );
+delete_transient( 'geo_ai_woo_activation_notice' );
+delete_transient( 'geo_ai_woo_dismiss_file_health' );
+delete_transient( 'geo_ai_woo_dismiss_permalink' );
 
 // Clear scheduled events.
 wp_clear_scheduled_hook( 'geo_ai_woo_regenerate_llms' );
@@ -37,6 +40,17 @@ $wpdb->query(
 		$meta_keys
 	)
 );
+
+// Delete static files.
+$static_files = array(
+	ABSPATH . 'llms.txt',
+	ABSPATH . 'llms-full.txt',
+);
+foreach ( $static_files as $file ) {
+	if ( file_exists( $file ) ) {
+		wp_delete_file( $file );
+	}
+}
 
 // Flush rewrite rules.
 flush_rewrite_rules();

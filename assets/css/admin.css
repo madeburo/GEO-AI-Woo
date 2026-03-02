@@ -21,13 +21,33 @@
 /* Settings page — status box */
 .geo-ai-woo-status {
 	background: #fff;
-	padding: 15px;
+	padding: 15px 20px;
 	margin: 20px 0;
 	border-left: 4px solid #0073aa;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
 }
 
 .geo-ai-woo-status h3 {
 	margin-top: 0;
+}
+
+/* File status indicators */
+.geo-ai-woo-file-status {
+	display: inline-block;
+	font-size: 12px;
+	padding: 2px 8px;
+	border-radius: 3px;
+	margin-left: 10px;
+}
+
+.geo-ai-woo-file-status.active {
+	background: #edfaef;
+	color: #1e7e34;
+}
+
+.geo-ai-woo-file-status.inactive {
+	background: #fff3cd;
+	color: #856404;
 }
 
 /* WooCommerce product panel */
@@ -64,4 +84,74 @@
 
 #geo-ai-woo-regenerate-status.error {
 	color: #dc3232;
+}
+
+/* Live preview section */
+.geo-ai-woo-preview-section {
+	margin-top: 30px;
+	padding-top: 20px;
+	border-top: 1px solid #ccd0d4;
+}
+
+.geo-ai-woo-preview-box {
+	background: #f5f5f5;
+	border: 1px solid #ddd;
+	padding: 15px;
+	font-family: monospace;
+	font-size: 13px;
+	line-height: 1.6;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	max-height: 500px;
+	overflow-y: auto;
+	margin-top: 10px;
+}
+
+/* Bulk edit — AI Status column */
+.column-geo_ai_woo {
+	width: 140px;
+}
+
+.geo-ai-woo-status-icon {
+	display: inline-block;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.geo-ai-woo-status-icon.included {
+	color: #46b450;
+}
+
+.geo-ai-woo-status-icon.excluded {
+	color: #dc3232;
+}
+
+.geo-ai-woo-column-desc {
+	color: #666;
+	font-size: 12px;
+}
+
+.geo-ai-woo-column-label {
+	color: #999;
+	font-style: italic;
+	font-size: 12px;
+}
+
+/* Quick edit fields */
+.geo-ai-woo-quick-edit .title {
+	font-weight: 600;
+}
+
+.geo-ai-woo-quick-edit textarea {
+	width: 100%;
+	font-size: 13px;
+}
+
+.geo-ai-woo-quick-edit input[type="text"] {
+	width: 100%;
+}
+
+/* Admin notices */
+.geo-ai-woo-notice {
+	border-left-width: 4px;
 }

@@ -27,6 +27,8 @@
 				$btn.prop('disabled', false);
 				if (response.success) {
 					$status.addClass('success').text(geo_ai_woo_admin.done);
+					// Refresh preview if visible
+					loadPreview();
 				} else {
 					$status.addClass('error').text(geo_ai_woo_admin.error);
 				}
@@ -39,6 +41,45 @@
 			$status.addClass('error').text(geo_ai_woo_admin.error);
 		});
 	});
+
+	// Live preview — load button
+	$('#geo-ai-woo-load-preview').on('click', function () {
+		loadPreview();
+	});
+
+	/**
+	 * Load llms.txt preview via AJAX
+	 */
+	function loadPreview() {
+		var $preview = $('#geo-ai-woo-preview-content');
+		var $btn = $('#geo-ai-woo-load-preview');
+
+		if (!$preview.length) {
+			return;
+		}
+
+		$btn.prop('disabled', true);
+		$preview.text(geo_ai_woo_admin.loading || 'Loading...');
+
+		$.post(
+			ajaxurl,
+			{
+				action: 'geo_ai_woo_preview',
+				nonce: geo_ai_woo_admin.preview_nonce,
+			},
+			function (response) {
+				$btn.prop('disabled', false);
+				if (response.success && response.data && response.data.content) {
+					$preview.text(response.data.content);
+				} else {
+					$preview.text(geo_ai_woo_admin.error || 'Error loading preview.');
+				}
+			}
+		).fail(function () {
+			$btn.prop('disabled', false);
+			$preview.text(geo_ai_woo_admin.error || 'Error loading preview.');
+		});
+	}
 
 	// AI Description character counter (meta box)
 	$('#geo_ai_woo_description').on('input', function () {
@@ -60,6 +101,20 @@
 			$counter.css('color', '#dc3232');
 		} else {
 			$counter.css('color', '');
+		}
+	});
+
+	// Dismiss admin notices
+	$(document).on('click', '.geo-ai-woo-notice .notice-dismiss', function () {
+		var $notice = $(this).closest('.geo-ai-woo-notice');
+		var noticeId = $notice.data('notice-id');
+
+		if (noticeId) {
+			$.post(ajaxurl, {
+				action: 'geo_ai_woo_dismiss_notice',
+				nonce: geo_ai_woo_admin.nonce,
+				notice_id: noticeId,
+			});
 		}
 	});
 })(jQuery);

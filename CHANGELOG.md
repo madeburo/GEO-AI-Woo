@@ -2,6 +2,51 @@
 
 All notable changes to GEO AI Woo will be documented in this file.
 
+## [0.2.0] - 2026-03-02
+
+### Added — Architecture & Performance
+- Static llms.txt and llms-full.txt file generation to WordPress root for maximum performance
+- WooCommerce HPOS (High-Performance Order Storage) compatibility declaration
+- Lazy WooCommerce integration loading (deferred to `init` hook)
+- Automatic settings migration from v0.1 to v0.2
+
+### Added — llms.txt Enhancements
+- robots.txt integration with per-bot User-agent/Allow/Disallow directives
+- Categories, tags, and WooCommerce product taxonomies in llms.txt
+- Configurable taxonomy inclusion setting
+- Site URL and file links in llms.txt header section
+- Filter `geo_ai_woo_taxonomies` for custom taxonomy control
+
+### Added — WooCommerce Extended Integration
+- Variable products support with price ranges (min – max)
+- Product reviews and average ratings in auto-generated descriptions
+- Sale price display: "Price: $35 (was $50)"
+- Available variation attributes (e.g., "Color: Red, Blue, Green")
+- Hide out-of-stock products option (follows WC setting or override)
+- Enhanced product schema with aggregateRating data
+
+### Added — Admin & UX
+- Live preview of llms.txt content on settings page via AJAX
+- "AI Status" column in posts/pages/products list tables
+- Quick Edit support for AI Description, AI Keywords, and Exclude flag
+- Admin notice on plugin activation with settings page link
+- File health notice when llms.txt is missing or older than 7 days
+- Permalink structure warning when set to "Plain"
+- Dismissible notices with AJAX persistence (30-day memory)
+
+### Added — SEO & AI Visibility
+- `<meta name="llms">` and `<meta name="llms-full">` tags in page `<head>`
+- Per-post `<meta name="ai-description">` and `<meta name="ai-keywords">` tags
+- HTTP Link header: `Link: <.../llms.txt>; rel="ai-content-index"`
+- JSON-LD Schema.org structured data (WebSite on front page, Article/Product on singles)
+- Automatic detection of SEO plugins (Yoast, Rank Math, AIOSEO, SEOPress) to avoid schema conflicts
+- 6 new configurable settings for SEO features
+
+### Added — New Files
+- `includes/class-seo-headers.php` — Meta tags, HTTP headers, JSON-LD
+- `includes/class-bulk-edit.php` — List table columns, Quick Edit integration
+- `includes/class-admin-notices.php` — Activation, health, and permalink notices
+
 ## [0.1.0] - 2026-03-02
 
 ### Added

@@ -8,7 +8,7 @@
 
 An open-source WordPress plugin that optimizes your site for AI search engines like ChatGPT, Claude, Gemini, Perplexity, YandexGPT, GigaChat, and more.
 
-🌏 **Focus:** **WooCommerce-first** | **Zero-config setup**
+**Focus:** **WooCommerce-first** | **Zero-config setup**
 
 ---
 
