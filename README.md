@@ -147,6 +147,6 @@ GEO AI Woo is open-source software licensed under the [GPL v2](LICENSE).
 
 Developed by [Made Büro](https://madeburo.com) — UI-first delivery studio.
 
-- **Author:** Umid Kurbonov
+- **Author:** Made Büro
 - **Website:** [madeburo.com](https://madeburo.com)
 - **GitHub:** [@madeburo](https://github.com/madeburo)
