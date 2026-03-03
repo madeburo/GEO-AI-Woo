@@ -2,6 +2,13 @@
 
 All notable changes to GEO AI Woo will be documented in this file.
 
+## [0.4.1] - 2026-03-03
+
+### Added — Localization
+- Turkish (tr_TR) translation
+- Spanish (es_ES) translation
+- Brazilian Portuguese (pt_BR) translation
+
 ## [0.4.0] - 2026-03-02
 
 ### Fixed — Encoding

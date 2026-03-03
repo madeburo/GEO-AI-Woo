@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GEO AI Woo 0.1.0\n"
-"Report-Msgid-Bugs-To: https://github.com/madebureau/geo-ai-woo/issues\n"
+"Report-Msgid-Bugs-To: https://github.com/madeburo/geo-ai-woo/issues\n"
 "POT-Creation-Date: 2026-03-02 12:00+0000\n"
 "PO-Revision-Date: 2026-03-02 12:00+0000\n"
 "Last-Translator: \n"

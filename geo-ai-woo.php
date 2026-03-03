@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: GEO AI Woo
- * Plugin URI: https://github.com/madebureau/geo-ai-woo
+ * Plugin URI: https://github.com/madeburo/geo-ai-woo
  * Description: Generative Engine Optimization for WordPress & WooCommerce. Optimize your site for AI search engines like ChatGPT, Claude, Gemini, Perplexity, YandexGPT, GigaChat, and more.
  * Version: 0.4.0
  * Author: Made Büro

@@ -1,0 +1,650 @@
+# Spanish translation for GEO AI Woo
+# Copyright (C) 2026 GEO AI Woo
+# This file is distributed under the same license as the GEO AI Woo package.
+msgid ""
+msgstr ""
+"Project-Id-Version: GEO AI Woo 0.4.0\n"
+"Report-Msgid-Bugs-To: https://github.com/madeburo/geo-ai-woo/issues\n"
+"POT-Creation-Date: 2026-03-02 12:00+0000\n"
+"PO-Revision-Date: 2026-03-03 12:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Spanish\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: WP-CLI\n"
+"X-Domain: geo-ai-woo\n"
+
+#: geo-ai-woo.php
+msgid "Settings"
+msgstr "Ajustes"
+
+#: assets/js/admin.js
+msgid "Regenerating..."
+msgstr "Regenerando..."
+
+#: assets/js/admin.js
+msgid "Done!"
+msgstr "¡Listo!"
+
+#: assets/js/admin.js
+msgid "Error"
+msgstr "Error"
+
+#: assets/js/admin.js
+msgid "Loading preview..."
+msgstr "Cargando vista previa..."
+
+#: includes/class-llms-generator.php
+msgid "Pages"
+msgstr "Páginas"
+
+#: includes/class-llms-generator.php
+msgid "Blog Posts"
+msgstr "Entradas del blog"
+
+#: includes/class-llms-generator.php
+msgid "Products"
+msgstr "Productos"
+
+#: includes/class-llms-generator.php
+msgid "Categories"
+msgstr "Categorías"
+
+#: includes/class-llms-generator.php
+msgid "Tags"
+msgstr "Etiquetas"
+
+#: includes/class-llms-generator.php
+msgid "Product Categories"
+msgstr "Categorías de productos"
+
+#: includes/class-llms-generator.php
+msgid "Product Tags"
+msgstr "Etiquetas de productos"
+
+#: includes/class-settings.php
+msgid "GEO AI Woo Settings"
+msgstr "Ajustes de GEO AI Woo"
+
+#: includes/class-settings.php
+msgid "GEO AI Woo"
+msgstr "GEO AI Woo"
+
+#: includes/class-settings.php
+msgid "General Settings"
+msgstr "Ajustes generales"
+
+#: includes/class-settings.php
+msgid "Site Description"
+msgstr "Descripción del sitio"
+
+#: includes/class-settings.php
+msgid "Content Types"
+msgstr "Tipos de contenido"
+
+#: includes/class-settings.php
+msgid "Include Taxonomies"
+msgstr "Incluir taxonomías"
+
+#: includes/class-settings.php
+msgid "Out-of-Stock Products"
+msgstr "Productos agotados"
+
+#: includes/class-settings.php
+msgid "AI Bot Rules"
+msgstr "Reglas de bots de IA"
+
+#: includes/class-settings.php
+msgid "Crawler Permissions"
+msgstr "Permisos de rastreadores"
+
+#: includes/class-settings.php
+msgid "robots.txt Integration"
+msgstr "Integración con robots.txt"
+
+#: includes/class-settings.php
+msgid "SEO & AI Visibility"
+msgstr "Visibilidad SEO e IA"
+
+#: includes/class-settings.php
+msgid "Meta Tags"
+msgstr "Metaetiquetas"
+
+#: includes/class-settings.php
+msgid "HTTP Link Header"
+msgstr "Encabezado HTTP Link"
+
+#: includes/class-settings.php
+msgid "JSON-LD Schema"
+msgstr "Esquema JSON-LD"
+
+#: includes/class-settings.php
+msgid "Cache Settings"
+msgstr "Ajustes de caché"
+
+#: includes/class-settings.php
+msgid "Regeneration Frequency"
+msgstr "Frecuencia de regeneración"
+
+#: includes/class-settings.php
+msgid "Your llms.txt Files"
+msgstr "Tus archivos llms.txt"
+
+#: includes/class-settings.php
+msgid "Standard:"
+msgstr "Estándar:"
+
+#: includes/class-settings.php
+msgid "Static file active"
+msgstr "Archivo estático activo"
+
+#: includes/class-settings.php
+msgid "Dynamic (rewrite rules)"
+msgstr "Dinámico (reglas de reescritura)"
+
+#: includes/class-settings.php
+msgid "Full version:"
+msgstr "Versión completa:"
+
+#: includes/class-settings.php
+msgid "Regenerate Now"
+msgstr "Regenerar ahora"
+
+#: includes/class-settings.php
+msgid "llms.txt Preview"
+msgstr "Vista previa de llms.txt"
+
+#: includes/class-settings.php
+msgid "Load Preview"
+msgstr "Cargar vista previa"
+
+#: includes/class-settings.php
+msgid "Click \"Load Preview\" to see your llms.txt content."
+msgstr "Haz clic en \"Cargar vista previa\" para ver el contenido de tu llms.txt."
+
+#: includes/class-settings.php
+msgid "Configure how your content appears in llms.txt for AI search engines."
+msgstr "Configura cómo aparece tu contenido en llms.txt para los motores de búsqueda de IA."
+
+#: includes/class-settings.php
+msgid "Brief description of your site for AI systems."
+msgstr "Descripción breve de tu sitio para sistemas de IA."
+
+#: includes/class-settings.php
+msgid "Include categories, tags, and product taxonomies in llms.txt"
+msgstr "Incluir categorías, etiquetas y taxonomías de productos en llms.txt"
+
+#: includes/class-settings.php
+msgid "Use WooCommerce setting"
+msgstr "Usar ajuste de WooCommerce"
+
+#: includes/class-settings.php
+msgid "Always hide out-of-stock products"
+msgstr "Ocultar siempre los productos agotados"
+
+#: includes/class-settings.php
+msgid "Always show all products"
+msgstr "Mostrar siempre todos los productos"
+
+#: includes/class-settings.php
+msgid "Control whether out-of-stock products appear in llms.txt."
+msgstr "Controla si los productos agotados aparecen en llms.txt."
+
+#: includes/class-settings.php
+msgid "Control which AI crawlers can access your content."
+msgstr "Controla qué rastreadores de IA pueden acceder a tu contenido."
+
+#: includes/class-settings.php
+msgid "Bot"
+msgstr "Bot"
+
+#: includes/class-settings.php
+msgid "Provider"
+msgstr "Proveedor"
+
+#: includes/class-settings.php
+msgid "Permission"
+msgstr "Permiso"
+
+#: includes/class-settings.php
+msgid "Allow"
+msgstr "Permitir"
+
+#: includes/class-settings.php
+msgid "Disallow"
+msgstr "Denegar"
+
+#: includes/class-settings.php
+msgid "Add AI bot rules to robots.txt automatically"
+msgstr "Añadir reglas de bots de IA a robots.txt automáticamente"
+
+#: includes/class-settings.php
+msgid "Adds User-agent/Allow/Disallow directives for each AI crawler based on the permissions above."
+msgstr "Añade directivas User-agent/Allow/Disallow para cada rastreador de IA según los permisos anteriores."
+
+#: includes/class-settings.php
+msgid "Configure how your site communicates with AI systems through meta tags, HTTP headers, and structured data."
+msgstr "Configura cómo tu sitio se comunica con los sistemas de IA a través de metaetiquetas, encabezados HTTP y datos estructurados."
+
+#: includes/class-settings.php
+msgid "Add AI meta tags to page head"
+msgstr "Añadir metaetiquetas de IA al encabezado de la página"
+
+#: includes/class-settings.php
+msgid "Outputs <meta name=\"llms\"> and <meta name=\"ai-description\"> tags."
+msgstr "Genera las etiquetas <meta name=\"llms\"> y <meta name=\"ai-description\">."
+
+#: includes/class-settings.php
+msgid "Send HTTP Link header pointing to llms.txt"
+msgstr "Enviar encabezado HTTP Link apuntando a llms.txt"
+
+#: includes/class-settings.php
+msgid "Adds %s to HTTP response headers."
+msgstr "Añade %s a los encabezados de respuesta HTTP."
+
+#: includes/class-settings.php
+msgid "Add JSON-LD structured data for AI"
+msgstr "Añadir datos estructurados JSON-LD para IA"
+
+#: includes/class-settings.php
+msgid "Adds Schema.org WebSite/Article markup with AI descriptions. Skipped if Yoast, Rank Math, or other SEO plugins are detected."
+msgstr "Añade marcado Schema.org WebSite/Article con descripciones de IA. Se omite si se detectan Yoast, Rank Math u otros plugins de SEO."
+
+#: includes/class-settings.php
+msgid "Control how often llms.txt is regenerated."
+msgstr "Controla con qué frecuencia se regenera llms.txt."
+
+#: includes/class-settings.php
+msgid "On every post update"
+msgstr "En cada actualización de entrada"
+
+#: includes/class-settings.php
+msgid "Hourly"
+msgstr "Cada hora"
+
+#: includes/class-settings.php
+msgid "Daily"
+msgstr "Diariamente"
+
+#: includes/class-settings.php
+msgid "Weekly"
+msgstr "Semanalmente"
+
+#: includes/class-settings.php
+msgid "AI Description Generation"
+msgstr "Generación de descripciones con IA"
+
+#: includes/class-settings.php
+msgid "Use Claude or OpenAI to automatically generate AI descriptions for your posts and products."
+msgstr "Usa Claude u OpenAI para generar automáticamente descripciones de IA para tus entradas y productos."
+
+#: includes/class-settings.php
+msgid "When enabled, this feature sends your post titles and content excerpts to your chosen AI provider to generate descriptions. Review their privacy policies: <a href=\"https://www.anthropic.com/privacy\" target=\"_blank\" rel=\"noopener\">Anthropic</a> | <a href=\"https://openai.com/privacy\" target=\"_blank\" rel=\"noopener\">OpenAI</a>."
+msgstr "Cuando está habilitada, esta función envía los títulos y extractos de tus entradas al proveedor de IA elegido para generar descripciones. Revisa sus políticas de privacidad: <a href=\"https://www.anthropic.com/privacy\" target=\"_blank\" rel=\"noopener\">Anthropic</a> | <a href=\"https://openai.com/privacy\" target=\"_blank\" rel=\"noopener\">OpenAI</a>."
+
+#: includes/class-settings.php
+msgid "AI Provider"
+msgstr "Proveedor de IA"
+
+#: includes/class-settings.php
+msgid "Disabled"
+msgstr "Deshabilitado"
+
+#: includes/class-settings.php
+msgid "Claude (Anthropic)"
+msgstr "Claude (Anthropic)"
+
+#: includes/class-settings.php
+msgid "OpenAI"
+msgstr "OpenAI"
+
+#: includes/class-settings.php
+msgid "API Key"
+msgstr "Clave API"
+
+#: includes/class-settings.php
+msgid "API key is saved. Enter a new key to replace it, or leave as-is."
+msgstr "La clave API está guardada. Introduce una nueva clave para reemplazarla o déjala como está."
+
+#: includes/class-settings.php
+msgid "Enter your API key. It will be stored encrypted."
+msgstr "Introduce tu clave API. Se almacenará cifrada."
+
+#: includes/class-settings.php
+msgid "Model"
+msgstr "Modelo"
+
+#: includes/class-settings.php
+msgid "Leave empty to use the default model for your provider."
+msgstr "Deja vacío para usar el modelo predeterminado de tu proveedor."
+
+#: includes/class-settings.php
+msgid "Max Tokens"
+msgstr "Tokens máximos"
+
+#: includes/class-settings.php
+msgid "Maximum tokens for generated descriptions (50-500)."
+msgstr "Tokens máximos para las descripciones generadas (50-500)."
+
+#: includes/class-settings.php
+msgid "Prompt Template"
+msgstr "Plantilla de prompt"
+
+#: includes/class-settings.php
+msgid "Available placeholders: %s"
+msgstr "Marcadores disponibles: %s"
+
+#: includes/class-settings.php
+msgid "Bulk Generate"
+msgstr "Generación masiva"
+
+#: includes/class-settings.php
+msgid "Generate AI Descriptions for All Posts"
+msgstr "Generar descripciones de IA para todas las entradas"
+
+#: includes/class-settings.php
+msgid "Generate descriptions for all published posts that do not have one yet. Processes up to 50 posts."
+msgstr "Genera descripciones para todas las entradas publicadas que aún no tienen una. Procesa hasta 50 entradas."
+
+#: includes/class-settings.php
+msgid "Advanced Settings"
+msgstr "Ajustes avanzados"
+
+#: includes/class-settings.php
+msgid "Additional features for multilingual sites and bot tracking."
+msgstr "Funciones adicionales para sitios multilingües y seguimiento de bots."
+
+#: includes/class-settings.php
+msgid "Multilingual Support"
+msgstr "Soporte multilingüe"
+
+#: includes/class-settings.php
+msgid "Generate separate llms.txt files for each language"
+msgstr "Generar archivos llms.txt separados para cada idioma"
+
+#: includes/class-settings.php
+msgid "No multilingual plugin detected. Install WPML, Polylang, or TranslatePress to enable."
+msgstr "No se detectó ningún plugin multilingüe. Instala WPML, Polylang o TranslatePress para habilitar."
+
+#: includes/class-settings.php
+msgid "Detected: %s"
+msgstr "Detectado: %s"
+
+#: includes/class-settings.php
+msgid "Crawl Tracking"
+msgstr "Seguimiento de rastreo"
+
+#: includes/class-settings.php
+msgid "Track AI bot visits to llms.txt files"
+msgstr "Rastrear visitas de bots de IA a archivos llms.txt"
+
+#: includes/class-settings.php
+msgid "Logs bot visits for the dashboard widget. IP addresses are anonymized (GDPR-compliant)."
+msgstr "Registra las visitas de bots para el widget del escritorio. Las direcciones IP se anonimizan (compatible con RGPD)."
+
+#: includes/class-woocommerce.php
+msgid "GEO AI"
+msgstr "GEO AI"
+
+#: includes/class-woocommerce.php
+msgid "AI Optimization Settings"
+msgstr "Ajustes de optimización de IA"
+
+#: includes/class-woocommerce.php
+msgid "Auto-generate AI Description"
+msgstr "Generar descripción de IA automáticamente"
+
+#: includes/class-woocommerce.php
+msgid "Generate description from product data"
+msgstr "Generar descripción a partir de datos del producto"
+
+#: includes/class-woocommerce.php includes/class-meta-box.php
+msgid "AI Description"
+msgstr "Descripción de IA"
+
+#: includes/class-woocommerce.php
+msgid "Custom description for AI systems..."
+msgstr "Descripción personalizada para sistemas de IA..."
+
+#: includes/class-woocommerce.php
+msgid "Leave empty to auto-generate from product data."
+msgstr "Deja vacío para generar automáticamente a partir de datos del producto."
+
+#: includes/class-woocommerce.php includes/class-meta-box.php
+msgid "AI Keywords"
+msgstr "Palabras clave de IA"
+
+#: includes/class-woocommerce.php includes/class-meta-box.php
+msgid "keyword1, keyword2, keyword3"
+msgstr "palabraclave1, palabraclave2, palabraclave3"
+
+#: includes/class-woocommerce.php
+msgid "Comma-separated keywords for AI context."
+msgstr "Palabras clave separadas por comas para el contexto de IA."
+
+#: includes/class-woocommerce.php
+msgid "Exclude from AI"
+msgstr "Excluir de IA"
+
+#: includes/class-woocommerce.php
+msgid "Do not include this product in llms.txt"
+msgstr "No incluir este producto en llms.txt"
+
+#: includes/class-woocommerce.php
+msgid "Preview"
+msgstr "Vista previa"
+
+#: includes/class-woocommerce.php
+msgid "This is how your product will appear in llms.txt:"
+msgstr "Así aparecerá tu producto en llms.txt:"
+
+#: includes/class-woocommerce.php
+msgid "Price: %s"
+msgstr "Precio: %s"
+
+#: includes/class-woocommerce.php
+msgid "Price: %1$s – %2$s"
+msgstr "Precio: %1$s – %2$s"
+
+#: includes/class-woocommerce.php
+msgid "Price: %1$s (was %2$s)"
+msgstr "Precio: %1$s (antes %2$s)"
+
+#: includes/class-woocommerce.php
+msgid "In Stock"
+msgstr "En stock"
+
+#: includes/class-woocommerce.php
+msgid "Out of Stock"
+msgstr "Agotado"
+
+#: includes/class-woocommerce.php
+msgid "Rating: %1$s/5 (%2$d reviews)"
+msgstr "Valoración: %1$s/5 (%2$d reseñas)"
+
+#: includes/class-woocommerce.php
+msgid "%1$s: %2$s"
+msgstr "%1$s: %2$s"
+
+#: includes/class-woocommerce.php
+msgid "Product not found"
+msgstr "Producto no encontrado"
+
+#: includes/class-meta-box.php
+msgid "Brief summary for AI systems..."
+msgstr "Resumen breve para sistemas de IA..."
+
+#: includes/class-meta-box.php
+msgid "Concise description for LLMs (max 200 characters)"
+msgstr "Descripción concisa para LLMs (máx. 200 caracteres)"
+
+#: includes/class-meta-box.php
+msgid "Comma-separated topics for context"
+msgstr "Temas separados por comas para contexto"
+
+#: includes/class-meta-box.php
+msgid "Exclude from AI indexing"
+msgstr "Excluir de la indexación de IA"
+
+#: includes/class-meta-box.php
+msgid "This content will not appear in llms.txt"
+msgstr "Este contenido no aparecerá en llms.txt"
+
+#: includes/class-bulk-edit.php
+msgid "AI Status"
+msgstr "Estado de IA"
+
+#: includes/class-bulk-edit.php
+msgid "Excluded from AI indexing"
+msgstr "Excluido de la indexación de IA"
+
+#: includes/class-bulk-edit.php
+msgid "Excluded"
+msgstr "Excluido"
+
+#: includes/class-bulk-edit.php
+msgid "Included in AI indexing"
+msgstr "Incluido en la indexación de IA"
+
+#: includes/class-bulk-edit.php
+msgid "Auto"
+msgstr "Automático"
+
+#: includes/class-admin-notices.php
+msgid "GEO AI Woo activated!"
+msgstr "¡GEO AI Woo activado!"
+
+#: includes/class-admin-notices.php
+msgid "Visit <a href=\"%s\">Settings</a> to configure AI optimization for your site."
+msgstr "Visita <a href=\"%s\">Ajustes</a> para configurar la optimización de IA de tu sitio."
+
+#: includes/class-admin-notices.php
+msgid "GEO AI Woo: The %s file has not been generated yet. Click \"Regenerate Now\" in Settings to create it."
+msgstr "GEO AI Woo: El archivo %s aún no se ha generado. Haz clic en \"Regenerar ahora\" en Ajustes para crearlo."
+
+#: includes/class-admin-notices.php
+msgid "GEO AI Woo: Your llms.txt file hasn't been updated in %d days. Consider regenerating it from Settings."
+msgstr "GEO AI Woo: Tu archivo llms.txt no se ha actualizado en %d días. Considera regenerarlo desde Ajustes."
+
+#: includes/class-admin-notices.php
+msgid "GEO AI Woo: Your permalink structure is set to \"Plain\". While the plugin uses static files, we recommend using pretty permalinks for best SEO results. <a href=\"%s\">Change permalink settings</a>"
+msgstr "GEO AI Woo: Tu estructura de enlaces permanentes está configurada como \"Simple\". Aunque el plugin usa archivos estáticos, recomendamos usar enlaces permanentes bonitos para mejores resultados SEO. <a href=\"%s\">Cambiar ajustes de enlaces permanentes</a>"
+
+#: geo-ai-woo.php
+msgid "Generating..."
+msgstr "Generando..."
+
+#: geo-ai-woo.php
+msgid "Generated!"
+msgstr "¡Generado!"
+
+#: geo-ai-woo.php
+msgid "Processing..."
+msgstr "Procesando..."
+
+#: geo-ai-woo.php
+msgid "Complete!"
+msgstr "¡Completado!"
+
+#: includes/class-meta-box.php includes/class-woocommerce.php
+msgid "Generate with AI"
+msgstr "Generar con IA"
+
+#: includes/class-ai-generator.php
+msgid "AI generation is not configured."
+msgstr "La generación con IA no está configurada."
+
+#: includes/class-ai-generator.php
+msgid "Rate limit exceeded. Please wait before generating more descriptions."
+msgstr "Límite de velocidad excedido. Espera antes de generar más descripciones."
+
+#: includes/class-ai-generator.php
+msgid "Post not found."
+msgstr "Entrada no encontrada."
+
+#: includes/class-ai-generator.php
+msgid "Invalid AI provider."
+msgstr "Proveedor de IA no válido."
+
+#: includes/class-ai-generator.php
+msgid "Claude API error."
+msgstr "Error de la API de Claude."
+
+#: includes/class-ai-generator.php
+msgid "OpenAI API error."
+msgstr "Error de la API de OpenAI."
+
+#: includes/class-ai-generator.php
+msgid "Unexpected API response format."
+msgstr "Formato de respuesta de API inesperado."
+
+#: includes/class-ai-generator.php
+msgid "Permission denied."
+msgstr "Permiso denegado."
+
+#: includes/class-ai-generator.php
+msgid "All posts already have AI descriptions."
+msgstr "Todas las entradas ya tienen descripciones de IA."
+
+#: includes/class-rest-api.php
+msgid "You do not have permission to access this resource."
+msgstr "No tienes permiso para acceder a este recurso."
+
+#: includes/class-rest-api.php
+msgid "Please wait at least 60 seconds between regeneration requests."
+msgstr "Espera al menos 60 segundos entre solicitudes de regeneración."
+
+#: includes/class-rest-api.php
+msgid "llms.txt files regenerated successfully."
+msgstr "Archivos llms.txt regenerados correctamente."
+
+#: includes/class-dashboard-widget.php
+msgid "Indexed Posts"
+msgstr "Entradas indexadas"
+
+#: includes/class-dashboard-widget.php
+msgid "Excluded Posts"
+msgstr "Entradas excluidas"
+
+#: includes/class-dashboard-widget.php
+msgid "llms.txt Files"
+msgstr "Archivos llms.txt"
+
+#: includes/class-dashboard-widget.php
+msgid "Last Regenerated"
+msgstr "Última regeneración"
+
+#: includes/class-dashboard-widget.php
+msgid "Never"
+msgstr "Nunca"
+
+#: includes/class-dashboard-widget.php
+msgid "Recent Bot Activity"
+msgstr "Actividad reciente de bots"
+
+#: includes/class-dashboard-widget.php
+msgid "No bot activity recorded yet."
+msgstr "Aún no se ha registrado actividad de bots."
+
+#: includes/class-dashboard-widget.php
+msgid "Bot Name"
+msgstr "Nombre del bot"
+
+#: includes/class-dashboard-widget.php
+msgid "Visits"
+msgstr "Visitas"
+
+#: includes/class-dashboard-widget.php
+msgid "Last Visit"
+msgstr "Última visita"
+
+#: includes/class-dashboard-widget.php
+msgid "%s ago"
+msgstr "hace %s"
+
+#: includes/class-dashboard-widget.php
+msgid "View llms.txt"
+msgstr "Ver llms.txt"

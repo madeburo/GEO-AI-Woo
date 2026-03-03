@@ -4,7 +4,7 @@ Tags: ai, seo, woocommerce, llms.txt, chatgpt
 Requires at least: 6.0
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 0.4.0
+Stable tag: 0.4.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -125,6 +125,12 @@ Yes. The plugin exposes a REST API at `/wp-json/geo-ai-woo/v1/` with endpoints f
 
 == Changelog ==
 
+= 0.4.1 =
+**Localization**
+* Added Turkish (tr_TR) translation
+* Added Spanish (es_ES) translation
+* Added Brazilian Portuguese (pt_BR) translation
+
 = 0.4.0 =
 **Bug Fix**
 * Fixed Cyrillic and special character encoding in llms.txt (HTML entities now properly decoded to UTF-8)
@@ -223,6 +229,9 @@ Yes. The plugin exposes a REST API at `/wp-json/geo-ai-woo/v1/` with endpoints f
 * Multilingual support (7 languages)
 
 == Upgrade Notice ==
+
+= 0.4.1 =
+Added Turkish, Spanish, and Brazilian Portuguese translations.
 
 = 0.4.0 =
 Fixes Cyrillic/special character encoding in llms.txt. Adds WordPress.org plugin guidelines compliance (third-party service disclosures). Regenerate your llms.txt after updating.

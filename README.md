@@ -123,7 +123,7 @@ Edit any post, page, or product to find the **GEO AI Woo** meta box to set speci
 
 GEO AI Woo is fully translatable and includes:
 
-| Language         | Locale | Status      |
+| Language            | Locale | Status      |
 | ---------------- | ------ | ----------- |
 | English          | en_US  | ✅ Complete |
 | Русский          | ru_RU  | ✅ Complete |
@@ -132,6 +132,9 @@ GEO AI Woo is fully translatable and includes:
 | 简体中文         | zh_CN  | ✅ Complete |
 | Bahasa Indonesia | id_ID  | ✅ Complete |
 | हिन्दी           | hi_IN  | ✅ Complete |
+| Türkçe           | tr_TR  | ✅ Complete |
+| Español          | es_ES  | ✅ Complete |
+| Português (BR)   | pt_BR  | ✅ Complete |
 
 ---
 
