@@ -2,6 +2,17 @@
 
 All notable changes to GEO AI Woo will be documented in this file.
 
+## [0.5.2] - 2026-03-04
+
+### Added — New AI Crawlers
+- claude-web (Anthropic / Claude Web)
+- Amazonbot (Amazon / Alexa)
+- Applebot (Apple / Siri & Spotlight)
+
+### Changed
+- Version bump 0.5.1 → 0.5.2
+- Supported AI crawlers expanded from 13 to 16
+
 ## [0.5.1] - 2026-03-04
 
 ### Fixed — WordPress Plugin Check Compliance

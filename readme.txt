@@ -4,7 +4,7 @@ Tags: ai, seo, woocommerce, llms.txt, chatgpt
 Requires at least: 6.0
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 0.5.1
+Stable tag: 0.5.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -36,11 +36,12 @@ GEO AI Woo generates `/llms.txt` and `/llms-full.txt` files that help AI search 
 * Dashboard widget with statistics and bot tracking
 * Crawl tracker with GDPR-compliant IP anonymization
 
-**Supported AI Crawlers (13):**
+**Supported AI Crawlers (16):**
 
 * GPTBot (OpenAI / ChatGPT)
 * OAI-SearchBot (OpenAI / Copilot Search)
 * ClaudeBot (Anthropic / Claude)
+* claude-web (Anthropic / Claude Web)
 * Google-Extended (Google / Gemini)
 * PerplexityBot (Perplexity AI)
 * DeepSeekBot (DeepSeek)
@@ -51,6 +52,8 @@ GEO AI Woo generates `/llms.txt` and `/llms-full.txt` files that help AI search 
 * SputnikBot (Sber / GigaChat)
 * Bytespider (ByteDance / Douyin)
 * Baiduspider (Baidu / ERNIE)
+* Amazonbot (Amazon / Alexa)
+* Applebot (Apple / Siri & Spotlight)
 
 == Installation ==
 
@@ -129,6 +132,13 @@ Yes. The plugin exposes a REST API at `/wp-json/geo-ai-woo/v1/` with endpoints f
 5. Live preview of llms.txt content
 
 == Changelog ==
+
+= 0.5.2 =
+**New AI Crawlers**
+* Added claude-web (Anthropic / Claude Web)
+* Added Amazonbot (Amazon / Alexa)
+* Added Applebot (Apple / Siri & Spotlight)
+* Supported AI crawlers expanded from 13 to 16
 
 = 0.5.1 =
 **WordPress Plugin Check Compliance**
@@ -251,6 +261,9 @@ Yes. The plugin exposes a REST API at `/wp-json/geo-ai-woo/v1/` with endpoints f
 * Multilingual support (7 languages)
 
 == Upgrade Notice ==
+
+= 0.5.2 =
+Adds support for 3 new AI crawlers: claude-web (Anthropic), Amazonbot (Amazon/Alexa), and Applebot (Apple/Siri). Total supported crawlers: 16. Regenerate your llms.txt after updating.
 
 = 0.5.1 =
 Fixes all errors and warnings from WordPress Plugin Check: output escaping, nonce sanitization, translators comments, global variable prefixing, and PHPCS annotations.
