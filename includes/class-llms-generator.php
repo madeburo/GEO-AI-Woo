@@ -38,6 +38,9 @@ class Geo_Ai_Woo_LLMS_Generator {
         'SputnikBot'           => 'Sber / GigaChat',
         'Bytespider'           => 'ByteDance / Douyin',
         'Baiduspider'          => 'Baidu / ERNIE',
+        'claude-web'           => 'Anthropic / Claude Web',
+        'Amazonbot'            => 'Amazon / Alexa',
+        'Applebot'             => 'Apple / Siri & Spotlight',
     );
 
     /**

@@ -8,7 +8,7 @@
 [![WordPress](https://img.shields.io/badge/WordPress-6.0%2B-blue.svg)](https://wordpress.org/)
 [![WooCommerce](https://img.shields.io/badge/WooCommerce-7.0%2B-purple.svg)](https://woocommerce.com/)
 
-An open-source WordPress plugin that optimizes your site for AI search engines like ChatGPT, Claude, Gemini, Perplexity, DeepSeek, Grok, YandexGPT, GigaChat, and more.
+An open-source WordPress plugin that optimizes your site for AI search engines like ChatGPT, Claude, Gemini, Perplexity, DeepSeek, Grok, YandexGPT, GigaChat, Apple Siri, Amazon Alexa, and more.
 
 **Focus:** **WooCommerce-first** | **Zero-config setup**
 
@@ -26,6 +26,7 @@ Automatically generates `/llms.txt` and `/llms-full.txt` static files at your Wo
 | GPTBot | OpenAI / ChatGPT |
 | OAI-SearchBot | OpenAI / Copilot Search |
 | ClaudeBot | Anthropic / Claude |
+| claude-web | Anthropic / Claude Web |
 | Google-Extended | Google / Gemini |
 | PerplexityBot | Perplexity AI |
 | DeepSeekBot | DeepSeek |
@@ -36,6 +37,8 @@ Automatically generates `/llms.txt` and `/llms-full.txt` static files at your Wo
 | SputnikBot | Sber / GigaChat |
 | Bytespider | ByteDance / Douyin |
 | Baiduspider | Baidu / ERNIE |
+| Amazonbot | Amazon / Alexa |
+| Applebot | Apple / Siri & Spotlight |
 
 ### AI Meta Box
 
@@ -207,3 +210,4 @@ Developed by [Made Büro](https://madeburo.com) — UI-first delivery studio.
 - **Author:** Made Büro
 - **Website:** [madeburo.com](https://madeburo.com)
 - **GitHub:** [@madeburo](https://github.com/madeburo)
+- **X:** [@imadeburo](https://x.com/imadeburo)
