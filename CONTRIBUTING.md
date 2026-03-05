@@ -20,7 +20,7 @@ There is no build step — all PHP, JS, and CSS files are used directly as-is.
 ## Requirements
 
 - PHP 7.4+
-- WordPress 6.0+
+- WordPress 6.2+
 - WooCommerce 7.0+ (optional, for e-commerce features)
 
 ## Project Structure

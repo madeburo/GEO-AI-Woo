@@ -2,6 +2,17 @@
 
 All notable changes to GEO AI Woo will be documented in this file.
 
+## [0.5.3] - 2026-03-05
+
+### Fixed — WordPress Plugin Check Compliance
+- Replaced interpolated `$table_name` in SQL queries with `%i` identifier placeholder via `$wpdb->prepare()` in `class-crawl-tracker.php` (`drop_table`, `get_recent_activity`, `get_total_visits`, `cleanup_old_records`)
+- Replaced interpolated `$table_name` in `DROP TABLE` query with `%i` placeholder in `uninstall.php`
+- Fixed phpcs:ignore placement for postmeta `DELETE` query in `uninstall.php`
+
+### Changed
+- Minimum WordPress version raised from 6.0 to 6.2 (required for `%i` identifier placeholder support in `$wpdb->prepare()`)
+- Version bump 0.5.2 → 0.5.3
+
 ## [0.5.2] - 2026-03-04
 
 ### Added — New AI Crawlers

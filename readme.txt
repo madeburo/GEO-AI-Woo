@@ -1,10 +1,10 @@
 === GEO AI Woo ===
 Contributors: madeburo
 Tags: ai, seo, woocommerce, llms.txt, chatgpt
-Requires at least: 6.0
+Requires at least: 6.2
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 0.5.2
+Stable tag: 0.5.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -132,6 +132,13 @@ Yes. The plugin exposes a REST API at `/wp-json/geo-ai-woo/v1/` with endpoints f
 5. Live preview of llms.txt content
 
 == Changelog ==
+
+= 0.5.3 =
+**WordPress Plugin Check Compliance**
+* Replaced interpolated table names in SQL queries with `%i` identifier placeholder (`$wpdb->prepare()`)
+* Fixed `class-crawl-tracker.php`: `drop_table`, `get_recent_activity`, `get_total_visits`, `cleanup_old_records`
+* Fixed `uninstall.php`: `DROP TABLE` query now uses `%i` placeholder
+* Minimum WordPress version raised from 6.0 to 6.2
 
 = 0.5.2 =
 **New AI Crawlers**
@@ -261,6 +268,9 @@ Yes. The plugin exposes a REST API at `/wp-json/geo-ai-woo/v1/` with endpoints f
 * Multilingual support (7 languages)
 
 == Upgrade Notice ==
+
+= 0.5.3 =
+Fixes all remaining WordPress Plugin Check warnings: SQL queries now use %i identifier placeholders instead of interpolated table names. Minimum WP version raised to 6.2.
 
 = 0.5.2 =
 Adds support for 3 new AI crawlers: claude-web (Anthropic), Amazonbot (Amazon/Alexa), and Applebot (Apple/Siri). Total supported crawlers: 16. Regenerate your llms.txt after updating.

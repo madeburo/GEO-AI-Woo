@@ -5,7 +5,7 @@
 **Generative Engine Optimization for WordPress & WooCommerce**
 
 [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/gpl-2.0)
-[![WordPress](https://img.shields.io/badge/WordPress-6.0%2B-blue.svg)](https://wordpress.org/)
+[![WordPress](https://img.shields.io/badge/WordPress-6.2%2B-blue.svg)](https://wordpress.org/)
 [![WooCommerce](https://img.shields.io/badge/WooCommerce-7.0%2B-purple.svg)](https://woocommerce.com/)
 
 An open-source WordPress plugin that optimizes your site for AI search engines like ChatGPT, Claude, Gemini, Perplexity, DeepSeek, Grok, YandexGPT, GigaChat, Apple Siri, Amazon Alexa, and more.
@@ -149,7 +149,7 @@ GEO AI Woo is fully translatable and includes:
 ## Requirements
 
 - PHP 7.4 or higher
-- WordPress 6.0 or higher
+- WordPress 6.2 or higher
 - WooCommerce 7.0+ (optional, for e-commerce features)
 
 ---

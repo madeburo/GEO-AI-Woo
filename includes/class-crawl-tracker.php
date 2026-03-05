@@ -87,7 +87,7 @@ class Geo_Ai_Woo_Crawl_Tracker {
 	public static function drop_table() {
 		global $wpdb;
 		$table_name = self::get_table_name();
-		$wpdb->query( "DROP TABLE IF EXISTS {$table_name}" ); // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.DirectDatabaseQuery,WordPress.DB.DirectDatabaseQuery.NoCaching,WordPress.DB.DirectDatabaseQuery.SchemaChange
+		$wpdb->query( $wpdb->prepare( 'DROP TABLE IF EXISTS %i', $table_name ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery,WordPress.DB.DirectDatabaseQuery.NoCaching,WordPress.DB.DirectDatabaseQuery.SchemaChange
 	}
 
 	/**
@@ -198,12 +198,13 @@ class Geo_Ai_Woo_Crawl_Tracker {
 
 		return $wpdb->get_results( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching
 			$wpdb->prepare(
-				"SELECT bot_name, COUNT(*) as visit_count, MAX(accessed_at) as last_visit
-				FROM {$table_name}
+				'SELECT bot_name, COUNT(*) as visit_count, MAX(accessed_at) as last_visit
+				FROM %i
 				WHERE accessed_at > %s
 				GROUP BY bot_name
 				ORDER BY visit_count DESC
-				LIMIT 10", // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+				LIMIT 10',
+				$table_name,
 				$since
 			)
 		);
@@ -236,7 +237,8 @@ class Geo_Ai_Woo_Crawl_Tracker {
 
 		$count = $wpdb->get_var( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching
 			$wpdb->prepare(
-				"SELECT COUNT(*) FROM {$table_name} WHERE accessed_at > %s", // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+				'SELECT COUNT(*) FROM %i WHERE accessed_at > %s',
+				$table_name,
 				$since
 			)
 		);
@@ -255,7 +257,8 @@ class Geo_Ai_Woo_Crawl_Tracker {
 
 		$wpdb->query( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching
 			$wpdb->prepare(
-				"DELETE FROM {$table_name} WHERE accessed_at < %s", // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+				'DELETE FROM %i WHERE accessed_at < %s',
+				$table_name,
 				$cutoff
 			)
 		);
