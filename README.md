@@ -83,6 +83,10 @@ Add AI-specific metadata to any post, page, or product:
 - REST API at `/wp-json/geo-ai-woo/v1/` for programmatic access
 - WP-CLI commands: `regenerate`, `status`, `export`, `import`
 
+### Content Sanitization
+
+Centralized content cleaning pipeline for all AI-facing output. Automatically strips page builder markup (WP Bakery, Divi, Elementor, Beaver Builder), shortcodes, `<script>`/`<style>` tags, base64 data, and mojibake artifacts. Extensible via WordPress filters for custom page builders.
+
 ### Dashboard & Tracking
 
 - Dashboard widget with indexed/excluded content counts
@@ -161,6 +165,7 @@ geo-ai-woo/
 ├── geo-ai-woo.php              # Main plugin file — bootstrap, hooks, activation/deactivation
 ├── uninstall.php               # Cleanup on plugin deletion
 ├── includes/                   # All PHP classes (one per file)
+│   ├── class-content-sanitizer.php  # Content sanitization pipeline for AI output
 │   ├── class-llms-generator.php    # Core llms.txt generation and static file writing
 │   ├── class-settings.php          # Admin settings page
 │   ├── class-meta-box.php          # AI meta box for posts/pages

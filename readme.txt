@@ -4,7 +4,7 @@ Tags: ai, seo, woocommerce, llms.txt, chatgpt
 Requires at least: 6.2
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 0.5.3
+Stable tag: 0.5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -35,6 +35,7 @@ GEO AI Woo generates `/llms.txt` and `/llms-full.txt` files that help AI search 
 * AI auto-generation of descriptions (Claude / OpenAI)
 * Dashboard widget with statistics and bot tracking
 * Crawl tracker with GDPR-compliant IP anonymization
+* Content sanitization pipeline — cleans page builder markup, shortcodes, scripts, base64, and mojibake from AI output
 
 **Supported AI Crawlers (16):**
 
@@ -132,6 +133,19 @@ Yes. The plugin exposes a REST API at `/wp-json/geo-ai-woo/v1/` with endpoints f
 5. Live preview of llms.txt content
 
 == Changelog ==
+
+= 0.5.4 =
+**Content Sanitization**
+* New centralized content sanitization pipeline for all AI-facing output
+* Removes page builder markup: WP Bakery, Divi, Beaver Builder, Elementor/Gutenberg comments
+* Removes registered and unregistered WordPress shortcodes (paired and self-closing)
+* Strips `<script>` and `<style>` tags with their contents
+* Removes inline base64-encoded data (embedded images, fonts)
+* Fixes mojibake artifacts from double UTF-8 encoding (curly quotes, em/en dashes, ellipsis)
+* Decodes HTML entities to proper UTF-8 characters
+* Normalizes whitespace
+* Extensible via filters: `geo_ai_woo_pre_sanitize`, `geo_ai_woo_sanitized_content`, `geo_ai_woo_sanitize_patterns`
+* Integrated into llms.txt generator, AI prompt builder, and WooCommerce product descriptions
 
 = 0.5.3 =
 **WordPress Plugin Check Compliance**
@@ -268,6 +282,9 @@ Yes. The plugin exposes a REST API at `/wp-json/geo-ai-woo/v1/` with endpoints f
 * Multilingual support (7 languages)
 
 == Upgrade Notice ==
+
+= 0.5.4 =
+New content sanitization pipeline cleans page builder markup (WP Bakery, Divi, Elementor, Beaver Builder), shortcodes, scripts, base64, and mojibake from all AI-facing output. Regenerate your llms.txt after updating.
 
 = 0.5.3 =
 Fixes all remaining WordPress Plugin Check warnings: SQL queries now use %i identifier placeholders instead of interpolated table names. Minimum WP version raised to 6.2.

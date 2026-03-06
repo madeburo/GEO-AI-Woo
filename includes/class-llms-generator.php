@@ -336,7 +336,7 @@ class Geo_Ai_Woo_LLMS_Generator {
                 } elseif ( 'product' === $post_type && class_exists( 'WooCommerce' ) ) {
                     $description = wp_strip_all_tags( apply_filters( 'geo_ai_woo_product_description', '', $post_id ) );
                 } else {
-                    $description = wp_trim_words( get_the_excerpt(), 20, '...' );
+                    $description = wp_trim_words( Geo_Ai_Woo_Content_Sanitizer::sanitize( get_the_excerpt() ), 20, '...' );
                 }
 
                 // Build entry line
@@ -355,7 +355,7 @@ class Geo_Ai_Woo_LLMS_Generator {
 
                 // Include full content in llms-full.txt
                 if ( $is_full ) {
-                    $content  = wp_strip_all_tags( get_the_content(), true );
+                    $content  = Geo_Ai_Woo_Content_Sanitizer::sanitize( get_the_content() );
                     $content  = wp_trim_words( $content, 200, '...' );
                     $output[] = '  ' . $content;
                     $output[] = '';

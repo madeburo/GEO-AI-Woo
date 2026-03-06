@@ -2,6 +2,30 @@
 
 All notable changes to GEO AI Woo will be documented in this file.
 
+## [0.5.4] - 2026-03-06
+
+### Added — Content Sanitization
+- New `Geo_Ai_Woo_Content_Sanitizer` class — centralized content cleaning pipeline for all AI-facing output
+- Removes page builder markup: WP Bakery (`vc_*`, `mk_*`), Divi (`et_pb_*`), Beaver Builder (`fl_builder_*`), Elementor/Gutenberg HTML comments
+- Removes registered and unregistered WordPress shortcodes (paired and self-closing)
+- Strips `<script>` and `<style>` tags with their contents
+- Removes inline base64-encoded data (embedded images, fonts, etc.)
+- Fixes mojibake artifacts from double UTF-8 encoding (curly quotes, em/en dashes, ellipsis, primes)
+- Decodes HTML entities to proper UTF-8 characters
+- Normalizes whitespace (collapses multiple spaces/tabs/newlines, trims)
+- Filter `geo_ai_woo_pre_sanitize` — modify content before sanitization
+- Filter `geo_ai_woo_sanitized_content` — modify final sanitized output (receives cleaned + original content)
+- Filter `geo_ai_woo_sanitize_patterns` — add custom regex patterns for third-party page builders
+
+### Changed — Integration
+- `class-llms-generator.php`: `get_content()` now uses `Content_Sanitizer::sanitize()` for full content and excerpts
+- `class-ai-generator.php`: `build_prompt()` now uses `Content_Sanitizer::sanitize()` instead of separate `strip_shortcodes()` + `wp_strip_all_tags()`
+- `class-woocommerce.php`: `build_product_description()` now uses `Content_Sanitizer::sanitize()` for short descriptions
+- Version bump 0.5.3 → 0.5.4
+
+### Added — New Files
+- `includes/class-content-sanitizer.php` — Content sanitization pipeline
+
 ## [0.5.3] - 2026-03-05
 
 ### Fixed — WordPress Plugin Check Compliance

@@ -37,5 +37,8 @@ dist/
 *.log
 debug.log
 
+# Tests
+tests/
+
 # Temporary
 /tmp/

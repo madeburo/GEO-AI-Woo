@@ -137,10 +137,8 @@ Content: {content}';
 		$post_type_obj = get_post_type_object( $post->post_type );
 		$type          = $post_type_obj ? $post_type_obj->labels->singular_name : $post->post_type;
 
-		// Build content excerpt — strip shortcodes and HTML, limit to 500 words
-		$content = $post->post_content;
-		$content = strip_shortcodes( $content );
-		$content = wp_strip_all_tags( $content );
+		// Build content excerpt — sanitize and limit to 500 words
+		$content = Geo_Ai_Woo_Content_Sanitizer::sanitize( $post->post_content );
 		$content = wp_trim_words( $content, 500, '' );
 
 		// For WooCommerce products, add product-specific data

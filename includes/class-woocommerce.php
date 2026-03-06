@@ -354,7 +354,7 @@ class Geo_Ai_Woo_WooCommerce {
         // Short description fallback
         $short_desc = $product->get_short_description();
         if ( $short_desc ) {
-            $parts[] = wp_trim_words( wp_strip_all_tags( $short_desc ), 15, '...' );
+            $parts[] = wp_trim_words( Geo_Ai_Woo_Content_Sanitizer::sanitize( $short_desc ), 15, '...' );
         }
 
         return implode( ' | ', $parts );
