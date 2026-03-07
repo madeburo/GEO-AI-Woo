@@ -2,7 +2,9 @@
 
 ![GEO AI Woo](Geo-AI-Woo.png)
 
-**Generative Engine Optimization for WordPress & WooCommerce**
+AI Search Optimization for WordPress and WooCommerce.
+
+Generate llms.txt, AI crawler rules and metadata to make your site visible to AI search engines.
 
 [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/gpl-2.0)
 [![WordPress](https://img.shields.io/badge/WordPress-6.2%2B-blue.svg)](https://wordpress.org/)
@@ -11,6 +13,8 @@
 An open-source WordPress plugin that optimizes your site for AI search engines like ChatGPT, Claude, Gemini, Perplexity, DeepSeek, Grok, YandexGPT, GigaChat, Apple Siri, Amazon Alexa, and more.
 
 **Focus:** **WooCommerce-first** | **Zero-config setup**
+
+Try the analyzer at [geoai.run/analyze](https://www.geoai.run/analyze)
 
 ---
 
@@ -188,6 +192,24 @@ geo-ai-woo/
 ├── LICENSE                     # GPL v2
 └── readme.txt                  # WordPress.org plugin directory format
 ```
+
+---
+
+## GEO AI Ecosystem
+
+GEO AI – AI Search Optimization. A multi-platform framework.
+
+Website: https://www.geoai.run
+
+Works with:
+- WordPress
+- WooCommerce
+- Shopify
+- Next.js
+- Node.js
+
+Website: https://www.geoai.run
+Core engine: https://github.com/madeburo/GEO-AI
 
 ---
 
