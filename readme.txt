@@ -1,14 +1,14 @@
-=== GEO AI Woo ===
+=== GEO AI – AI Search Optimization ===
 Contributors: madeburo
-Tags: ai, seo, woocommerce, llms.txt, chatgpt
+Tags: ai seo, llms.txt, chatgpt, woocommerce, ai search
 Requires at least: 6.2
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 0.5.4.1
+Stable tag: 0.5.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Generative Engine Optimization for WordPress & WooCommerce. Optimize your site for AI search engines.
+AI SEO plugin that generates llms.txt and AI metadata to make WordPress and WooCommerce sites visible to ChatGPT, Claude, Gemini, Grok and other AI search engines.
 
 == Description ==
 
@@ -55,6 +55,13 @@ GEO AI Woo generates `/llms.txt` and `/llms-full.txt` files that help AI search 
 * Baiduspider (Baidu / ERNIE)
 * Amazonbot (Amazon / Alexa)
 * Applebot (Apple / Siri & Spotlight)
+
+== Use Cases ==
+
+* Make your WooCommerce store visible to AI search
+* Optimize your WordPress site for ChatGPT discovery
+* Generate llms.txt automatically
+* Improve AI understanding of your content
 
 == Installation ==
 

@@ -2,6 +2,12 @@
 
 All notable changes to GEO AI Woo will be documented in this file.
 
+## [0.5.5] - 2026-03-07
+
+### Docs
+- Updated documentation with new domain geoai.run
+- Added ecosystem overview
+
 ## [0.5.4.1] - 2026-03-07
 
 ### Fixed — Machine Readability
