@@ -4,7 +4,7 @@ Tags: ai, seo, woocommerce, llms.txt, chatgpt
 Requires at least: 6.2
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 0.5.4
+Stable tag: 0.5.4.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -133,6 +133,10 @@ Yes. The plugin exposes a REST API at `/wp-json/geo-ai-woo/v1/` with endpoints f
 5. Live preview of llms.txt content
 
 == Changelog ==
+
+= 0.5.4.1 =
+**Machine Readability**
+* Crawler rules in llms.txt now use plain ASCII `Allowed` / `Blocked` instead of UTF-8 symbols for maximum parser compatibility
 
 = 0.5.4 =
 **Content Sanitization**
@@ -282,6 +286,9 @@ Yes. The plugin exposes a REST API at `/wp-json/geo-ai-woo/v1/` with endpoints f
 * Multilingual support (7 languages)
 
 == Upgrade Notice ==
+
+= 0.5.4.1 =
+Crawler rules in llms.txt now use plain ASCII instead of UTF-8 symbols for better machine readability. Regenerate your llms.txt after updating.
 
 = 0.5.4 =
 New content sanitization pipeline cleans page builder markup (WP Bakery, Divi, Elementor, Beaver Builder), shortcodes, scripts, base64, and mojibake from all AI-facing output. Regenerate your llms.txt after updating.

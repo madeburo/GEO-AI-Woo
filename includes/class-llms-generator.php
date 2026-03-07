@@ -199,7 +199,7 @@ class Geo_Ai_Woo_LLMS_Generator {
         $bot_rules = isset( $settings['bot_rules'] ) ? $settings['bot_rules'] : array();
         foreach ( $this->ai_bots as $bot => $provider ) {
             $rule     = isset( $bot_rules[ $bot ] ) ? $bot_rules[ $bot ] : 'allow';
-            $status   = ( 'allow' === $rule ) ? '✓ Allowed' : '✗ Disallowed';
+            $status   = ( 'allow' === $rule ) ? 'Allowed' : 'Blocked';
             $output[] = "- {$bot} ({$provider}): {$status}";
         }
         $output[] = '';

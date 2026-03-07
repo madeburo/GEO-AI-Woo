@@ -2,6 +2,14 @@
 
 All notable changes to GEO AI Woo will be documented in this file.
 
+## [0.5.4.1] - 2026-03-07
+
+### Fixed — Machine Readability
+- Removed UTF-8 symbols (✓/✗) from crawler rules in llms.txt output — now uses plain ASCII `Allowed` / `Blocked` for maximum parser compatibility
+
+### Changed
+- Version bump 0.5.4 → 0.5.4.1
+
 ## [0.5.4] - 2026-03-06
 
 ### Added — Content Sanitization
