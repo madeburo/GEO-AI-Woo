@@ -18,6 +18,58 @@ Try the analyzer at [geoai.run/analyze](https://www.geoai.run/analyze)
 
 ---
 
+## GEO AI Ecosystem
+
+GEO AI is a multi-platform framework for AI Search Optimization (GEO) — making your content visible and structured for AI-powered search engines and LLMs.
+
+Website: [geoai.run](https://www.geoai.run) | Core engine: [github.com/madeburo/GEO-AI](https://github.com/madeburo/GEO-AI)
+
+| Module | Platform | Description |
+|--------|----------|-------------|
+| **GEO AI Woo** *(this plugin)* | WordPress / WooCommerce | llms.txt generation, AI meta, crawler rules, WooCommerce integration |
+| **GEO AI CLI** | Node.js ≥ 20 | Generate llms.txt and llms-full.txt from the command line — framework-agnostic, build-time, zero runtime overhead |
+| **GEO AI Next** | Next.js | GEO middleware and static generation for Next.js apps |
+| **GEO AI Core** | Node.js | TypeScript engine powering the CLI and other integrations |
+| **GEO AI** | Shopify | GEO optimization for Shopify stores |
+
+### GEO AI CLI
+
+Generate `llms.txt` and `llms-full.txt` for any Node.js project — works with Express, Fastify, Remix, static site generators, or any custom build pipeline.
+
+```bash
+# Install locally (recommended)
+npm install --save-dev geo-ai-cli
+
+# Or globally
+npm install -g geo-ai-cli
+```
+
+```bash
+# Scaffold geo-ai.config.ts
+npx geo-ai init
+
+# Write llms.txt + llms-full.txt to ./public
+npx geo-ai generate
+
+# Verify the output
+npx geo-ai validate
+```
+
+**Commands:**
+
+| Command | Description |
+|---------|-------------|
+| `geo-ai init` | Scaffolds a typed `geo-ai.config.ts` starter file |
+| `geo-ai generate` | Reads config and writes `llms.txt` + `llms-full.txt` to `./public` (or custom `--out` path) |
+| `geo-ai validate` | Checks that output files are present and valid — works on local files or remote URLs via `--url` |
+| `geo-ai inspect` | Previews config: site info, crawler rules, resource sections with item counts |
+
+CI/CD friendly — exits with code `1` on validation failure.
+
+Docs: [geoai.run/docs/integrations/cli](https://www.geoai.run/docs/integrations/cli) | GitHub: [madeburo/GEO-AI](https://github.com/madeburo/GEO-AI)
+
+---
+
 ## Features
 
 ### llms.txt Generator
@@ -195,24 +247,6 @@ geo-ai-woo/
 
 ---
 
-## GEO AI Ecosystem
-
-GEO AI – AI Search Optimization. A multi-platform framework.
-
-Website: https://www.geoai.run
-
-Works with:
-- WordPress
-- WooCommerce
-- Shopify
-- Next.js
-- Node.js
-
-Website: https://www.geoai.run
-Core engine: https://github.com/madeburo/GEO-AI
-
----
-
 ## Contributing
 
 Contributions are welcome! Please feel free to open issues or submit pull requests.
@@ -233,6 +267,6 @@ GEO AI Woo is open-source software licensed under the [GPL v2](LICENSE).
 ## Credits
 
 - **Author:** Made Büro
-- **Website:** [madeburo.com](https://madeburo.com)
+- **Website:** [geoai.run](https://www.geoai.run)
 - **GitHub:** [@madeburo](https://github.com/madeburo)
 - **X:** [@imadeburo](https://x.com/imadeburo)
