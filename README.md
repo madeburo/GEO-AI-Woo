@@ -8,11 +8,11 @@ Generate llms.txt, AI crawler rules and metadata to make your site visible to AI
 
 [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/gpl-2.0)
 [![WordPress](https://img.shields.io/badge/WordPress-6.2%2B-blue.svg)](https://wordpress.org/)
-[![WooCommerce](https://img.shields.io/badge/WooCommerce-7.0%2B-purple.svg)](https://woocommerce.com/)
+[![WooCommerce](https://img.shields.io/badge/WooCommerce-7.0%2B-purple.svg)](https://woocommerce.com/) *(optional)*
 
 An open-source WordPress plugin that optimizes your site for AI search engines like ChatGPT, Claude, Gemini, Perplexity, DeepSeek, Grok, YandexGPT, GigaChat, Apple Siri, Amazon Alexa, and more.
 
-**Focus:** **WooCommerce-first** | **Zero-config setup**
+**Focus:** **WordPress-first** | **Zero-config setup** | WooCommerce optional
 
 Try the analyzer at [geoai.run/analyze](https://www.geoai.run/analyze)
 
