@@ -56,7 +56,7 @@ class Geo_Ai_Woo_Meta_Box {
 
             add_meta_box(
                 'geo_ai_woo_meta_box',
-                __( 'GEO AI for WooCommerce', 'geo-ai-for-woocommerce' ),
+                __( 'GEO AI Search Optimization', 'geo-ai-for-woocommerce' ),
                 array( $this, 'render_meta_box' ),
                 $post_type,
                 'side',

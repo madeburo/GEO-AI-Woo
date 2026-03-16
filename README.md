@@ -1,6 +1,6 @@
-# GEO AI for WooCommerce
+# GEO AI Search Optimization
 
-![GEO AI for WooCommerce](Geo-AI-Woo.png?v=2)
+![GEO AI Search Optimization](Geo-AI-Woo.png?v=2)
 
 AI Search Optimization for WordPress and WooCommerce.
 
@@ -26,7 +26,7 @@ Website: [geoai.run](https://www.geoai.run) | Core engine: [github.com/madeburo/
 
 | Module | Platform | Description |
 |--------|----------|-------------|
-| **GEO AI for WooCommerce** *(this plugin)* | WordPress / WooCommerce | llms.txt generation, AI meta, crawler rules, WooCommerce integration |
+| **GEO AI Search Optimization** *(this plugin)* | WordPress / WooCommerce | llms.txt generation, AI meta, crawler rules, WooCommerce integration |
 | **GEO AI Core** | Node.js | TypeScript engine powering the CLI and other integrations |
 | **GEO AI CLI** | Node.js ≥ 20 | Generate llms.txt and llms-full.txt from the command line — framework-agnostic, build-time, zero runtime overhead |
 | **GEO AI Next** | Next.js | GEO middleware and static generation for Next.js apps |
@@ -123,7 +123,7 @@ Centralized content cleaning pipeline for all AI-facing output. Automatically st
 1. Download the latest release from the repository.
 2. Unzip and upload the folder to your `/wp-content/plugins/geo-ai-for-woocommerce/` directory.
 3. Activate the plugin in the WordPress admin panel.
-4. Go to **Settings → GEO AI for WooCommerce** to configure.
+4. Go to **Settings → GEO AI Search Optimization** to configure.
 
 ---
 
@@ -138,7 +138,7 @@ After activation, the plugin works out of the box with sensible defaults:
 
 ### Settings Page
 
-Navigate to **Settings → GEO AI for WooCommerce** to configure:
+Navigate to **Settings → GEO AI Search Optimization** to configure:
 
 - **Post Types**: Select which content types to include.
 - **Bot Rules**: Allow or disallow specific AI crawlers.
@@ -147,13 +147,13 @@ Navigate to **Settings → GEO AI for WooCommerce** to configure:
 
 ### AI Meta Box
 
-Edit any post, page, or product to find the **GEO AI for WooCommerce** meta box to set specific AI contexts or exclude the content entirely.
+Edit any post, page, or product to find the **GEO AI Search Optimization** meta box to set specific AI contexts or exclude the content entirely.
 
 ---
 
 ## Localization
 
-GEO AI for WooCommerce is fully translatable and includes:
+GEO AI Search Optimization is fully translatable and includes:
 
 | Language            | Locale | Status      |
 | ---------------- | ------ | ----------- |
@@ -226,7 +226,7 @@ git clone https://github.com/madeburo/GEO-AI-Woo.git
 
 ## License
 
-GEO AI for WooCommerce is open-source software licensed under the [GPL v2](LICENSE).
+GEO AI Search Optimization is open-source software licensed under the [GPL v2](LICENSE).
 
 ---
 

@@ -1,18 +1,18 @@
-=== GEO AI for WooCommerce ===
+=== GEO AI Search Optimization ===
 Contributors: madeburo
-Tags: ai seo, llms.txt, chatgpt, woocommerce, ai search
+Tags: ai seo, llms.txt, chatgpt, wordpress, ai search
 Requires at least: 6.2
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 0.6.0
+Stable tag: 0.7.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-AI Search Optimization for WooCommerce – optimize your site for ChatGPT, Claude, Gemini, Perplexity, Grok, DeepSeek and more.
+AI Search Optimization for WordPress & WooCommerce – optimize your site for ChatGPT, Claude, Gemini, Perplexity, Grok, DeepSeek and more.
 
 == Description ==
 
-GEO AI for WooCommerce generates `/llms.txt` and `/llms-full.txt` files that help AI search engines understand your content. It supports ChatGPT, Claude, Gemini, Perplexity, YandexGPT, GigaChat, and more.
+GEO AI Search Optimization generates `/llms.txt` and `/llms-full.txt` files that help AI search engines understand your content. It supports ChatGPT, Claude, Gemini, Perplexity, YandexGPT, GigaChat, and more.
 
 **Features:**
 
@@ -67,13 +67,13 @@ GEO AI for WooCommerce generates `/llms.txt` and `/llms-full.txt` files that hel
 
 1. Upload the `geo-ai-for-woocommerce` folder to `/wp-content/plugins/`
 2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Go to Settings > GEO AI for WooCommerce to configure
+3. Go to Settings > GEO AI Search Optimization to configure
 
 The plugin works out of the box with sensible defaults.
 
 == Third-Party Services ==
 
-This plugin optionally connects to external AI services for generating content descriptions. These connections are **disabled by default** and only activate when you explicitly configure an AI provider in Settings > GEO AI for WooCommerce > AI Description Generation.
+This plugin optionally connects to external AI services for generating content descriptions. These connections are **disabled by default** and only activate when you explicitly configure an AI provider in Settings > GEO AI Search Optimization > AI Description Generation.
 
 = Anthropic (Claude) =
 
@@ -105,11 +105,11 @@ No. WooCommerce integration is optional. The plugin works with standard WordPres
 
 = How often is llms.txt regenerated? =
 
-By default, it regenerates daily. You can change this to immediate (on every post save), hourly, or weekly in Settings > GEO AI for WooCommerce > Cache Settings.
+By default, it regenerates daily. You can change this to immediate (on every post save), hourly, or weekly in Settings > GEO AI Search Optimization > Cache Settings.
 
 = Can I exclude specific content from llms.txt? =
 
-Yes. Each post, page, and product has a "GEO AI for WooCommerce" meta box where you can check "Exclude from AI indexing". You can also use Quick Edit in list tables for bulk changes.
+Yes. Each post, page, and product has a "GEO AI Search Optimization" meta box where you can check "Exclude from AI indexing". You can also use Quick Edit in list tables for bulk changes.
 
 = Does this plugin work with my SEO plugin? =
 
@@ -121,11 +121,11 @@ The plugin writes `llms.txt` and `llms-full.txt` directly to your WordPress root
 
 = Can I hide out-of-stock products from llms.txt? =
 
-Yes. Go to Settings > GEO AI for WooCommerce and set the "Out-of-Stock Products" option to "Always hide" or let it follow your WooCommerce visibility settings.
+Yes. Go to Settings > GEO AI Search Optimization and set the "Out-of-Stock Products" option to "Always hide" or let it follow your WooCommerce visibility settings.
 
 = Can I auto-generate AI descriptions for my content? =
 
-Yes. Go to Settings > GEO AI for WooCommerce > AI Description Generation, choose Claude (Anthropic) or OpenAI as your provider, and enter your API key. A "Generate with AI" button will appear in the meta box on each post/page/product. You can also bulk-generate descriptions for all content at once from the settings page.
+Yes. Go to Settings > GEO AI Search Optimization > AI Description Generation, choose Claude (Anthropic) or OpenAI as your provider, and enter your API key. A "Generate with AI" button will appear in the meta box on each post/page/product. You can also bulk-generate descriptions for all content at once from the settings page.
 
 = Is there a REST API or CLI access? =
 
@@ -141,9 +141,20 @@ Yes. The plugin exposes a REST API at `/wp-json/geo-ai-for-woocommerce/v1/` with
 
 == Changelog ==
 
+= 0.7.0 =
+**Plugin Rename**
+* Display name changed from "GEO AI for WooCommerce" to "GEO AI Search Optimization"
+* Updated all user-facing surfaces: settings page, meta box, dashboard widget, admin notices, CLI, Quick Edit, llms.txt footer, robots.txt
+* Slug, text domain, and internal keys unchanged for backward compatibility
+
+**Fixed — UTF-8 / Cyrillic Encoding**
+* Fixed mojibake from double UTF-8 encoding (detects and repairs latin1→UTF-8→UTF-8 corruption)
+* Static file writer now validates UTF-8 integrity before writing
+* Excerpt, full content, and taxonomy descriptions now properly decoded for plain text output
+
 = 0.6.0 =
 **Plugin Rename — WordPress Plugin Review**
-* Plugin renamed from "GEO AI Woo" to "GEO AI for WooCommerce"
+* Plugin renamed from "GEO AI Woo" to "GEO AI Search Optimization"
 * Slug changed from geo-ai-woo to geo-ai-for-woocommerce everywhere
 * Text domain updated to geo-ai-for-woocommerce
 * Main plugin file renamed to geo-ai-for-woocommerce.php
@@ -327,8 +338,11 @@ Yes. The plugin exposes a REST API at `/wp-json/geo-ai-for-woocommerce/v1/` with
 
 == Upgrade Notice ==
 
+= 0.7.0 =
+Plugin renamed to "GEO AI Search Optimization". Improved Cyrillic/UTF-8 encoding in llms.txt. Regenerate your files after updating.
+
 = 0.6.0 =
-Major rename: plugin is now "GEO AI for WooCommerce" with slug geo-ai-for-woocommerce. Fixes JSON-LD escaping, file write security, and UTF-8 encoding. Deactivate the old version before activating this one.
+Major rename: plugin is now "GEO AI Search Optimization" with slug geo-ai-for-woocommerce. Fixes JSON-LD escaping, file write security, and UTF-8 encoding. Deactivate the old version before activating this one.
 
 = 0.5.5 =
 Added German (de_DE) and French (fr_FR) translations.

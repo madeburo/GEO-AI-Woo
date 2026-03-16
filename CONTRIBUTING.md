@@ -1,6 +1,6 @@
-# Contributing to GEO AI for WooCommerce
+# Contributing to GEO AI Search Optimization
 
-Thanks for your interest in contributing! GEO AI for WooCommerce is an open-source WordPress plugin and we welcome pull requests, bug reports, and feature suggestions.
+Thanks for your interest in contributing! GEO AI Search Optimization is an open-source WordPress plugin and we welcome pull requests, bug reports, and feature suggestions.
 
 ## Getting Started
 

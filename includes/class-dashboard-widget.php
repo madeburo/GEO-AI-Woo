@@ -48,7 +48,7 @@ class Geo_Ai_Woo_Dashboard_Widget {
 
 		wp_add_dashboard_widget(
 			'geo_ai_woo_dashboard',
-			__( 'GEO AI for WooCommerce', 'geo-ai-for-woocommerce' ),
+			__( 'GEO AI Search Optimization', 'geo-ai-for-woocommerce' ),
 			array( $this, 'render_widget' )
 		);
 	}
