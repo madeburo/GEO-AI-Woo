@@ -1,6 +1,6 @@
-# GEO AI Woo
+# GEO AI for WooCommerce
 
-![GEO AI Woo](Geo-AI-Woo.png?v=2)
+![GEO AI for WooCommerce](Geo-AI-Woo.png?v=2)
 
 AI Search Optimization for WordPress and WooCommerce.
 
@@ -26,47 +26,11 @@ Website: [geoai.run](https://www.geoai.run) | Core engine: [github.com/madeburo/
 
 | Module | Platform | Description |
 |--------|----------|-------------|
-| **GEO AI Woo** *(this plugin)* | WordPress / WooCommerce | llms.txt generation, AI meta, crawler rules, WooCommerce integration |
+| **GEO AI for WooCommerce** *(this plugin)* | WordPress / WooCommerce | llms.txt generation, AI meta, crawler rules, WooCommerce integration |
+| **GEO AI Core** | Node.js | TypeScript engine powering the CLI and other integrations |
 | **GEO AI CLI** | Node.js ≥ 20 | Generate llms.txt and llms-full.txt from the command line — framework-agnostic, build-time, zero runtime overhead |
 | **GEO AI Next** | Next.js | GEO middleware and static generation for Next.js apps |
-| **GEO AI Core** | Node.js | TypeScript engine powering the CLI and other integrations |
-| **GEO AI** | Shopify | GEO optimization for Shopify stores |
-
-### GEO AI CLI
-
-Generate `llms.txt` and `llms-full.txt` for any Node.js project — works with Express, Fastify, Remix, static site generators, or any custom build pipeline.
-
-```bash
-# Install locally (recommended)
-npm install --save-dev geo-ai-cli
-
-# Or globally
-npm install -g geo-ai-cli
-```
-
-```bash
-# Scaffold geo-ai.config.ts
-npx geo-ai init
-
-# Write llms.txt + llms-full.txt to ./public
-npx geo-ai generate
-
-# Verify the output
-npx geo-ai validate
-```
-
-**Commands:**
-
-| Command | Description |
-|---------|-------------|
-| `geo-ai init` | Scaffolds a typed `geo-ai.config.ts` starter file |
-| `geo-ai generate` | Reads config and writes `llms.txt` + `llms-full.txt` to `./public` (or custom `--out` path) |
-| `geo-ai validate` | Checks that output files are present and valid — works on local files or remote URLs via `--url` |
-| `geo-ai inspect` | Previews config: site info, crawler rules, resource sections with item counts |
-
-CI/CD friendly — exits with code `1` on validation failure.
-
-Docs: [geoai.run/docs/integrations/cli](https://www.geoai.run/docs/integrations/cli) | GitHub: [madeburo/GEO-AI](https://github.com/madeburo/GEO-AI)
+| **GEO AI Shopify** | Shopify | GEO optimization for Shopify stores |
 
 ---
 
@@ -136,7 +100,7 @@ Add AI-specific metadata to any post, page, or product:
 
 ### REST API & WP-CLI
 
-- REST API at `/wp-json/geo-ai-woo/v1/` for programmatic access
+- REST API at `/wp-json/geo-ai-for-woocommerce/v1/` for programmatic access
 - WP-CLI commands: `regenerate`, `status`, `export`, `import`
 
 ### Content Sanitization
@@ -157,9 +121,9 @@ Centralized content cleaning pipeline for all AI-facing output. Automatically st
 ### From GitHub
 
 1. Download the latest release from the repository.
-2. Unzip and upload the folder to your `/wp-content/plugins/geo-ai-woo/` directory.
+2. Unzip and upload the folder to your `/wp-content/plugins/geo-ai-for-woocommerce/` directory.
 3. Activate the plugin in the WordPress admin panel.
-4. Go to **Settings → GEO AI Woo** to configure.
+4. Go to **Settings → GEO AI for WooCommerce** to configure.
 
 ---
 
@@ -174,7 +138,7 @@ After activation, the plugin works out of the box with sensible defaults:
 
 ### Settings Page
 
-Navigate to **Settings → GEO AI Woo** to configure:
+Navigate to **Settings → GEO AI for WooCommerce** to configure:
 
 - **Post Types**: Select which content types to include.
 - **Bot Rules**: Allow or disallow specific AI crawlers.
@@ -183,26 +147,28 @@ Navigate to **Settings → GEO AI Woo** to configure:
 
 ### AI Meta Box
 
-Edit any post, page, or product to find the **GEO AI Woo** meta box to set specific AI contexts or exclude the content entirely.
+Edit any post, page, or product to find the **GEO AI for WooCommerce** meta box to set specific AI contexts or exclude the content entirely.
 
 ---
 
 ## Localization
 
-GEO AI Woo is fully translatable and includes:
+GEO AI for WooCommerce is fully translatable and includes:
 
 | Language            | Locale | Status      |
 | ---------------- | ------ | ----------- |
+| Deutsch          | de_DE  | ✅ Complete |
 | English          | en_US  | ✅ Complete |
-| Русский          | ru_RU  | ✅ Complete |
+| Español          | es_ES  | ✅ Complete |
+| Français         | fr_FR  | ✅ Complete |
+| हिन्दी           | hi_IN  | ✅ Complete |
+| Indonesian       | id_ID  | ✅ Complete |
 | Қазақша          | kk     | ✅ Complete |
+| Português (BR)   | pt_BR  | ✅ Complete |
+| Русский          | ru_RU  | ✅ Complete |
+| Türkçe           | tr_TR  | ✅ Complete |
 | O'zbekcha        | uz_UZ  | ✅ Complete |
 | 简体中文         | zh_CN  | ✅ Complete |
-| Bahasa Indonesia | id_ID  | ✅ Complete |
-| हिन्दी           | hi_IN  | ✅ Complete |
-| Türkçe           | tr_TR  | ✅ Complete |
-| Español          | es_ES  | ✅ Complete |
-| Português (BR)   | pt_BR  | ✅ Complete |
 
 ---
 
@@ -217,8 +183,8 @@ GEO AI Woo is fully translatable and includes:
 ## File Structure
 
 ```text
-geo-ai-woo/
-├── geo-ai-woo.php              # Main plugin file — bootstrap, hooks, activation/deactivation
+geo-ai-for-woocommerce/
+├── geo-ai-for-woocommerce.php  # Main plugin file — bootstrap, hooks, activation/deactivation
 ├── uninstall.php               # Cleanup on plugin deletion
 ├── includes/                   # All PHP classes (one per file)
 │   ├── class-content-sanitizer.php  # Content sanitization pipeline for AI output
@@ -253,14 +219,14 @@ Contributions are welcome! Please feel free to open issues or submit pull reques
 
 ```bash
 # Clone the repository
-git clone https://github.com/madeburo/geo-ai-woo.git
+git clone https://github.com/madeburo/geo-ai-for-woocommerce.git
 ```
 
 ---
 
 ## License
 
-GEO AI Woo is open-source software licensed under the [GPL v2](LICENSE).
+GEO AI for WooCommerce is open-source software licensed under the [GPL v2](LICENSE).
 
 ---
 

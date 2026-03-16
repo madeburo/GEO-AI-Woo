@@ -1,25 +1,25 @@
 /**
- * GEO AI Woo — Admin Styles
+ * GEO AI for WooCommerce — Admin Styles
  *
  * @package GeoAiWoo
  */
 
 /* Meta box */
-.geo-ai-woo-meta-box textarea {
+.geo-ai-for-woocommerce-meta-box textarea {
 	width: 100%;
 }
 
-.geo-ai-woo-meta-box input[type="text"] {
+.geo-ai-for-woocommerce-meta-box input[type="text"] {
 	width: 100%;
 }
 
-.geo-ai-woo-meta-box .description {
+.geo-ai-for-woocommerce-meta-box .description {
 	font-style: italic;
 	color: #666;
 }
 
 /* Settings page — status box */
-.geo-ai-woo-status {
+.geo-ai-for-woocommerce-status {
 	background: #fff;
 	padding: 15px 20px;
 	margin: 20px 0;
@@ -27,12 +27,12 @@
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
 }
 
-.geo-ai-woo-status h3 {
+.geo-ai-for-woocommerce-status h3 {
 	margin-top: 0;
 }
 
 /* File status indicators */
-.geo-ai-woo-file-status {
+.geo-ai-for-woocommerce-file-status {
 	display: inline-block;
 	font-size: 12px;
 	padding: 2px 8px;
@@ -40,12 +40,12 @@
 	margin-left: 10px;
 }
 
-.geo-ai-woo-file-status.active {
+.geo-ai-for-woocommerce-file-status.active {
 	background: #edfaef;
 	color: #1e7e34;
 }
 
-.geo-ai-woo-file-status.inactive {
+.geo-ai-for-woocommerce-file-status.inactive {
 	background: #fff3cd;
 	color: #856404;
 }
@@ -55,7 +55,7 @@
 	padding-left: 12px;
 }
 
-#geo_ai_woo_product_data .geo-ai-woo-preview {
+#geo_ai_woo_product_data .geo-ai-for-woocommerce-preview {
 	background: #f5f5f5;
 	padding: 10px;
 	margin: 12px;
@@ -67,33 +67,33 @@
 }
 
 /* Bot rules table */
-.geo-ai-woo-bot-table {
+.geo-ai-for-woocommerce-bot-table {
 	max-width: 600px;
 }
 
 /* Regenerate button feedback */
-#geo-ai-woo-regenerate-status {
+#geo-ai-for-woocommerce-regenerate-status {
 	margin-left: 10px;
 	font-style: italic;
 	color: #666;
 }
 
-#geo-ai-woo-regenerate-status.success {
+#geo-ai-for-woocommerce-regenerate-status.success {
 	color: #46b450;
 }
 
-#geo-ai-woo-regenerate-status.error {
+#geo-ai-for-woocommerce-regenerate-status.error {
 	color: #dc3232;
 }
 
 /* Live preview section */
-.geo-ai-woo-preview-section {
+.geo-ai-for-woocommerce-preview-section {
 	margin-top: 30px;
 	padding-top: 20px;
 	border-top: 1px solid #ccd0d4;
 }
 
-.geo-ai-woo-preview-box {
+.geo-ai-for-woocommerce-preview-box {
 	background: #f5f5f5;
 	border: 1px solid #ddd;
 	padding: 15px;
@@ -112,125 +112,125 @@
 	width: 140px;
 }
 
-.geo-ai-woo-status-icon {
+.geo-ai-for-woocommerce-status-icon {
 	display: inline-block;
 	font-weight: bold;
 	font-size: 14px;
 }
 
-.geo-ai-woo-status-icon.included {
+.geo-ai-for-woocommerce-status-icon.included {
 	color: #46b450;
 }
 
-.geo-ai-woo-status-icon.excluded {
+.geo-ai-for-woocommerce-status-icon.excluded {
 	color: #dc3232;
 }
 
-.geo-ai-woo-column-desc {
+.geo-ai-for-woocommerce-column-desc {
 	color: #666;
 	font-size: 12px;
 }
 
-.geo-ai-woo-column-label {
+.geo-ai-for-woocommerce-column-label {
 	color: #999;
 	font-style: italic;
 	font-size: 12px;
 }
 
 /* Quick edit fields */
-.geo-ai-woo-quick-edit .title {
+.geo-ai-for-woocommerce-quick-edit .title {
 	font-weight: 600;
 }
 
-.geo-ai-woo-quick-edit textarea {
+.geo-ai-for-woocommerce-quick-edit textarea {
 	width: 100%;
 	font-size: 13px;
 }
 
-.geo-ai-woo-quick-edit input[type="text"] {
+.geo-ai-for-woocommerce-quick-edit input[type="text"] {
 	width: 100%;
 }
 
 /* Admin notices */
-.geo-ai-woo-notice {
+.geo-ai-for-woocommerce-notice {
 	border-left-width: 4px;
 }
 
 /* Dashboard widget */
-.geo-ai-woo-dashboard-stats {
+.geo-ai-for-woocommerce-dashboard-stats {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
 
-.geo-ai-woo-dashboard-stats li {
+.geo-ai-for-woocommerce-dashboard-stats li {
 	display: flex;
 	justify-content: space-between;
 	padding: 6px 0;
 	border-bottom: 1px solid #f0f0f1;
 }
 
-.geo-ai-woo-dashboard-stats li:last-child {
+.geo-ai-for-woocommerce-dashboard-stats li:last-child {
 	border-bottom: none;
 }
 
-.geo-ai-woo-dashboard-stats .label {
+.geo-ai-for-woocommerce-dashboard-stats .label {
 	color: #646970;
 }
 
-.geo-ai-woo-dashboard-stats .value {
+.geo-ai-for-woocommerce-dashboard-stats .value {
 	font-weight: 600;
 }
 
-.geo-ai-woo-dashboard-bots h4 {
+.geo-ai-for-woocommerce-dashboard-bots h4 {
 	margin: 12px 0 6px;
 }
 
-.geo-ai-woo-dashboard-bots table {
+.geo-ai-for-woocommerce-dashboard-bots table {
 	width: 100%;
 	border-collapse: collapse;
 }
 
-.geo-ai-woo-dashboard-bots th,
-.geo-ai-woo-dashboard-bots td {
+.geo-ai-for-woocommerce-dashboard-bots th,
+.geo-ai-for-woocommerce-dashboard-bots td {
 	text-align: left;
 	padding: 4px 8px;
 	font-size: 12px;
 }
 
-.geo-ai-woo-dashboard-bots th {
+.geo-ai-for-woocommerce-dashboard-bots th {
 	font-weight: 600;
 	border-bottom: 1px solid #ddd;
 }
 
-.geo-ai-woo-dashboard-links {
+.geo-ai-for-woocommerce-dashboard-links {
 	margin-top: 12px;
 	padding-top: 8px;
 	border-top: 1px solid #f0f0f1;
 }
 
 /* AI Generate button */
-.geo-ai-woo-generate-btn {
+.geo-ai-for-woocommerce-generate-btn {
 	margin-top: 5px !important;
 }
 
-.geo-ai-woo-generate-status {
+.geo-ai-for-woocommerce-generate-status {
 	margin-left: 8px;
 	font-style: italic;
 	font-size: 12px;
 	color: #666;
 }
 
-.geo-ai-woo-generate-status.success {
+.geo-ai-for-woocommerce-generate-status.success {
 	color: #46b450;
 }
 
-.geo-ai-woo-generate-status.error {
+.geo-ai-for-woocommerce-generate-status.error {
 	color: #dc3232;
 }
 
 /* Bulk generate progress bar */
-.geo-ai-woo-progress-bar {
+.geo-ai-for-woocommerce-progress-bar {
 	height: 20px;
 	background: #f0f0f1;
 	border-radius: 3px;
@@ -238,7 +238,7 @@
 	margin-bottom: 8px;
 }
 
-.geo-ai-woo-progress-fill {
+.geo-ai-for-woocommerce-progress-fill {
 	height: 100%;
 	background: #0073aa;
 	border-radius: 3px;
@@ -246,7 +246,7 @@
 	width: 0;
 }
 
-.geo-ai-woo-progress-text {
+.geo-ai-for-woocommerce-progress-text {
 	font-size: 12px;
 	color: #646970;
 }

@@ -236,7 +236,7 @@ class Geo_Ai_Woo_SEO_Headers {
      */
     private function print_jsonld( $schema ) {
         echo '<script type="application/ld+json">' . "\n";
-        echo wp_json_encode( $schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT );
+        echo wp_json_encode( $schema );
         echo "\n" . '</script>' . "\n";
     }
 }

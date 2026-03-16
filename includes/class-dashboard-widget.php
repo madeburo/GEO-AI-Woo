@@ -48,7 +48,7 @@ class Geo_Ai_Woo_Dashboard_Widget {
 
 		wp_add_dashboard_widget(
 			'geo_ai_woo_dashboard',
-			__( 'GEO AI Woo', 'geo-ai-woo' ),
+			__( 'GEO AI for WooCommerce', 'geo-ai-for-woocommerce' ),
 			array( $this, 'render_widget' )
 		);
 	}
@@ -59,44 +59,44 @@ class Geo_Ai_Woo_Dashboard_Widget {
 	public function render_widget() {
 		$stats = $this->get_stats();
 		?>
-		<div class="geo-ai-woo-dashboard">
-			<ul class="geo-ai-woo-dashboard-stats">
+		<div class="geo-ai-for-woocommerce-dashboard">
+			<ul class="geo-ai-for-woocommerce-dashboard-stats">
 				<li>
-					<span class="label"><?php esc_html_e( 'Indexed', 'geo-ai-woo' ); ?></span>
+					<span class="label"><?php esc_html_e( 'Indexed', 'geo-ai-for-woocommerce' ); ?></span>
 					<span class="value"><?php echo esc_html( $stats['indexed_count'] ); ?></span>
 				</li>
 				<li>
-					<span class="label"><?php esc_html_e( 'Excluded', 'geo-ai-woo' ); ?></span>
+					<span class="label"><?php esc_html_e( 'Excluded', 'geo-ai-for-woocommerce' ); ?></span>
 					<span class="value"><?php echo esc_html( $stats['excluded_count'] ); ?></span>
 				</li>
 				<li>
-					<span class="label"><?php esc_html_e( 'Files', 'geo-ai-woo' ); ?></span>
+					<span class="label"><?php esc_html_e( 'Files', 'geo-ai-for-woocommerce' ); ?></span>
 					<span class="value"><?php echo esc_html( $stats['file_count'] ); ?></span>
 				</li>
 			</ul>
 
-			<table class="widefat geo-ai-woo-dashboard-table">
+			<table class="widefat geo-ai-for-woocommerce-dashboard-table">
 				<tbody>
 					<tr>
-						<td><?php esc_html_e( 'llms.txt Status', 'geo-ai-woo' ); ?></td>
+						<td><?php esc_html_e( 'llms.txt Status', 'geo-ai-for-woocommerce' ); ?></td>
 						<td>
 							<?php if ( $stats['file_exists'] ) : ?>
-								<span class="geo-ai-woo-status-badge active"><?php esc_html_e( 'Active', 'geo-ai-woo' ); ?></span>
+								<span class="geo-ai-for-woocommerce-status-badge active"><?php esc_html_e( 'Active', 'geo-ai-for-woocommerce' ); ?></span>
 								<span class="description">(<?php echo esc_html( size_format( $stats['file_size'] ) ); ?>)</span>
 							<?php else : ?>
-								<span class="geo-ai-woo-status-badge inactive"><?php esc_html_e( 'Not Generated', 'geo-ai-woo' ); ?></span>
+								<span class="geo-ai-for-woocommerce-status-badge inactive"><?php esc_html_e( 'Not Generated', 'geo-ai-for-woocommerce' ); ?></span>
 							<?php endif; ?>
 						</td>
 					</tr>
 					<tr>
-						<td><?php esc_html_e( 'Last Regenerated', 'geo-ai-woo' ); ?></td>
+						<td><?php esc_html_e( 'Last Regenerated', 'geo-ai-for-woocommerce' ); ?></td>
 						<td>
 							<?php
 							if ( $stats['last_regenerated'] ) {
 								/* translators: %s: human-readable time difference */
-								printf( esc_html__( '%s ago', 'geo-ai-woo' ), esc_html( human_time_diff( $stats['last_regenerated'] ) ) );
+								printf( esc_html__( '%s ago', 'geo-ai-for-woocommerce' ), esc_html( human_time_diff( $stats['last_regenerated'] ) ) );
 							} else {
-								esc_html_e( 'Never', 'geo-ai-woo' );
+								esc_html_e( 'Never', 'geo-ai-for-woocommerce' );
 							}
 							?>
 						</td>
@@ -106,12 +106,12 @@ class Geo_Ai_Woo_Dashboard_Widget {
 
 			<?php $this->render_bot_activity(); ?>
 
-			<p class="geo-ai-woo-dashboard-links">
-				<a href="<?php echo esc_url( admin_url( 'options-general.php?page=geo-ai-woo' ) ); ?>" class="button button-small">
-					<?php esc_html_e( 'Settings', 'geo-ai-woo' ); ?>
+			<p class="geo-ai-for-woocommerce-dashboard-links">
+				<a href="<?php echo esc_url( admin_url( 'options-general.php?page=geo-ai-for-woocommerce' ) ); ?>" class="button button-small">
+					<?php esc_html_e( 'Settings', 'geo-ai-for-woocommerce' ); ?>
 				</a>
 				<a href="<?php echo esc_url( home_url( '/llms.txt' ) ); ?>" class="button button-small" target="_blank">
-					<?php esc_html_e( 'View llms.txt', 'geo-ai-woo' ); ?>
+					<?php esc_html_e( 'View llms.txt', 'geo-ai-for-woocommerce' ); ?>
 				</a>
 			</p>
 		</div>
@@ -221,17 +221,17 @@ class Geo_Ai_Woo_Dashboard_Widget {
 		$activity = $tracker->get_recent_activity();
 
 		if ( empty( $activity ) ) {
-			echo '<p class="description">' . esc_html__( 'No AI bot visits recorded yet.', 'geo-ai-woo' ) . '</p>';
-			echo '<p class="description"><em>' . esc_html__( 'Bot tracking works for dynamic serving mode. For static files, check your server access logs.', 'geo-ai-woo' ) . '</em></p>';
+			echo '<p class="description">' . esc_html__( 'No AI bot visits recorded yet.', 'geo-ai-for-woocommerce' ) . '</p>';
+			echo '<p class="description"><em>' . esc_html__( 'Bot tracking works for dynamic serving mode. For static files, check your server access logs.', 'geo-ai-for-woocommerce' ) . '</em></p>';
 			return;
 		}
 
-		echo '<h4>' . esc_html__( 'Recent Bot Activity', 'geo-ai-woo' ) . '</h4>';
-		echo '<table class="widefat geo-ai-woo-dashboard-table">';
+		echo '<h4>' . esc_html__( 'Recent Bot Activity', 'geo-ai-for-woocommerce' ) . '</h4>';
+		echo '<table class="widefat geo-ai-for-woocommerce-dashboard-table">';
 		echo '<thead><tr>';
-		echo '<th>' . esc_html__( 'Bot', 'geo-ai-woo' ) . '</th>';
-		echo '<th>' . esc_html__( 'Visits (30d)', 'geo-ai-woo' ) . '</th>';
-		echo '<th>' . esc_html__( 'Last Visit', 'geo-ai-woo' ) . '</th>';
+		echo '<th>' . esc_html__( 'Bot', 'geo-ai-for-woocommerce' ) . '</th>';
+		echo '<th>' . esc_html__( 'Visits (30d)', 'geo-ai-for-woocommerce' ) . '</th>';
+		echo '<th>' . esc_html__( 'Last Visit', 'geo-ai-for-woocommerce' ) . '</th>';
 		echo '</tr></thead><tbody>';
 
 		foreach ( $activity as $row ) {
@@ -240,7 +240,7 @@ class Geo_Ai_Woo_Dashboard_Widget {
 			echo '<td>' . esc_html( $row->visit_count ) . '</td>';
 			echo '<td>';
 			/* translators: %s: human-readable time difference */
-			printf( esc_html__( '%s ago', 'geo-ai-woo' ), esc_html( human_time_diff( strtotime( $row->last_visit ) ) ) );
+			printf( esc_html__( '%s ago', 'geo-ai-for-woocommerce' ), esc_html( human_time_diff( strtotime( $row->last_visit ) ) ) );
 			echo '</td>';
 			echo '</tr>';
 		}

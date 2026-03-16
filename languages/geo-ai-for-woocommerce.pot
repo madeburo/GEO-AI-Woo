@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GEO AI Woo 0.4.0\n"
-"Report-Msgid-Bugs-To: https://github.com/madeburo/geo-ai-woo/issues\n"
+"Report-Msgid-Bugs-To: https://www.geoai.run\n"
 "POT-Creation-Date: 2026-03-02 12:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
@@ -14,9 +14,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: WP-CLI\n"
-"X-Domain: geo-ai-woo\n"
+"X-Domain: geo-ai-for-woocommerce\n"
 
-#: geo-ai-woo.php
+#: geo-ai-for-woocommerce.php
 msgid "Settings"
 msgstr ""
 
@@ -432,19 +432,19 @@ msgid "GEO AI Woo: Your permalink structure is set to \"Plain\". While the plugi
 msgstr ""
 
 #. v0.3.0 — Main plugin file
-#: geo-ai-woo.php
+#: geo-ai-for-woocommerce.php
 msgid "Generating..."
 msgstr ""
 
-#: geo-ai-woo.php
+#: geo-ai-for-woocommerce.php
 msgid "Generated!"
 msgstr ""
 
-#: geo-ai-woo.php
+#: geo-ai-for-woocommerce.php
 msgid "Processing..."
 msgstr ""
 
-#: geo-ai-woo.php
+#: geo-ai-for-woocommerce.php
 msgid "Complete!"
 msgstr ""
 

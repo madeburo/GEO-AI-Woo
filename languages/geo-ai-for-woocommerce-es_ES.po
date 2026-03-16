@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GEO AI Woo 0.4.0\n"
-"Report-Msgid-Bugs-To: https://github.com/madeburo/geo-ai-woo/issues\n"
+"Report-Msgid-Bugs-To: https://www.geoai.run\n"
 "POT-Creation-Date: 2026-03-02 12:00+0000\n"
 "PO-Revision-Date: 2026-03-03 12:00+0000\n"
 "Last-Translator: \n"
@@ -15,9 +15,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: WP-CLI\n"
-"X-Domain: geo-ai-woo\n"
+"X-Domain: geo-ai-for-woocommerce\n"
 
-#: geo-ai-woo.php
+#: geo-ai-for-woocommerce.php
 msgid "Settings"
 msgstr "Ajustes"
 
@@ -533,19 +533,19 @@ msgstr "GEO AI Woo: Tu archivo llms.txt no se ha actualizado en %d días. Consid
 msgid "GEO AI Woo: Your permalink structure is set to \"Plain\". While the plugin uses static files, we recommend using pretty permalinks for best SEO results. <a href=\"%s\">Change permalink settings</a>"
 msgstr "GEO AI Woo: Tu estructura de enlaces permanentes está configurada como \"Simple\". Aunque el plugin usa archivos estáticos, recomendamos usar enlaces permanentes bonitos para mejores resultados SEO. <a href=\"%s\">Cambiar ajustes de enlaces permanentes</a>"
 
-#: geo-ai-woo.php
+#: geo-ai-for-woocommerce.php
 msgid "Generating..."
 msgstr "Generando..."
 
-#: geo-ai-woo.php
+#: geo-ai-for-woocommerce.php
 msgid "Generated!"
 msgstr "¡Generado!"
 
-#: geo-ai-woo.php
+#: geo-ai-for-woocommerce.php
 msgid "Processing..."
 msgstr "Procesando..."
 
-#: geo-ai-woo.php
+#: geo-ai-for-woocommerce.php
 msgid "Complete!"
 msgstr "¡Completado!"
 

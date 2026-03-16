@@ -1,5 +1,5 @@
 /**
- * GEO AI Woo — Admin JavaScript
+ * GEO AI for WooCommerce — Admin JavaScript
  *
  * @package GeoAiWoo
  */
@@ -8,9 +8,9 @@
 	'use strict';
 
 	// Regenerate llms.txt button
-	$('#geo-ai-woo-regenerate').on('click', function () {
+	$('#geo-ai-for-woocommerce-regenerate').on('click', function () {
 		var $btn = $(this);
-		var $status = $('#geo-ai-woo-regenerate-status');
+		var $status = $('#geo-ai-for-woocommerce-regenerate-status');
 
 		$btn.prop('disabled', true);
 		$status
@@ -43,7 +43,7 @@
 	});
 
 	// Live preview — load button
-	$('#geo-ai-woo-load-preview').on('click', function () {
+	$('#geo-ai-for-woocommerce-load-preview').on('click', function () {
 		loadPreview();
 	});
 
@@ -51,8 +51,8 @@
 	 * Load llms.txt preview via AJAX
 	 */
 	function loadPreview() {
-		var $preview = $('#geo-ai-woo-preview-content');
-		var $btn = $('#geo-ai-woo-load-preview');
+		var $preview = $('#geo-ai-for-woocommerce-preview-content');
+		var $btn = $('#geo-ai-for-woocommerce-load-preview');
 
 		if (!$preview.length) {
 			return;
@@ -87,10 +87,10 @@
 		var maxLength = 200;
 		var currentLength = $textarea.val().length;
 
-		var $counter = $textarea.next('.geo-ai-woo-char-count');
+		var $counter = $textarea.next('.geo-ai-for-woocommerce-char-count');
 		if (!$counter.length) {
 			$counter = $(
-				'<span class="description geo-ai-woo-char-count"></span>'
+				'<span class="description geo-ai-for-woocommerce-char-count"></span>'
 			);
 			$textarea.after($counter);
 		}
@@ -105,8 +105,8 @@
 	});
 
 	// Dismiss admin notices
-	$(document).on('click', '.geo-ai-woo-notice .notice-dismiss', function () {
-		var $notice = $(this).closest('.geo-ai-woo-notice');
+	$(document).on('click', '.geo-ai-for-woocommerce-notice .notice-dismiss', function () {
+		var $notice = $(this).closest('.geo-ai-for-woocommerce-notice');
 		var noticeId = $notice.data('notice-id');
 
 		if (noticeId) {
@@ -119,9 +119,9 @@
 	});
 
 	// AI Generate button (single post — meta box & WC panel)
-	$(document).on('click', '.geo-ai-woo-generate-btn', function () {
+	$(document).on('click', '.geo-ai-for-woocommerce-generate-btn', function () {
 		var $btn = $(this);
-		var $status = $btn.siblings('.geo-ai-woo-generate-status');
+		var $status = $btn.siblings('.geo-ai-for-woocommerce-generate-status');
 		var postId = $btn.data('post-id');
 
 		$btn.prop('disabled', true);
@@ -162,11 +162,11 @@
 	});
 
 	// Bulk AI Generate button (settings page)
-	$('#geo-ai-woo-bulk-generate').on('click', function () {
+	$('#geo-ai-for-woocommerce-bulk-generate').on('click', function () {
 		var $btn = $(this);
-		var $progress = $('#geo-ai-woo-bulk-progress');
-		var $fill = $progress.find('.geo-ai-woo-progress-fill');
-		var $text = $progress.find('.geo-ai-woo-progress-text');
+		var $progress = $('#geo-ai-for-woocommerce-bulk-progress');
+		var $fill = $progress.find('.geo-ai-for-woocommerce-progress-fill');
+		var $text = $progress.find('.geo-ai-for-woocommerce-progress-text');
 
 		$btn.prop('disabled', true);
 		$progress.show();
@@ -202,9 +202,9 @@
 	 * Update bulk progress and continue if needed
 	 */
 	function updateBulkProgress(data) {
-		var $btn = $('#geo-ai-woo-bulk-generate');
-		var $fill = $('#geo-ai-woo-bulk-progress .geo-ai-woo-progress-fill');
-		var $text = $('#geo-ai-woo-bulk-progress .geo-ai-woo-progress-text');
+		var $btn = $('#geo-ai-for-woocommerce-bulk-generate');
+		var $fill = $('#geo-ai-for-woocommerce-bulk-progress .geo-ai-for-woocommerce-progress-fill');
+		var $text = $('#geo-ai-for-woocommerce-bulk-progress .geo-ai-for-woocommerce-progress-text');
 
 		var percent = data.total > 0 ? (data.processed / data.total) * 100 : 100;
 		$fill.css('width', percent + '%');

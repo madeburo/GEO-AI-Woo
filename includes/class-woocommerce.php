@@ -55,7 +55,7 @@ class Geo_Ai_Woo_WooCommerce {
      */
     public function add_product_data_tab( $tabs ) {
         $tabs['geo_ai_woo'] = array(
-            'label'    => __( 'GEO AI', 'geo-ai-woo' ),
+            'label'    => __( 'GEO AI', 'geo-ai-for-woocommerce' ),
             'target'   => 'geo_ai_woo_product_data',
             'class'    => array(),
             'priority' => 80,
@@ -78,34 +78,34 @@ class Geo_Ai_Woo_WooCommerce {
             <?php wp_nonce_field( 'geo_ai_woo_product_data', 'geo_ai_woo_product_data_nonce' ); ?>
             <div class="options_group">
                 <h4 style="padding-left: 12px;">
-                    <?php esc_html_e( 'AI Optimization Settings', 'geo-ai-woo' ); ?>
+                    <?php esc_html_e( 'AI Optimization Settings', 'geo-ai-for-woocommerce' ); ?>
                 </h4>
 
                 <?php
                 // Auto-generate description checkbox
                 woocommerce_wp_checkbox( array(
                     'id'          => '_geo_ai_woo_auto_description',
-                    'label'       => __( 'Auto-generate AI Description', 'geo-ai-woo' ),
-                    'description' => __( 'Generate description from product data', 'geo-ai-woo' ),
+                    'label'       => __( 'Auto-generate AI Description', 'geo-ai-for-woocommerce' ),
+                    'description' => __( 'Generate description from product data', 'geo-ai-for-woocommerce' ),
                     'value'       => '' !== $auto_desc ? $auto_desc : 'yes',
                 ) );
 
                 // AI Description
                 woocommerce_wp_textarea_input( array(
                     'id'          => '_geo_ai_woo_description',
-                    'label'       => __( 'AI Description', 'geo-ai-woo' ),
-                    'placeholder' => __( 'Custom description for AI systems...', 'geo-ai-woo' ),
-                    'description' => __( 'Leave empty to auto-generate from product data.', 'geo-ai-woo' ),
+                    'label'       => __( 'AI Description', 'geo-ai-for-woocommerce' ),
+                    'placeholder' => __( 'Custom description for AI systems...', 'geo-ai-for-woocommerce' ),
+                    'description' => __( 'Leave empty to auto-generate from product data.', 'geo-ai-for-woocommerce' ),
                     'value'       => $description,
                 ) );
 
                 if ( class_exists( 'Geo_Ai_Woo_AI_Generator' ) && Geo_Ai_Woo_AI_Generator::instance()->is_configured() ) :
                 ?>
                 <p class="form-field" style="padding-left: 12px;">
-                    <button type="button" class="button button-small geo-ai-woo-generate-btn" data-post-id="<?php echo esc_attr( $post->ID ); ?>">
-                        <?php esc_html_e( 'Generate with AI', 'geo-ai-woo' ); ?>
+                    <button type="button" class="button button-small geo-ai-for-woocommerce-generate-btn" data-post-id="<?php echo esc_attr( $post->ID ); ?>">
+                        <?php esc_html_e( 'Generate with AI', 'geo-ai-for-woocommerce' ); ?>
                     </button>
-                    <span class="geo-ai-woo-generate-status"></span>
+                    <span class="geo-ai-for-woocommerce-generate-status"></span>
                 </p>
                 <?php
                 endif;
@@ -113,17 +113,17 @@ class Geo_Ai_Woo_WooCommerce {
                 // AI Keywords
                 woocommerce_wp_text_input( array(
                     'id'          => '_geo_ai_woo_keywords',
-                    'label'       => __( 'AI Keywords', 'geo-ai-woo' ),
-                    'placeholder' => __( 'keyword1, keyword2, keyword3', 'geo-ai-woo' ),
-                    'description' => __( 'Comma-separated keywords for AI context.', 'geo-ai-woo' ),
+                    'label'       => __( 'AI Keywords', 'geo-ai-for-woocommerce' ),
+                    'placeholder' => __( 'keyword1, keyword2, keyword3', 'geo-ai-for-woocommerce' ),
+                    'description' => __( 'Comma-separated keywords for AI context.', 'geo-ai-for-woocommerce' ),
                     'value'       => $keywords,
                 ) );
 
                 // Exclude checkbox — stored as '1'/'0', WC checkbox expects 'yes'/''
                 woocommerce_wp_checkbox( array(
                     'id'          => '_geo_ai_woo_exclude',
-                    'label'       => __( 'Exclude from AI', 'geo-ai-woo' ),
-                    'description' => __( 'Do not include this product in llms.txt', 'geo-ai-woo' ),
+                    'label'       => __( 'Exclude from AI', 'geo-ai-for-woocommerce' ),
+                    'description' => __( 'Do not include this product in llms.txt', 'geo-ai-for-woocommerce' ),
                     'value'       => '1' === $exclude ? 'yes' : '',
                 ) );
                 ?>
@@ -131,12 +131,12 @@ class Geo_Ai_Woo_WooCommerce {
 
             <div class="options_group">
                 <h4 style="padding-left: 12px;">
-                    <?php esc_html_e( 'Preview', 'geo-ai-woo' ); ?>
+                    <?php esc_html_e( 'Preview', 'geo-ai-for-woocommerce' ); ?>
                 </h4>
                 <p style="padding: 0 12px;">
-                    <em><?php esc_html_e( 'This is how your product will appear in llms.txt:', 'geo-ai-woo' ); ?></em>
+                    <em><?php esc_html_e( 'This is how your product will appear in llms.txt:', 'geo-ai-for-woocommerce' ); ?></em>
                 </p>
-                <pre class="geo-ai-woo-preview"><?php echo esc_html( $this->get_product_preview( $post->ID ) ); ?></pre>
+                <pre class="geo-ai-for-woocommerce-preview"><?php echo esc_html( $this->get_product_preview( $post->ID ) ); ?></pre>
             </div>
         </div>
         <?php
@@ -273,13 +273,13 @@ class Geo_Ai_Woo_WooCommerce {
                 if ( $min_price === $max_price ) {
                     $parts[] = sprintf(
                         /* translators: %s: product price */
-                        __( 'Price: %s', 'geo-ai-woo' ),
+                        __( 'Price: %s', 'geo-ai-for-woocommerce' ),
                         wp_strip_all_tags( wc_price( $min_price ) )
                     );
                 } else {
                     $parts[] = sprintf(
                         /* translators: %1$s: min price, %2$s: max price */
-                        __( 'Price: %1$s – %2$s', 'geo-ai-woo' ),
+                        __( 'Price: %1$s – %2$s', 'geo-ai-for-woocommerce' ),
                         wp_strip_all_tags( wc_price( $min_price ) ),
                         wp_strip_all_tags( wc_price( $max_price ) )
                     );
@@ -289,23 +289,23 @@ class Geo_Ai_Woo_WooCommerce {
             // Sale price display
             $parts[] = sprintf(
                 /* translators: %1$s: sale price, %2$s: regular price */
-                __( 'Price: %1$s (was %2$s)', 'geo-ai-woo' ),
+                __( 'Price: %1$s (was %2$s)', 'geo-ai-for-woocommerce' ),
                 wp_strip_all_tags( wc_price( $product->get_sale_price() ) ),
                 wp_strip_all_tags( wc_price( $product->get_regular_price() ) )
             );
         } elseif ( $product->get_price() ) {
             $parts[] = sprintf(
                 /* translators: %s: product price */
-                __( 'Price: %s', 'geo-ai-woo' ),
+                __( 'Price: %s', 'geo-ai-for-woocommerce' ),
                 wp_strip_all_tags( wc_price( $product->get_price() ) )
             );
         }
 
         // Stock status
         if ( $product->is_in_stock() ) {
-            $parts[] = __( 'In Stock', 'geo-ai-woo' );
+            $parts[] = __( 'In Stock', 'geo-ai-for-woocommerce' );
         } else {
-            $parts[] = __( 'Out of Stock', 'geo-ai-woo' );
+            $parts[] = __( 'Out of Stock', 'geo-ai-for-woocommerce' );
         }
 
         // Reviews and rating
@@ -314,7 +314,7 @@ class Geo_Ai_Woo_WooCommerce {
             $avg_rating = $product->get_average_rating();
             $parts[] = sprintf(
                 /* translators: %1$s: average rating, %2$d: review count */
-                __( 'Rating: %1$s/5 (%2$d reviews)', 'geo-ai-woo' ),
+                __( 'Rating: %1$s/5 (%2$d reviews)', 'geo-ai-for-woocommerce' ),
                 number_format( (float) $avg_rating, 1 ),
                 $review_count
             );
@@ -336,7 +336,7 @@ class Geo_Ai_Woo_WooCommerce {
                         }
                         $parts[] = sprintf(
                             /* translators: %1$s: attribute label, %2$s: attribute values */
-                            __( '%1$s: %2$s', 'geo-ai-woo' ),
+                            __( '%1$s: %2$s', 'geo-ai-for-woocommerce' ),
                             $attr_label,
                             implode( ', ', $decoded_values )
                         );
@@ -369,7 +369,7 @@ class Geo_Ai_Woo_WooCommerce {
     private function get_product_preview( $product_id ) {
         $product = wc_get_product( $product_id );
         if ( ! $product ) {
-            return __( 'Product not found', 'geo-ai-woo' );
+            return __( 'Product not found', 'geo-ai-for-woocommerce' );
         }
 
         $title = $product->get_name();
