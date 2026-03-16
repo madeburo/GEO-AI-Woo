@@ -70,7 +70,7 @@ class Geo_Ai_Woo_Admin_Notices {
         ?>
         <div class="notice notice-success is-dismissible geo-ai-for-woocommerce-notice">
             <p>
-                <strong><?php esc_html_e( 'GEO AI for WooCommerce activated!', 'geo-ai-for-woocommerce' ); ?></strong>
+                <strong><?php esc_html_e( 'GEO AI Search Optimization activated!', 'geo-ai-for-woocommerce' ); ?></strong>
                 <?php
                 printf(
                     wp_kses(
@@ -98,7 +98,7 @@ class Geo_Ai_Woo_Admin_Notices {
         $matches     = array();
 
         foreach ( $all_plugins as $plugin_file => $plugin_data ) {
-            if ( 'GEO AI for WooCommerce' === $plugin_data['Name'] || 'geo-ai-for-woocommerce' === $plugin_data['TextDomain'] ) {
+            if ( 'GEO AI Search Optimization' === $plugin_data['Name'] || 'geo-ai-for-woocommerce' === $plugin_data['TextDomain'] ) {
                 $matches[] = $plugin_file;
             }
         }
@@ -110,7 +110,7 @@ class Geo_Ai_Woo_Admin_Notices {
         ?>
         <div class="notice notice-error">
             <p>
-                <strong><?php esc_html_e( 'GEO AI for WooCommerce: Multiple copies detected!', 'geo-ai-for-woocommerce' ); ?></strong>
+                <strong><?php esc_html_e( 'GEO AI Search Optimization: Multiple copies detected!', 'geo-ai-for-woocommerce' ); ?></strong>
                 <?php esc_html_e( 'Please delete all copies of the plugin and install only one. Having multiple copies causes fatal errors.', 'geo-ai-for-woocommerce' ); ?>
             </p>
         </div>
@@ -140,7 +140,7 @@ class Geo_Ai_Woo_Admin_Notices {
                 'file_health',
                 sprintf(
                     /* translators: %s: file name */
-                    __( 'GEO AI for WooCommerce: The %s file has not been generated yet. Click "Regenerate Now" in Settings to create it.', 'geo-ai-for-woocommerce' ),
+                    __( 'GEO AI Search Optimization: The %s file has not been generated yet. Click "Regenerate Now" in Settings to create it.', 'geo-ai-for-woocommerce' ),
                     '<code>llms.txt</code>'
                 ),
                 'warning'
@@ -155,7 +155,7 @@ class Geo_Ai_Woo_Admin_Notices {
                 'file_health',
                 sprintf(
                     /* translators: %d: number of days */
-                    __( 'GEO AI for WooCommerce: Your llms.txt file hasn\'t been updated in %d days. Consider regenerating it from Settings.', 'geo-ai-for-woocommerce' ),
+                    __( 'GEO AI Search Optimization: Your llms.txt file hasn\'t been updated in %d days. Consider regenerating it from Settings.', 'geo-ai-for-woocommerce' ),
                     (int) ( $file_age / DAY_IN_SECONDS )
                 ),
                 'info'
@@ -186,7 +186,7 @@ class Geo_Ai_Woo_Admin_Notices {
                 sprintf(
                     wp_kses(
                         /* translators: %s: Permalink settings URL */
-                        __( 'GEO AI for WooCommerce: Your permalink structure is set to "Plain". While the plugin uses static files, we recommend using pretty permalinks for best SEO results. <a href="%s">Change permalink settings</a>', 'geo-ai-for-woocommerce' ),
+                        __( 'GEO AI Search Optimization: Your permalink structure is set to "Plain". While the plugin uses static files, we recommend using pretty permalinks for best SEO results. <a href="%s">Change permalink settings</a>', 'geo-ai-for-woocommerce' ),
                         array( 'a' => array( 'href' => array() ) )
                     ),
                     esc_url( admin_url( 'options-permalink.php' ) )

@@ -145,7 +145,7 @@ class Geo_Ai_Woo_Bulk_Edit {
         ?>
         <fieldset class="inline-edit-col-right geo-ai-for-woocommerce-quick-edit">
             <div class="inline-edit-col">
-                <span class="title"><?php esc_html_e( 'GEO AI for WooCommerce', 'geo-ai-for-woocommerce' ); ?></span>
+                <span class="title"><?php esc_html_e( 'GEO AI Search Optimization', 'geo-ai-for-woocommerce' ); ?></span>
 
                 <label class="inline-edit-group">
                     <span class="title"><?php esc_html_e( 'AI Description', 'geo-ai-for-woocommerce' ); ?></span>

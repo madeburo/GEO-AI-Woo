@@ -1,5 +1,5 @@
 /**
- * GEO AI for WooCommerce — Admin JavaScript
+ * GEO AI Search Optimization — Admin JavaScript
  *
  * @package GeoAiWoo
  */

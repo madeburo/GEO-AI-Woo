@@ -51,8 +51,8 @@ class Geo_Ai_Woo_Settings {
      */
     public function add_menu_page() {
         add_options_page(
-            __( 'GEO AI for WooCommerce Settings', 'geo-ai-for-woocommerce' ),
-            __( 'GEO AI for WooCommerce', 'geo-ai-for-woocommerce' ),
+            __( 'GEO AI Search Optimization Settings', 'geo-ai-for-woocommerce' ),
+            __( 'GEO AI Search Optimization', 'geo-ai-for-woocommerce' ),
             'manage_options',
             'geo-ai-for-woocommerce',
             array( $this, 'render_settings_page' )

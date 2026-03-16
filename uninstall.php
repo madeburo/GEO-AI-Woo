@@ -1,6 +1,6 @@
 <?php
 /**
- * Uninstall GEO AI for WooCommerce
+ * Uninstall GEO AI Search Optimization
  *
  * Fired when the plugin is uninstalled.
  *

@@ -1,11 +1,25 @@
 # Changelog
 
-All notable changes to GEO AI for WooCommerce will be documented in this file.
+All notable changes to GEO AI Search Optimization will be documented in this file.
+
+## [0.7.0] - 2026-03-16
+
+### Changed — Plugin Rename
+- Plugin display name changed from "GEO AI for WooCommerce" to "GEO AI Search Optimization" across all user-facing surfaces
+- Updated Plugin Name header, settings page title, menu label, meta box title, dashboard widget title, admin notices, CLI status output, Quick Edit section title
+- Slug, text domain, CSS classes, option keys, meta keys, REST namespace, and WP-CLI command remain unchanged for backward compatibility
+
+### Fixed — UTF-8 / Cyrillic Encoding
+- `decode_text()` now detects and repairs mojibake from double UTF-8 encoding (latin1 DB connection → UTF-8 → UTF-8) via `mb_convert_encoding` from Windows-1252
+- `write_file()` validates UTF-8 integrity via `mb_check_encoding` before writing static files
+- Excerpt descriptions (`wp_trim_words` output) now passed through `decode_text()` to prevent HTML entities in plain text
+- Full content in llms-full.txt now passed through `decode_text()` after `wp_trim_words`
+- Taxonomy term descriptions now passed through `decode_text()` after `wp_trim_words`
 
 ## [0.6.0] - 2026-03-16
 
 ### Changed — Plugin Rename (WordPress Plugin Review)
-- Plugin renamed from "GEO AI Woo" to "GEO AI for WooCommerce"
+- Plugin renamed from "GEO AI Woo" to "GEO AI Search Optimization"
 - Slug changed from `geo-ai-woo` to `geo-ai-for-woocommerce`
 - Text domain changed from `geo-ai-woo` to `geo-ai-for-woocommerce`
 - Main plugin file renamed from `geo-ai-woo.php` to `geo-ai-for-woocommerce.php`
@@ -270,7 +284,7 @@ All notable changes to GEO AI for WooCommerce will be documented in this file.
 - Auto-generate product descriptions from product data
 - Enhanced product schema for AI readability
 - Configurable cache with 4 frequency options
-- Settings page under Settings > GEO AI for WooCommerce
+- Settings page under Settings > GEO AI Search Optimization
 - Plugin action link for quick access to settings
 - Multilingual support with 7 languages (EN, RU, KK, UZ, ZH, ID, HI)
 - Uninstall cleanup for options, transients, and post meta

@@ -8,7 +8,7 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * GEO AI for WooCommerce CLI commands for managing llms.txt files.
+ * GEO AI Search Optimization CLI commands for managing llms.txt files.
  *
  * ## EXAMPLES
  *
@@ -95,7 +95,7 @@ class Geo_Ai_Woo_CLI extends WP_CLI_Command {
 
 		// Plugin info
 		WP_CLI::log( '' );
-		WP_CLI::log( WP_CLI::colorize( '%BGEO AI for WooCommerce v' . GEO_AI_WOO_VERSION . '%n' ) );
+		WP_CLI::log( WP_CLI::colorize( '%BGEO AI Search Optimization v' . GEO_AI_WOO_VERSION . '%n' ) );
 		WP_CLI::log( '' );
 
 		// File status
