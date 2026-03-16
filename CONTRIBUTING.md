@@ -6,7 +6,7 @@ Thanks for your interest in contributing! GEO AI for WooCommerce is an open-sour
 
 ```bash
 # Clone the repository
-git clone https://github.com/madeburo/geo-ai-for-woocommerce.git
+git clone https://github.com/madeburo/GEO-AI-Woo.git
 
 # Symlink or copy into your local WordPress installation
 ln -s /path/to/geo-ai-for-woocommerce /path/to/wordpress/wp-content/plugins/geo-ai-for-woocommerce
@@ -58,7 +58,7 @@ This project follows [WordPress Coding Standards](https://developer.wordpress.or
 
 ### Bug Reports
 
-Open an [issue](https://github.com/madeburo/geo-ai-for-woocommerce/issues) with:
+Open an [issue](https://github.com/madeburo/GEO-AI-Woo/issues) with:
 
 - WordPress and PHP version
 - WooCommerce version (if applicable)

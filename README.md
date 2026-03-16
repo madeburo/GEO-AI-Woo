@@ -219,7 +219,7 @@ Contributions are welcome! Please feel free to open issues or submit pull reques
 
 ```bash
 # Clone the repository
-git clone https://github.com/madeburo/geo-ai-for-woocommerce.git
+git clone https://github.com/madeburo/GEO-AI-Woo.git
 ```
 
 ---
