@@ -48,6 +48,7 @@ class Geo_Ai_Woo_Admin_Notices {
         }
 
         $this->activation_notice();
+        $this->duplicate_plugin_notice();
         $this->file_health_notice();
         $this->permalink_notice();
     }
@@ -65,16 +66,16 @@ class Geo_Ai_Woo_Admin_Notices {
         // Delete transient so it only shows once
         delete_transient( 'geo_ai_woo_activation_notice' );
 
-        $settings_url = admin_url( 'options-general.php?page=geo-ai-woo' );
+        $settings_url = admin_url( 'options-general.php?page=geo-ai-for-woocommerce' );
         ?>
-        <div class="notice notice-success is-dismissible geo-ai-woo-notice">
+        <div class="notice notice-success is-dismissible geo-ai-for-woocommerce-notice">
             <p>
-                <strong><?php esc_html_e( 'GEO AI Woo activated!', 'geo-ai-woo' ); ?></strong>
+                <strong><?php esc_html_e( 'GEO AI for WooCommerce activated!', 'geo-ai-for-woocommerce' ); ?></strong>
                 <?php
                 printf(
                     wp_kses(
                         /* translators: %s: settings page URL */
-                        __( 'Visit <a href="%s">Settings</a> to configure AI optimization for your site.', 'geo-ai-woo' ),
+                        __( 'Visit <a href="%s">Settings</a> to configure AI optimization for your site.', 'geo-ai-for-woocommerce' ),
                         array( 'a' => array( 'href' => array() ) )
                     ),
                     esc_url( $settings_url )
@@ -86,12 +87,43 @@ class Geo_Ai_Woo_Admin_Notices {
     }
 
     /**
+     * Show notice if multiple copies of the plugin are detected
+     */
+    private function duplicate_plugin_notice() {
+        if ( ! function_exists( 'get_plugins' ) ) {
+            require_once ABSPATH . 'wp-admin/includes/plugin.php';
+        }
+
+        $all_plugins = get_plugins();
+        $matches     = array();
+
+        foreach ( $all_plugins as $plugin_file => $plugin_data ) {
+            if ( 'GEO AI for WooCommerce' === $plugin_data['Name'] || 'geo-ai-for-woocommerce' === $plugin_data['TextDomain'] ) {
+                $matches[] = $plugin_file;
+            }
+        }
+
+        if ( count( $matches ) <= 1 ) {
+            return;
+        }
+
+        ?>
+        <div class="notice notice-error">
+            <p>
+                <strong><?php esc_html_e( 'GEO AI for WooCommerce: Multiple copies detected!', 'geo-ai-for-woocommerce' ); ?></strong>
+                <?php esc_html_e( 'Please delete all copies of the plugin and install only one. Having multiple copies causes fatal errors.', 'geo-ai-for-woocommerce' ); ?>
+            </p>
+        </div>
+        <?php
+    }
+
+    /**
      * Show notice if llms.txt files are missing or outdated
      */
     private function file_health_notice() {
         // Only show on plugin settings page or dashboard
         $screen = get_current_screen();
-        if ( ! $screen || ! in_array( $screen->id, array( 'dashboard', 'settings_page_geo-ai-woo' ), true ) ) {
+        if ( ! $screen || ! in_array( $screen->id, array( 'dashboard', 'settings_page_geo-ai-for-woocommerce' ), true ) ) {
             return;
         }
 
@@ -108,7 +140,7 @@ class Geo_Ai_Woo_Admin_Notices {
                 'file_health',
                 sprintf(
                     /* translators: %s: file name */
-                    __( 'GEO AI Woo: The %s file has not been generated yet. Click "Regenerate Now" in Settings to create it.', 'geo-ai-woo' ),
+                    __( 'GEO AI for WooCommerce: The %s file has not been generated yet. Click "Regenerate Now" in Settings to create it.', 'geo-ai-for-woocommerce' ),
                     '<code>llms.txt</code>'
                 ),
                 'warning'
@@ -123,7 +155,7 @@ class Geo_Ai_Woo_Admin_Notices {
                 'file_health',
                 sprintf(
                     /* translators: %d: number of days */
-                    __( 'GEO AI Woo: Your llms.txt file hasn\'t been updated in %d days. Consider regenerating it from Settings.', 'geo-ai-woo' ),
+                    __( 'GEO AI for WooCommerce: Your llms.txt file hasn\'t been updated in %d days. Consider regenerating it from Settings.', 'geo-ai-for-woocommerce' ),
                     (int) ( $file_age / DAY_IN_SECONDS )
                 ),
                 'info'
@@ -137,7 +169,7 @@ class Geo_Ai_Woo_Admin_Notices {
     private function permalink_notice() {
         // Only on settings page
         $screen = get_current_screen();
-        if ( ! $screen || 'settings_page_geo-ai-woo' !== $screen->id ) {
+        if ( ! $screen || 'settings_page_geo-ai-for-woocommerce' !== $screen->id ) {
             return;
         }
 
@@ -154,7 +186,7 @@ class Geo_Ai_Woo_Admin_Notices {
                 sprintf(
                     wp_kses(
                         /* translators: %s: Permalink settings URL */
-                        __( 'GEO AI Woo: Your permalink structure is set to "Plain". While the plugin uses static files, we recommend using pretty permalinks for best SEO results. <a href="%s">Change permalink settings</a>', 'geo-ai-woo' ),
+                        __( 'GEO AI for WooCommerce: Your permalink structure is set to "Plain". While the plugin uses static files, we recommend using pretty permalinks for best SEO results. <a href="%s">Change permalink settings</a>', 'geo-ai-for-woocommerce' ),
                         array( 'a' => array( 'href' => array() ) )
                     ),
                     esc_url( admin_url( 'options-permalink.php' ) )
@@ -173,7 +205,7 @@ class Geo_Ai_Woo_Admin_Notices {
      */
     private function render_dismissible_notice( $notice_id, $message, $type = 'info' ) {
         ?>
-        <div class="notice notice-<?php echo esc_attr( $type ); ?> is-dismissible geo-ai-woo-notice" data-notice-id="<?php echo esc_attr( $notice_id ); ?>">
+        <div class="notice notice-<?php echo esc_attr( $type ); ?> is-dismissible geo-ai-for-woocommerce-notice" data-notice-id="<?php echo esc_attr( $notice_id ); ?>">
             <p><?php echo wp_kses_post( $message ); ?></p>
         </div>
         <?php

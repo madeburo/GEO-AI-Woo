@@ -1,18 +1,18 @@
-=== GEO AI Woo ===
+=== GEO AI for WooCommerce ===
 Contributors: madeburo
 Tags: ai seo, llms.txt, chatgpt, woocommerce, ai search
 Requires at least: 6.2
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 0.5.5
+Stable tag: 0.6.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-AI Search Optimization for WordPress & WooCommerce. Generate llms.txt and metadata for ChatGPT, Claude, Gemini, Grok and more.
+AI Search Optimization for WooCommerce – optimize your site for ChatGPT, Claude, Gemini, Perplexity, Grok, DeepSeek and more.
 
 == Description ==
 
-GEO AI Woo generates `/llms.txt` and `/llms-full.txt` files that help AI search engines understand your content. It supports ChatGPT, Claude, Gemini, Perplexity, YandexGPT, GigaChat, and more.
+GEO AI for WooCommerce generates `/llms.txt` and `/llms-full.txt` files that help AI search engines understand your content. It supports ChatGPT, Claude, Gemini, Perplexity, YandexGPT, GigaChat, and more.
 
 **Features:**
 
@@ -65,15 +65,15 @@ GEO AI Woo generates `/llms.txt` and `/llms-full.txt` files that help AI search 
 
 == Installation ==
 
-1. Upload the `geo-ai-woo` folder to `/wp-content/plugins/`
+1. Upload the `geo-ai-for-woocommerce` folder to `/wp-content/plugins/`
 2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Go to Settings > GEO AI Woo to configure
+3. Go to Settings > GEO AI for WooCommerce to configure
 
 The plugin works out of the box with sensible defaults.
 
 == Third-Party Services ==
 
-This plugin optionally connects to external AI services for generating content descriptions. These connections are **disabled by default** and only activate when you explicitly configure an AI provider in Settings > GEO AI Woo > AI Description Generation.
+This plugin optionally connects to external AI services for generating content descriptions. These connections are **disabled by default** and only activate when you explicitly configure an AI provider in Settings > GEO AI for WooCommerce > AI Description Generation.
 
 = Anthropic (Claude) =
 
@@ -105,11 +105,11 @@ No. WooCommerce integration is optional. The plugin works with standard WordPres
 
 = How often is llms.txt regenerated? =
 
-By default, it regenerates daily. You can change this to immediate (on every post save), hourly, or weekly in Settings > GEO AI Woo > Cache Settings.
+By default, it regenerates daily. You can change this to immediate (on every post save), hourly, or weekly in Settings > GEO AI for WooCommerce > Cache Settings.
 
 = Can I exclude specific content from llms.txt? =
 
-Yes. Each post, page, and product has a "GEO AI Woo" meta box where you can check "Exclude from AI indexing". You can also use Quick Edit in list tables for bulk changes.
+Yes. Each post, page, and product has a "GEO AI for WooCommerce" meta box where you can check "Exclude from AI indexing". You can also use Quick Edit in list tables for bulk changes.
 
 = Does this plugin work with my SEO plugin? =
 
@@ -121,15 +121,15 @@ The plugin writes `llms.txt` and `llms-full.txt` directly to your WordPress root
 
 = Can I hide out-of-stock products from llms.txt? =
 
-Yes. Go to Settings > GEO AI Woo and set the "Out-of-Stock Products" option to "Always hide" or let it follow your WooCommerce visibility settings.
+Yes. Go to Settings > GEO AI for WooCommerce and set the "Out-of-Stock Products" option to "Always hide" or let it follow your WooCommerce visibility settings.
 
 = Can I auto-generate AI descriptions for my content? =
 
-Yes. Go to Settings > GEO AI Woo > AI Description Generation, choose Claude (Anthropic) or OpenAI as your provider, and enter your API key. A "Generate with AI" button will appear in the meta box on each post/page/product. You can also bulk-generate descriptions for all content at once from the settings page.
+Yes. Go to Settings > GEO AI for WooCommerce > AI Description Generation, choose Claude (Anthropic) or OpenAI as your provider, and enter your API key. A "Generate with AI" button will appear in the meta box on each post/page/product. You can also bulk-generate descriptions for all content at once from the settings page.
 
 = Is there a REST API or CLI access? =
 
-Yes. The plugin exposes a REST API at `/wp-json/geo-ai-woo/v1/` with endpoints for reading llms.txt content, checking file status, and triggering regeneration. WP-CLI commands are also available: `wp geo-ai-woo regenerate`, `status`, `export`, and `import`.
+Yes. The plugin exposes a REST API at `/wp-json/geo-ai-for-woocommerce/v1/` with endpoints for reading llms.txt content, checking file status, and triggering regeneration. WP-CLI commands are also available: `wp geo-ai-for-woocommerce regenerate`, `status`, `export`, and `import`.
 
 == Screenshots ==
 
@@ -140,6 +140,39 @@ Yes. The plugin exposes a REST API at `/wp-json/geo-ai-woo/v1/` with endpoints f
 5. Live preview of llms.txt content
 
 == Changelog ==
+
+= 0.6.0 =
+**Plugin Rename — WordPress Plugin Review**
+* Plugin renamed from "GEO AI Woo" to "GEO AI for WooCommerce"
+* Slug changed from geo-ai-woo to geo-ai-for-woocommerce everywhere
+* Text domain updated to geo-ai-for-woocommerce
+* Main plugin file renamed to geo-ai-for-woocommerce.php
+* REST API namespace, WP-CLI command, asset handles, CSS classes updated
+* Language files renamed to geo-ai-for-woocommerce-*.po/mo
+* Added Requires Plugins: woocommerce header
+* CLI export now writes to uploads directory
+
+**Fixed — Security**
+* Removed unsafe flags from wp_json_encode() in JSON-LD output
+* Fixed unescaped API key field output in settings page
+
+**Fixed — UTF-8 Encoding**
+* Fixed Cyrillic and multibyte character corruption in static llms.txt files (mojibake)
+* Replaced WP_Filesystem file writing with direct file_put_contents to preserve UTF-8 encoding
+* Added per-field HTML entity decoding (decode_text) for titles, descriptions, keywords, and taxonomy names
+
+**Improved — Duplicate Plugin Protection**
+* Added version constant guard to prevent fatal errors when multiple copies are installed
+* Added admin notice warning when duplicate plugin copies are detected
+
+**Changed**
+* Default OpenAI model placeholder updated to GPT-5
+* Added German (de_DE) and French (fr_FR) translations
+
+= 0.5.5 =
+**Localization**
+* Added German (de_DE) translation
+* Added French (fr_FR) translation
 
 = 0.5.4.1 =
 **Machine Readability**
@@ -221,18 +254,18 @@ Yes. The plugin exposes a REST API at `/wp-json/geo-ai-woo/v1/` with endpoints f
 * Auto-cleanup of tracking records older than 90 days
 
 **REST API**
-* GET /wp-json/geo-ai-woo/v1/llms — public llms.txt content
-* GET /wp-json/geo-ai-woo/v1/llms/full — public full content
-* GET /wp-json/geo-ai-woo/v1/status — admin file status and statistics
-* POST /wp-json/geo-ai-woo/v1/regenerate — admin force regeneration
-* GET /wp-json/geo-ai-woo/v1/settings — admin current settings
+* GET /wp-json/geo-ai-for-woocommerce/v1/llms — public llms.txt content
+* GET /wp-json/geo-ai-for-woocommerce/v1/llms/full — public full content
+* GET /wp-json/geo-ai-for-woocommerce/v1/status — admin file status and statistics
+* POST /wp-json/geo-ai-for-woocommerce/v1/regenerate — admin force regeneration
+* GET /wp-json/geo-ai-for-woocommerce/v1/settings — admin current settings
 * Rate limiting on regeneration endpoint
 
 **WP-CLI Commands**
-* `wp geo-ai-woo regenerate` — regenerate llms.txt files
-* `wp geo-ai-woo status` — show file status, content counts, multilingual info
-* `wp geo-ai-woo export` — export settings to JSON file
-* `wp geo-ai-woo import` — import settings from JSON file
+* `wp geo-ai-for-woocommerce regenerate` — regenerate llms.txt files
+* `wp geo-ai-for-woocommerce status` — show file status, content counts, multilingual info
+* `wp geo-ai-for-woocommerce export` — export settings to JSON file
+* `wp geo-ai-for-woocommerce import` — import settings from JSON file
 
 **AI Auto-Generation**
 * Claude (Anthropic) and OpenAI API integration
@@ -293,6 +326,12 @@ Yes. The plugin exposes a REST API at `/wp-json/geo-ai-woo/v1/` with endpoints f
 * Multilingual support (7 languages)
 
 == Upgrade Notice ==
+
+= 0.6.0 =
+Major rename: plugin is now "GEO AI for WooCommerce" with slug geo-ai-for-woocommerce. Fixes JSON-LD escaping, file write security, and UTF-8 encoding. Deactivate the old version before activating this one.
+
+= 0.5.5 =
+Added German (de_DE) and French (fr_FR) translations.
 
 = 0.5.4.1 =
 Crawler rules in llms.txt now use plain ASCII instead of UTF-8 symbols for better machine readability. Regenerate your llms.txt after updating.

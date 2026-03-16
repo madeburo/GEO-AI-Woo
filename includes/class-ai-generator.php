@@ -81,17 +81,17 @@ Content: {content}';
 	 */
 	public function generate_description( $post_id ) {
 		if ( ! $this->is_configured() ) {
-			return new WP_Error( 'not_configured', __( 'AI generation is not configured.', 'geo-ai-woo' ) );
+			return new WP_Error( 'not_configured', __( 'AI generation is not configured.', 'geo-ai-for-woocommerce' ) );
 		}
 
 		// Rate limit check
 		if ( ! $this->check_rate_limit() ) {
-			return new WP_Error( 'rate_limited', __( 'Rate limit exceeded. Please wait before generating more descriptions.', 'geo-ai-woo' ) );
+			return new WP_Error( 'rate_limited', __( 'Rate limit exceeded. Please wait before generating more descriptions.', 'geo-ai-for-woocommerce' ) );
 		}
 
 		$post = get_post( $post_id );
 		if ( ! $post ) {
-			return new WP_Error( 'invalid_post', __( 'Post not found.', 'geo-ai-woo' ) );
+			return new WP_Error( 'invalid_post', __( 'Post not found.', 'geo-ai-for-woocommerce' ) );
 		}
 
 		$prompt = $this->build_prompt( $post );
@@ -104,7 +104,7 @@ Content: {content}';
 		} elseif ( 'openai' === $provider ) {
 			$result = $this->call_openai_api( $prompt, $settings );
 		} else {
-			return new WP_Error( 'invalid_provider', __( 'Invalid AI provider.', 'geo-ai-woo' ) );
+			return new WP_Error( 'invalid_provider', __( 'Invalid AI provider.', 'geo-ai-for-woocommerce' ) );
 		}
 
 		if ( is_wp_error( $result ) ) {
@@ -215,7 +215,7 @@ Content: {content}';
 		$body = json_decode( wp_remote_retrieve_body( $response ), true );
 
 		if ( 200 !== $code ) {
-			$message = isset( $body['error']['message'] ) ? $body['error']['message'] : __( 'Claude API error.', 'geo-ai-woo' );
+			$message = isset( $body['error']['message'] ) ? $body['error']['message'] : __( 'Claude API error.', 'geo-ai-for-woocommerce' );
 			return new WP_Error( 'api_error', $message );
 		}
 
@@ -223,7 +223,7 @@ Content: {content}';
 			return trim( $body['content'][0]['text'] );
 		}
 
-		return new WP_Error( 'api_error', __( 'Unexpected API response format.', 'geo-ai-woo' ) );
+		return new WP_Error( 'api_error', __( 'Unexpected API response format.', 'geo-ai-for-woocommerce' ) );
 	}
 
 	/**
@@ -237,7 +237,7 @@ Content: {content}';
 		$api_key    = $this->get_api_key();
 		$model      = isset( $settings['ai_model'] ) && ! empty( $settings['ai_model'] )
 			? $settings['ai_model']
-			: 'gpt-4o-mini';
+			: 'gpt-5';
 		$max_tokens = isset( $settings['ai_max_tokens'] ) ? absint( $settings['ai_max_tokens'] ) : 150;
 
 		$response = wp_remote_post( 'https://api.openai.com/v1/chat/completions', array(
@@ -266,7 +266,7 @@ Content: {content}';
 		$body = json_decode( wp_remote_retrieve_body( $response ), true );
 
 		if ( 200 !== $code ) {
-			$message = isset( $body['error']['message'] ) ? $body['error']['message'] : __( 'OpenAI API error.', 'geo-ai-woo' );
+			$message = isset( $body['error']['message'] ) ? $body['error']['message'] : __( 'OpenAI API error.', 'geo-ai-for-woocommerce' );
 			return new WP_Error( 'api_error', $message );
 		}
 
@@ -274,7 +274,7 @@ Content: {content}';
 			return trim( $body['choices'][0]['message']['content'] );
 		}
 
-		return new WP_Error( 'api_error', __( 'Unexpected API response format.', 'geo-ai-woo' ) );
+		return new WP_Error( 'api_error', __( 'Unexpected API response format.', 'geo-ai-for-woocommerce' ) );
 	}
 
 	/**
@@ -349,7 +349,7 @@ Content: {content}';
 		$post_id = isset( $_POST['post_id'] ) ? absint( $_POST['post_id'] ) : 0;
 
 		if ( ! $post_id || ! current_user_can( 'edit_post', $post_id ) ) {
-			wp_send_json_error( array( 'message' => __( 'Permission denied.', 'geo-ai-woo' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Permission denied.', 'geo-ai-for-woocommerce' ) ) );
 		}
 
 		$result = $this->generate_description( $post_id );
@@ -374,7 +374,7 @@ Content: {content}';
 		check_ajax_referer( 'geo_ai_woo_ai_bulk', 'nonce' );
 
 		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_send_json_error( array( 'message' => __( 'Permission denied.', 'geo-ai-woo' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Permission denied.', 'geo-ai-for-woocommerce' ) ) );
 		}
 
 		$settings   = get_option( 'geo_ai_woo_settings', array() );
@@ -418,7 +418,7 @@ Content: {content}';
 		if ( empty( $posts ) ) {
 			wp_send_json_success( array(
 				'total'     => 0,
-				'message'   => __( 'All posts already have AI descriptions.', 'geo-ai-woo' ),
+				'message'   => __( 'All posts already have AI descriptions.', 'geo-ai-for-woocommerce' ),
 				'completed' => true,
 			) );
 		}
@@ -467,7 +467,7 @@ Content: {content}';
 		check_ajax_referer( 'geo_ai_woo_ai_bulk', 'nonce' );
 
 		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_send_json_error( array( 'message' => __( 'Permission denied.', 'geo-ai-woo' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Permission denied.', 'geo-ai-for-woocommerce' ) ) );
 		}
 
 		$user_id      = get_current_user_id();

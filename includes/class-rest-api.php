@@ -24,7 +24,7 @@ class Geo_Ai_Woo_REST_API {
 	 *
 	 * @var string
 	 */
-	const NAMESPACE = 'geo-ai-woo/v1';
+	const NAMESPACE = 'geo-ai-for-woocommerce/v1';
 
 	/**
 	 * Get single instance
@@ -94,7 +94,7 @@ class Geo_Ai_Woo_REST_API {
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return new WP_Error(
 				'rest_forbidden',
-				__( 'You do not have permission to access this resource.', 'geo-ai-woo' ),
+				__( 'You do not have permission to access this resource.', 'geo-ai-for-woocommerce' ),
 				array( 'status' => 403 )
 			);
 		}
@@ -232,7 +232,7 @@ class Geo_Ai_Woo_REST_API {
 		if ( get_transient( $rate_key ) ) {
 			return new WP_Error(
 				'rate_limited',
-				__( 'Please wait at least 60 seconds between regeneration requests.', 'geo-ai-woo' ),
+				__( 'Please wait at least 60 seconds between regeneration requests.', 'geo-ai-for-woocommerce' ),
 				array( 'status' => 429 )
 			);
 		}
@@ -243,7 +243,7 @@ class Geo_Ai_Woo_REST_API {
 
 		return new WP_REST_Response( array(
 			'success'   => true,
-			'message'   => __( 'llms.txt files regenerated successfully.', 'geo-ai-woo' ),
+			'message'   => __( 'llms.txt files regenerated successfully.', 'geo-ai-for-woocommerce' ),
 			'timestamp' => time(),
 		), 200 );
 	}

@@ -77,7 +77,7 @@ class Geo_Ai_Woo_Bulk_Edit {
 
             // Insert after title column
             if ( 'title' === $key ) {
-                $new_columns['geo_ai_woo'] = __( 'AI Status', 'geo-ai-woo' );
+                $new_columns['geo_ai_woo'] = __( 'AI Status', 'geo-ai-for-woocommerce' );
             }
         }
 
@@ -101,22 +101,22 @@ class Geo_Ai_Woo_Bulk_Edit {
 
         // Status icon
         if ( '1' === $exclude ) {
-            echo '<span class="geo-ai-woo-status-icon excluded" title="' . esc_attr__( 'Excluded from AI indexing', 'geo-ai-woo' ) . '">&#10005;</span> ';
-            echo '<span class="geo-ai-woo-column-label">' . esc_html__( 'Excluded', 'geo-ai-woo' ) . '</span>';
+            echo '<span class="geo-ai-for-woocommerce-status-icon excluded" title="' . esc_attr__( 'Excluded from AI indexing', 'geo-ai-for-woocommerce' ) . '">&#10005;</span> ';
+            echo '<span class="geo-ai-for-woocommerce-column-label">' . esc_html__( 'Excluded', 'geo-ai-for-woocommerce' ) . '</span>';
         } else {
-            echo '<span class="geo-ai-woo-status-icon included" title="' . esc_attr__( 'Included in AI indexing', 'geo-ai-woo' ) . '">&#10003;</span> ';
+            echo '<span class="geo-ai-for-woocommerce-status-icon included" title="' . esc_attr__( 'Included in AI indexing', 'geo-ai-for-woocommerce' ) . '">&#10003;</span> ';
 
             if ( $description ) {
-                echo '<span class="geo-ai-woo-column-desc" title="' . esc_attr( $description ) . '">';
+                echo '<span class="geo-ai-for-woocommerce-column-desc" title="' . esc_attr( $description ) . '">';
                 echo esc_html( mb_strimwidth( $description, 0, 50, '...' ) );
                 echo '</span>';
             } else {
-                echo '<span class="geo-ai-woo-column-label">' . esc_html__( 'Auto', 'geo-ai-woo' ) . '</span>';
+                echo '<span class="geo-ai-for-woocommerce-column-label">' . esc_html__( 'Auto', 'geo-ai-for-woocommerce' ) . '</span>';
             }
         }
 
         // Hidden data for Quick Edit population
-        echo '<div class="hidden geo-ai-woo-inline-data"';
+        echo '<div class="hidden geo-ai-for-woocommerce-inline-data"';
         echo ' data-description="' . esc_attr( $description ) . '"';
         echo ' data-keywords="' . esc_attr( $keywords ) . '"';
         echo ' data-exclude="' . esc_attr( $exclude ) . '"';
@@ -143,19 +143,19 @@ class Geo_Ai_Woo_Bulk_Edit {
 
         wp_nonce_field( 'geo_ai_woo_quick_edit', 'geo_ai_woo_quick_edit_nonce' );
         ?>
-        <fieldset class="inline-edit-col-right geo-ai-woo-quick-edit">
+        <fieldset class="inline-edit-col-right geo-ai-for-woocommerce-quick-edit">
             <div class="inline-edit-col">
-                <span class="title"><?php esc_html_e( 'GEO AI Woo', 'geo-ai-woo' ); ?></span>
+                <span class="title"><?php esc_html_e( 'GEO AI for WooCommerce', 'geo-ai-for-woocommerce' ); ?></span>
 
                 <label class="inline-edit-group">
-                    <span class="title"><?php esc_html_e( 'AI Description', 'geo-ai-woo' ); ?></span>
+                    <span class="title"><?php esc_html_e( 'AI Description', 'geo-ai-for-woocommerce' ); ?></span>
                     <span class="input-text-wrap">
                         <textarea name="geo_ai_woo_description" rows="2" class="widefat"></textarea>
                     </span>
                 </label>
 
                 <label class="inline-edit-group">
-                    <span class="title"><?php esc_html_e( 'AI Keywords', 'geo-ai-woo' ); ?></span>
+                    <span class="title"><?php esc_html_e( 'AI Keywords', 'geo-ai-for-woocommerce' ); ?></span>
                     <span class="input-text-wrap">
                         <input type="text" name="geo_ai_woo_keywords" class="widefat" />
                     </span>
@@ -163,7 +163,7 @@ class Geo_Ai_Woo_Bulk_Edit {
 
                 <label class="inline-edit-group">
                     <input type="checkbox" name="geo_ai_woo_exclude" value="1" />
-                    <span class="checkbox-title"><?php esc_html_e( 'Exclude from AI indexing', 'geo-ai-woo' ); ?></span>
+                    <span class="checkbox-title"><?php esc_html_e( 'Exclude from AI indexing', 'geo-ai-for-woocommerce' ); ?></span>
                 </label>
             </div>
         </fieldset>
@@ -243,7 +243,7 @@ class Geo_Ai_Woo_Bulk_Edit {
 
                 if (postId > 0) {
                     var $row = $('#post-' + postId);
-                    var $data = $row.find('.geo-ai-woo-inline-data');
+                    var $data = $row.find('.geo-ai-for-woocommerce-inline-data');
 
                     if ($data.length) {
                         var $editRow = $('#edit-' + postId);

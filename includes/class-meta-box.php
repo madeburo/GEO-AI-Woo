@@ -56,7 +56,7 @@ class Geo_Ai_Woo_Meta_Box {
 
             add_meta_box(
                 'geo_ai_woo_meta_box',
-                __( 'GEO AI Woo', 'geo-ai-woo' ),
+                __( 'GEO AI for WooCommerce', 'geo-ai-for-woocommerce' ),
                 array( $this, 'render_meta_box' ),
                 $post_type,
                 'side',
@@ -80,32 +80,32 @@ class Geo_Ai_Woo_Meta_Box {
         $exclude     = get_post_meta( $post->ID, '_geo_ai_woo_exclude', true );
 
         ?>
-        <div class="geo-ai-woo-meta-box">
+        <div class="geo-ai-for-woocommerce-meta-box">
             <p>
                 <label for="geo_ai_woo_description">
-                    <strong><?php esc_html_e( 'AI Description', 'geo-ai-woo' ); ?></strong>
+                    <strong><?php esc_html_e( 'AI Description', 'geo-ai-for-woocommerce' ); ?></strong>
                 </label>
                 <textarea
                     id="geo_ai_woo_description"
                     name="geo_ai_woo_description"
                     rows="3"
                     style="width: 100%;"
-                    placeholder="<?php esc_attr_e( 'Brief summary for AI systems...', 'geo-ai-woo' ); ?>"
+                    placeholder="<?php esc_attr_e( 'Brief summary for AI systems...', 'geo-ai-for-woocommerce' ); ?>"
                 ><?php echo esc_textarea( $description ); ?></textarea>
                 <?php if ( class_exists( 'Geo_Ai_Woo_AI_Generator' ) && Geo_Ai_Woo_AI_Generator::instance()->is_configured() ) : ?>
-                <button type="button" class="button button-small geo-ai-woo-generate-btn" data-post-id="<?php echo esc_attr( $post->ID ); ?>">
-                    <?php esc_html_e( 'Generate with AI', 'geo-ai-woo' ); ?>
+                <button type="button" class="button button-small geo-ai-for-woocommerce-generate-btn" data-post-id="<?php echo esc_attr( $post->ID ); ?>">
+                    <?php esc_html_e( 'Generate with AI', 'geo-ai-for-woocommerce' ); ?>
                 </button>
-                <span class="geo-ai-woo-generate-status"></span>
+                <span class="geo-ai-for-woocommerce-generate-status"></span>
                 <?php endif; ?>
                 <span class="description">
-                    <?php esc_html_e( 'Concise description for LLMs (max 200 characters)', 'geo-ai-woo' ); ?>
+                    <?php esc_html_e( 'Concise description for LLMs (max 200 characters)', 'geo-ai-for-woocommerce' ); ?>
                 </span>
             </p>
 
             <p>
                 <label for="geo_ai_woo_keywords">
-                    <strong><?php esc_html_e( 'AI Keywords', 'geo-ai-woo' ); ?></strong>
+                    <strong><?php esc_html_e( 'AI Keywords', 'geo-ai-for-woocommerce' ); ?></strong>
                 </label>
                 <input 
                     type="text" 
@@ -113,10 +113,10 @@ class Geo_Ai_Woo_Meta_Box {
                     name="geo_ai_woo_keywords" 
                     value="<?php echo esc_attr( $keywords ); ?>" 
                     style="width: 100%;"
-                    placeholder="<?php esc_attr_e( 'keyword1, keyword2, keyword3', 'geo-ai-woo' ); ?>"
+                    placeholder="<?php esc_attr_e( 'keyword1, keyword2, keyword3', 'geo-ai-for-woocommerce' ); ?>"
                 />
                 <span class="description">
-                    <?php esc_html_e( 'Comma-separated topics for context', 'geo-ai-woo' ); ?>
+                    <?php esc_html_e( 'Comma-separated topics for context', 'geo-ai-for-woocommerce' ); ?>
                 </span>
             </p>
 
@@ -128,11 +128,11 @@ class Geo_Ai_Woo_Meta_Box {
                         value="1" 
                         <?php checked( $exclude, '1' ); ?>
                     />
-                    <?php esc_html_e( 'Exclude from AI indexing', 'geo-ai-woo' ); ?>
+                    <?php esc_html_e( 'Exclude from AI indexing', 'geo-ai-for-woocommerce' ); ?>
                 </label>
                 <br />
                 <span class="description">
-                    <?php esc_html_e( 'This content will not appear in llms.txt', 'geo-ai-woo' ); ?>
+                    <?php esc_html_e( 'This content will not appear in llms.txt', 'geo-ai-for-woocommerce' ); ?>
                 </span>
             </p>
         </div>

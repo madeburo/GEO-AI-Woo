@@ -8,22 +8,22 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * GEO AI Woo CLI commands for managing llms.txt files.
+ * GEO AI for WooCommerce CLI commands for managing llms.txt files.
  *
  * ## EXAMPLES
  *
  *     # Regenerate all llms.txt files
- *     $ wp geo-ai-woo regenerate
+ *     $ wp geo-ai-for-woocommerce regenerate
  *     Success: llms.txt files regenerated.
  *
  *     # Show current status
- *     $ wp geo-ai-woo status
+ *     $ wp geo-ai-for-woocommerce status
  *
  *     # Export settings to file
- *     $ wp geo-ai-woo export --file=settings.json
+ *     $ wp geo-ai-for-woocommerce export --file=settings.json
  *
  *     # Import settings from file
- *     $ wp geo-ai-woo import settings.json
+ *     $ wp geo-ai-for-woocommerce import settings.json
  */
 class Geo_Ai_Woo_CLI extends WP_CLI_Command {
 
@@ -37,7 +37,7 @@ class Geo_Ai_Woo_CLI extends WP_CLI_Command {
 	 *
 	 * ## EXAMPLES
 	 *
-	 *     $ wp geo-ai-woo regenerate
+	 *     $ wp geo-ai-for-woocommerce regenerate
 	 *     Success: llms.txt files regenerated.
 	 *
 	 * @param array $args       Positional arguments.
@@ -84,7 +84,7 @@ class Geo_Ai_Woo_CLI extends WP_CLI_Command {
 	 *
 	 * ## EXAMPLES
 	 *
-	 *     $ wp geo-ai-woo status
+	 *     $ wp geo-ai-for-woocommerce status
 	 *
 	 * @param array $args       Positional arguments.
 	 * @param array $assoc_args Associative arguments.
@@ -95,7 +95,7 @@ class Geo_Ai_Woo_CLI extends WP_CLI_Command {
 
 		// Plugin info
 		WP_CLI::log( '' );
-		WP_CLI::log( WP_CLI::colorize( '%BGEO AI Woo v' . GEO_AI_WOO_VERSION . '%n' ) );
+		WP_CLI::log( WP_CLI::colorize( '%BGEO AI for WooCommerce v' . GEO_AI_WOO_VERSION . '%n' ) );
 		WP_CLI::log( '' );
 
 		// File status
@@ -202,20 +202,20 @@ class Geo_Ai_Woo_CLI extends WP_CLI_Command {
 	 * ## OPTIONS
 	 *
 	 * [--file=<path>]
-	 * : Path to export file. Default: geo-ai-woo-settings.json
+	 * : Path to export file. Default: geo-ai-for-woocommerce-settings.json
 	 *
 	 * ## EXAMPLES
 	 *
-	 *     $ wp geo-ai-woo export
-	 *     Success: Settings exported to geo-ai-woo-settings.json
+	 *     $ wp geo-ai-for-woocommerce export
+	 *     Success: Settings exported to geo-ai-for-woocommerce-settings.json
 	 *
-	 *     $ wp geo-ai-woo export --file=/tmp/my-settings.json
+	 *     $ wp geo-ai-for-woocommerce export --file=/tmp/my-settings.json
 	 *
 	 * @param array $args       Positional arguments.
 	 * @param array $assoc_args Associative arguments.
 	 */
 	public function export( $args, $assoc_args ) {
-		$file = isset( $assoc_args['file'] ) ? $assoc_args['file'] : 'geo-ai-woo-settings.json';
+		$file = isset( $assoc_args['file'] ) ? $assoc_args['file'] : 'geo-ai-for-woocommerce-settings.json';
 
 		$settings = get_option( 'geo_ai_woo_settings', array() );
 
@@ -232,12 +232,20 @@ class Geo_Ai_Woo_CLI extends WP_CLI_Command {
 
 		$json = wp_json_encode( $export_data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES );
 
+		// Restrict file writes to the WordPress uploads directory.
+		$upload_dir = wp_upload_dir();
+		$geo_dir    = trailingslashit( $upload_dir['basedir'] ) . 'geo-ai-for-woocommerce/';
+		if ( ! file_exists( $geo_dir ) ) {
+			wp_mkdir_p( $geo_dir );
+		}
+		$safe_file = $geo_dir . sanitize_file_name( basename( $file ) );
+
 		// phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_file_put_contents
-		if ( false === file_put_contents( $file, $json ) ) {
-			WP_CLI::error( sprintf( 'Could not write to file: %s', $file ) );
+		if ( false === file_put_contents( $safe_file, $json ) ) {
+			WP_CLI::error( sprintf( 'Could not write to file: %s', $safe_file ) );
 		}
 
-		WP_CLI::success( sprintf( 'Settings exported to %s', $file ) );
+		WP_CLI::success( sprintf( 'Settings exported to %s', $safe_file ) );
 	}
 
 	/**
@@ -253,10 +261,10 @@ class Geo_Ai_Woo_CLI extends WP_CLI_Command {
 	 *
 	 * ## EXAMPLES
 	 *
-	 *     $ wp geo-ai-woo import settings.json
+	 *     $ wp geo-ai-for-woocommerce import settings.json
 	 *     Success: Settings imported from settings.json
 	 *
-	 *     $ wp geo-ai-woo import settings.json --regenerate
+	 *     $ wp geo-ai-for-woocommerce import settings.json --regenerate
 	 *
 	 * @param array $args       Positional arguments.
 	 * @param array $assoc_args Associative arguments.

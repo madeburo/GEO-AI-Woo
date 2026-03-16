@@ -1,53 +1,53 @@
-# Chinese Simplified translation for GEO AI Woo
+# Indonesian translation for GEO AI Woo
 # Copyright (C) 2026 GEO AI Woo
 # This file is distributed under the same license as the GEO AI Woo package.
 msgid ""
 msgstr ""
 "Project-Id-Version: GEO AI Woo 0.1.0\n"
-"Report-Msgid-Bugs-To: https://github.com/madeburo/geo-ai-woo/issues\n"
+"Report-Msgid-Bugs-To: https://www.geoai.run\n"
 "POT-Creation-Date: 2026-03-02 12:00+0000\n"
 "PO-Revision-Date: 2026-03-02 12:00+0000\n"
 "Last-Translator: \n"
-"Language-Team: Chinese (Simplified)\n"
-"Language: zh_CN\n"
+"Language-Team: Indonesian\n"
+"Language: id_ID\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: WP-CLI\n"
-"X-Domain: geo-ai-woo\n"
+"X-Domain: geo-ai-for-woocommerce\n"
 
 #: assets/js/admin.js:15
 msgid "Regenerating..."
-msgstr "正在重新生成..."
+msgstr "Membuat ulang..."
 
 #: assets/js/admin.js:25
 msgid "Done!"
-msgstr "完成！"
+msgstr "Selesai!"
 
 #: assets/js/admin.js:30
 msgid "Error"
-msgstr "错误"
+msgstr "Kesalahan"
 
 #: includes/class-settings.php:42
 msgid "Settings"
-msgstr "设置"
+msgstr "Pengaturan"
 
 #: includes/class-settings.php:54
 msgid "Pages"
-msgstr "页面"
+msgstr "Halaman"
 
 #: includes/class-settings.php:55
 msgid "Blog Posts"
-msgstr "博客文章"
+msgstr "Pos Blog"
 
 #: includes/class-settings.php:56
 msgid "Products"
-msgstr "产品"
+msgstr "Produk"
 
 #: includes/class-settings.php:70
 msgid "GEO AI Woo Settings"
-msgstr "GEO AI Woo 设置"
+msgstr "Pengaturan GEO AI Woo"
 
 #: includes/class-settings.php:71
 msgid "GEO AI Woo"
@@ -55,99 +55,99 @@ msgstr "GEO AI Woo"
 
 #: includes/class-settings.php:85
 msgid "General Settings"
-msgstr "常规设置"
+msgstr "Pengaturan Umum"
 
 #: includes/class-settings.php:90
 msgid "Site Description"
-msgstr "站点描述"
+msgstr "Deskripsi Situs"
 
 #: includes/class-settings.php:95
 msgid "Content Types"
-msgstr "内容类型"
+msgstr "Jenis Konten"
 
 #: includes/class-settings.php:100
 msgid "AI Bot Rules"
-msgstr "AI 机器人规则"
+msgstr "Aturan Bot AI"
 
 #: includes/class-settings.php:105
 msgid "Crawler Permissions"
-msgstr "爬虫权限"
+msgstr "Izin Crawler"
 
 #: includes/class-settings.php:110
 msgid "Cache Settings"
-msgstr "缓存设置"
+msgstr "Pengaturan Cache"
 
 #: includes/class-settings.php:115
 msgid "Regeneration Frequency"
-msgstr "重新生成频率"
+msgstr "Frekuensi Pembaruan"
 
 #: includes/class-settings.php:130
 msgid "Your llms.txt Files"
-msgstr "您的 llms.txt 文件"
+msgstr "File llms.txt Anda"
 
 #: includes/class-settings.php:135
 msgid "Standard:"
-msgstr "标准版："
+msgstr "Standar:"
 
 #: includes/class-settings.php:140
 msgid "Full version:"
-msgstr "完整版："
+msgstr "Versi lengkap:"
 
 #: includes/class-settings.php:145
 msgid "Regenerate Now"
-msgstr "立即生成"
+msgstr "Buat Ulang Sekarang"
 
 #: includes/class-settings.php:150
 msgid "Configure how your content appears in llms.txt for AI search engines."
-msgstr "配置您的内容在 llms.txt 中对 AI 搜索引擎的展示方式。"
+msgstr "Atur tampilan konten Anda di llms.txt untuk mesin pencari AI."
 
 #: includes/class-settings.php:155
 msgid "Brief description of your site for AI systems."
-msgstr "为 AI 系统提供的站点简要描述。"
+msgstr "Deskripsi singkat situs Anda untuk sistem AI."
 
 #: includes/class-settings.php:160
 msgid "Control which AI crawlers can access your content."
-msgstr "控制哪些 AI 爬虫可以访问您的内容。"
+msgstr "Kontrol crawler AI mana yang dapat mengakses konten Anda."
 
 #: includes/class-settings.php:165
 msgid "Bot"
-msgstr "机器人"
+msgstr "Bot"
 
 #: includes/class-settings.php:166
 msgid "Provider"
-msgstr "提供商"
+msgstr "Penyedia"
 
 #: includes/class-settings.php:167
 msgid "Permission"
-msgstr "权限"
+msgstr "Izin"
 
 #: includes/class-settings.php:170
 msgid "Allow"
-msgstr "允许"
+msgstr "Izinkan"
 
 #: includes/class-settings.php:171
 msgid "Disallow"
-msgstr "禁止"
+msgstr "Larang"
 
 #: includes/class-settings.php:180
 msgid "Control how often llms.txt is regenerated."
-msgstr "控制 llms.txt 的重新生成频率。"
+msgstr "Kontrol seberapa sering llms.txt dibuat ulang."
 
 #: includes/class-settings.php:185
 msgid "On every post update"
-msgstr "每次更新文章时"
+msgstr "Setiap pos diperbarui"
 
 #: includes/class-settings.php:186
 msgid "Hourly"
-msgstr "每小时"
+msgstr "Setiap jam"
 
 #: includes/class-settings.php:187
 msgid "Daily"
-msgstr "每天"
+msgstr "Setiap hari"
 
 #: includes/class-settings.php:188
 msgid "Weekly"
-msgstr "每周"
+msgstr "Setiap minggu"
 
 #: includes/class-woo-integration.php:30
 msgid "GEO AI"
@@ -155,89 +155,89 @@ msgstr "GEO AI"
 
 #: includes/class-woo-integration.php:45
 msgid "AI Optimization Settings"
-msgstr "AI 优化设置"
+msgstr "Pengaturan Optimasi AI"
 
 #: includes/class-woo-integration.php:50
 msgid "Auto-generate AI Description"
-msgstr "自动生成 AI 描述"
+msgstr "Buat Deskripsi AI Otomatis"
 
 #: includes/class-woo-integration.php:55
 msgid "Generate description from product data"
-msgstr "从产品数据生成描述"
+msgstr "Buat deskripsi dari data produk"
 
 #: includes/class-woo-integration.php:60 includes/class-meta-box.php:35
 msgid "AI Description"
-msgstr "AI 描述"
+msgstr "Deskripsi AI"
 
 #: includes/class-woo-integration.php:65
 msgid "Custom description for AI systems..."
-msgstr "为 AI 系统提供的自定义描述..."
+msgstr "Deskripsi khusus untuk sistem AI..."
 
 #: includes/class-woo-integration.php:70
 msgid "Leave empty to auto-generate from product data."
-msgstr "留空以从产品数据自动生成。"
+msgstr "Kosongkan untuk membuat otomatis dari data produk."
 
 #: includes/class-woo-integration.php:75 includes/class-meta-box.php:50
 msgid "AI Keywords"
-msgstr "AI 关键词"
+msgstr "Kata Kunci AI"
 
 #: includes/class-woo-integration.php:80 includes/class-meta-box.php:55
 msgid "keyword1, keyword2, keyword3"
-msgstr "关键词1, 关键词2, 关键词3"
+msgstr "katakunci1, katakunci2, katakunci3"
 
 #: includes/class-woo-integration.php:85
 msgid "Comma-separated keywords for AI context."
-msgstr "用逗号分隔的 AI 上下文关键词。"
+msgstr "Kata kunci dipisahkan koma untuk konteks AI."
 
 #: includes/class-woo-integration.php:90
 msgid "Exclude from AI"
-msgstr "从 AI 中排除"
+msgstr "Kecualikan dari AI"
 
 #: includes/class-woo-integration.php:95
 msgid "Do not include this product in llms.txt"
-msgstr "不将此产品包含在 llms.txt 中"
+msgstr "Jangan sertakan produk ini di llms.txt"
 
 #: includes/class-woo-integration.php:105
 msgid "Preview"
-msgstr "预览"
+msgstr "Pratinjau"
 
 #: includes/class-woo-integration.php:110
 msgid "This is how your product will appear in llms.txt:"
-msgstr "您的产品在 llms.txt 中的展示效果："
+msgstr "Tampilan produk Anda di llms.txt:"
 
 #. translators: %s: product price
 #: includes/class-woo-integration.php:120
 msgid "Price: %s"
-msgstr "价格：%s"
+msgstr "Harga: %s"
 
 #: includes/class-woo-integration.php:125
 msgid "In Stock"
-msgstr "有库存"
+msgstr "Tersedia"
 
 #: includes/class-woo-integration.php:126
 msgid "Out of Stock"
-msgstr "缺货"
+msgstr "Habis"
 
 #: includes/class-woo-integration.php:135
 msgid "Product not found"
-msgstr "未找到产品"
+msgstr "Produk tidak ditemukan"
 
 #: includes/class-meta-box.php:40
 msgid "Brief summary for AI systems..."
-msgstr "为 AI 系统提供的简要摘要..."
+msgstr "Ringkasan singkat untuk sistem AI..."
 
 #: includes/class-meta-box.php:45
 msgid "Concise description for LLMs (max 200 characters)"
-msgstr "LLM 简要描述（最多 200 个字符）"
+msgstr "Deskripsi ringkas untuk LLM (maks 200 karakter)"
 
 #: includes/class-meta-box.php:60
 msgid "Comma-separated topics for context"
-msgstr "用逗号分隔的上下文主题"
+msgstr "Topik dipisahkan koma untuk konteks"
 
 #: includes/class-meta-box.php:65
 msgid "Exclude from AI indexing"
-msgstr "从 AI 索引中排除"
+msgstr "Kecualikan dari pengindeksan AI"
 
 #: includes/class-meta-box.php:70
 msgid "This content will not appear in llms.txt"
-msgstr "此内容不会出现在 llms.txt 中"
+msgstr "Konten ini tidak akan muncul di llms.txt"

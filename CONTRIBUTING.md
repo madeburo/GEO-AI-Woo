@@ -1,18 +1,18 @@
-# Contributing to GEO AI Woo
+# Contributing to GEO AI for WooCommerce
 
-Thanks for your interest in contributing! GEO AI Woo is an open-source WordPress plugin and we welcome pull requests, bug reports, and feature suggestions.
+Thanks for your interest in contributing! GEO AI for WooCommerce is an open-source WordPress plugin and we welcome pull requests, bug reports, and feature suggestions.
 
 ## Getting Started
 
 ```bash
 # Clone the repository
-git clone https://github.com/madeburo/geo-ai-woo.git
+git clone https://github.com/madeburo/geo-ai-for-woocommerce.git
 
 # Symlink or copy into your local WordPress installation
-ln -s /path/to/geo-ai-woo /path/to/wordpress/wp-content/plugins/geo-ai-woo
+ln -s /path/to/geo-ai-for-woocommerce /path/to/wordpress/wp-content/plugins/geo-ai-for-woocommerce
 
 # Activate
-wp plugin activate geo-ai-woo
+wp plugin activate geo-ai-for-woocommerce
 ```
 
 There is no build step — all PHP, JS, and CSS files are used directly as-is.
@@ -26,8 +26,8 @@ There is no build step — all PHP, JS, and CSS files are used directly as-is.
 ## Project Structure
 
 ```
-geo-ai-woo/
-├── geo-ai-woo.php          # Main plugin file — bootstrap, constants, singleton
+geo-ai-for-woocommerce/
+├── geo-ai-for-woocommerce.php  # Main plugin file — bootstrap, constants, singleton
 ├── uninstall.php            # Cleanup on plugin deletion
 ├── includes/                # PHP classes (one per file, Geo_Ai_Woo_ prefix)
 ├── assets/css/admin.css     # Admin styles
@@ -58,7 +58,7 @@ This project follows [WordPress Coding Standards](https://developer.wordpress.or
 
 ### Bug Reports
 
-Open an [issue](https://github.com/madeburo/geo-ai-woo/issues) with:
+Open an [issue](https://github.com/madeburo/geo-ai-for-woocommerce/issues) with:
 
 - WordPress and PHP version
 - WooCommerce version (if applicable)
@@ -87,7 +87,7 @@ Remove: what was removed
 
 Translation files live in `languages/`. To add a new locale:
 
-1. Copy `languages/geo-ai-woo.pot` to `languages/geo-ai-woo-{locale}.po`
+1. Copy `languages/geo-ai-for-woocommerce.pot` to `languages/geo-ai-for-woocommerce-{locale}.po`
 2. Translate the strings using [Poedit](https://poedit.net/) or a similar tool
 3. Compile the `.mo` file
 4. Submit a PR with both `.po` and `.mo` files

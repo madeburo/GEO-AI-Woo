@@ -1,53 +1,53 @@
-# Russian translation for GEO AI Woo
+# Kazakh translation for GEO AI Woo
 # Copyright (C) 2026 GEO AI Woo
 # This file is distributed under the same license as the GEO AI Woo package.
 msgid ""
 msgstr ""
 "Project-Id-Version: GEO AI Woo 0.1.0\n"
-"Report-Msgid-Bugs-To: https://github.com/madeburo/geo-ai-woo/issues\n"
+"Report-Msgid-Bugs-To: https://www.geoai.run\n"
 "POT-Creation-Date: 2026-03-02 12:00+0000\n"
 "PO-Revision-Date: 2026-03-02 12:00+0000\n"
 "Last-Translator: \n"
-"Language-Team: Russian\n"
-"Language: ru_RU\n"
+"Language-Team: Kazakh\n"
+"Language: kk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: WP-CLI\n"
-"X-Domain: geo-ai-woo\n"
+"X-Domain: geo-ai-for-woocommerce\n"
 
 #: assets/js/admin.js:15
 msgid "Regenerating..."
-msgstr "Генерация..."
+msgstr "Қайта жасалуда..."
 
 #: assets/js/admin.js:25
 msgid "Done!"
-msgstr "Готово!"
+msgstr "Дайын!"
 
 #: assets/js/admin.js:30
 msgid "Error"
-msgstr "Ошибка"
+msgstr "Қате"
 
 #: includes/class-settings.php:42
 msgid "Settings"
-msgstr "Настройки"
+msgstr "Баптаулар"
 
 #: includes/class-settings.php:54
 msgid "Pages"
-msgstr "Страницы"
+msgstr "Беттер"
 
 #: includes/class-settings.php:55
 msgid "Blog Posts"
-msgstr "Записи блога"
+msgstr "Блог жазбалары"
 
 #: includes/class-settings.php:56
 msgid "Products"
-msgstr "Товары"
+msgstr "Тауарлар"
 
 #: includes/class-settings.php:70
 msgid "GEO AI Woo Settings"
-msgstr "Настройки GEO AI Woo"
+msgstr "GEO AI Woo баптаулары"
 
 #: includes/class-settings.php:71
 msgid "GEO AI Woo"
@@ -55,59 +55,59 @@ msgstr "GEO AI Woo"
 
 #: includes/class-settings.php:85
 msgid "General Settings"
-msgstr "Общие настройки"
+msgstr "Жалпы баптаулар"
 
 #: includes/class-settings.php:90
 msgid "Site Description"
-msgstr "Описание сайта"
+msgstr "Сайт сипаттамасы"
 
 #: includes/class-settings.php:95
 msgid "Content Types"
-msgstr "Типы контента"
+msgstr "Мазмұн түрлері"
 
 #: includes/class-settings.php:100
 msgid "AI Bot Rules"
-msgstr "Правила AI-ботов"
+msgstr "AI бот ережелері"
 
 #: includes/class-settings.php:105
 msgid "Crawler Permissions"
-msgstr "Разрешения для краулеров"
+msgstr "Краулер рұқсаттары"
 
 #: includes/class-settings.php:110
 msgid "Cache Settings"
-msgstr "Настройки кеша"
+msgstr "Кэш баптаулары"
 
 #: includes/class-settings.php:115
 msgid "Regeneration Frequency"
-msgstr "Частота обновления"
+msgstr "Жаңарту жиілігі"
 
 #: includes/class-settings.php:130
 msgid "Your llms.txt Files"
-msgstr "Ваши файлы llms.txt"
+msgstr "Сіздің llms.txt файлдарыңыз"
 
 #: includes/class-settings.php:135
 msgid "Standard:"
-msgstr "Стандартный:"
+msgstr "Стандартты:"
 
 #: includes/class-settings.php:140
 msgid "Full version:"
-msgstr "Полная версия:"
+msgstr "Толық нұсқа:"
 
 #: includes/class-settings.php:145
 msgid "Regenerate Now"
-msgstr "Сгенерировать сейчас"
+msgstr "Қазір жасау"
 
 #: includes/class-settings.php:150
 msgid "Configure how your content appears in llms.txt for AI search engines."
-msgstr "Настройте, как ваш контент отображается в llms.txt для AI-поисковиков."
+msgstr "AI іздеу жүйелері үшін мазмұныңыздың llms.txt файлында қалай көрінетінін баптаңыз."
 
 #: includes/class-settings.php:155
 msgid "Brief description of your site for AI systems."
-msgstr "Краткое описание вашего сайта для AI-систем."
+msgstr "AI жүйелері үшін сайтыңыздың қысқаша сипаттамасы."
 
 #: includes/class-settings.php:160
 msgid "Control which AI crawlers can access your content."
-msgstr "Управляйте доступом AI-краулеров к вашему контенту."
+msgstr "Қандай AI краулерлердің мазмұныңызға қол жеткізе алатынын басқарыңыз."
 
 #: includes/class-settings.php:165
 msgid "Bot"
@@ -119,35 +119,35 @@ msgstr "Провайдер"
 
 #: includes/class-settings.php:167
 msgid "Permission"
-msgstr "Разрешение"
+msgstr "Рұқсат"
 
 #: includes/class-settings.php:170
 msgid "Allow"
-msgstr "Разрешить"
+msgstr "Рұқсат ету"
 
 #: includes/class-settings.php:171
 msgid "Disallow"
-msgstr "Запретить"
+msgstr "Тыйым салу"
 
 #: includes/class-settings.php:180
 msgid "Control how often llms.txt is regenerated."
-msgstr "Управляйте частотой обновления llms.txt."
+msgstr "llms.txt файлының қаншалықты жиі жаңартылатынын басқарыңыз."
 
 #: includes/class-settings.php:185
 msgid "On every post update"
-msgstr "При каждом обновлении записи"
+msgstr "Әр жазба жаңартылғанда"
 
 #: includes/class-settings.php:186
 msgid "Hourly"
-msgstr "Каждый час"
+msgstr "Сағат сайын"
 
 #: includes/class-settings.php:187
 msgid "Daily"
-msgstr "Ежедневно"
+msgstr "Күн сайын"
 
 #: includes/class-settings.php:188
 msgid "Weekly"
-msgstr "Еженедельно"
+msgstr "Апта сайын"
 
 #: includes/class-woo-integration.php:30
 msgid "GEO AI"
@@ -155,89 +155,89 @@ msgstr "GEO AI"
 
 #: includes/class-woo-integration.php:45
 msgid "AI Optimization Settings"
-msgstr "Настройки AI-оптимизации"
+msgstr "AI оңтайландыру баптаулары"
 
 #: includes/class-woo-integration.php:50
 msgid "Auto-generate AI Description"
-msgstr "Автоматически создавать AI-описание"
+msgstr "AI сипаттаманы автоматты жасау"
 
 #: includes/class-woo-integration.php:55
 msgid "Generate description from product data"
-msgstr "Создать описание из данных товара"
+msgstr "Тауар деректерінен сипаттама жасау"
 
 #: includes/class-woo-integration.php:60 includes/class-meta-box.php:35
 msgid "AI Description"
-msgstr "AI-описание"
+msgstr "AI сипаттама"
 
 #: includes/class-woo-integration.php:65
 msgid "Custom description for AI systems..."
-msgstr "Пользовательское описание для AI-систем..."
+msgstr "AI жүйелері үшін өзгертілген сипаттама..."
 
 #: includes/class-woo-integration.php:70
 msgid "Leave empty to auto-generate from product data."
-msgstr "Оставьте пустым для автоматической генерации из данных товара."
+msgstr "Тауар деректерінен автоматты жасау үшін бос қалдырыңыз."
 
 #: includes/class-woo-integration.php:75 includes/class-meta-box.php:50
 msgid "AI Keywords"
-msgstr "AI-ключевые слова"
+msgstr "AI кілт сөздер"
 
 #: includes/class-woo-integration.php:80 includes/class-meta-box.php:55
 msgid "keyword1, keyword2, keyword3"
-msgstr "слово1, слово2, слово3"
+msgstr "сөз1, сөз2, сөз3"
 
 #: includes/class-woo-integration.php:85
 msgid "Comma-separated keywords for AI context."
-msgstr "Ключевые слова через запятую для AI-контекста."
+msgstr "AI контексті үшін үтірмен бөлінген кілт сөздер."
 
 #: includes/class-woo-integration.php:90
 msgid "Exclude from AI"
-msgstr "Исключить из AI"
+msgstr "AI-дан алып тастау"
 
 #: includes/class-woo-integration.php:95
 msgid "Do not include this product in llms.txt"
-msgstr "Не включать этот товар в llms.txt"
+msgstr "Бұл тауарды llms.txt файлына қоспау"
 
 #: includes/class-woo-integration.php:105
 msgid "Preview"
-msgstr "Предпросмотр"
+msgstr "Алдын ала қарау"
 
 #: includes/class-woo-integration.php:110
 msgid "This is how your product will appear in llms.txt:"
-msgstr "Так ваш товар будет отображаться в llms.txt:"
+msgstr "Тауарыңыз llms.txt файлында осылай көрінеді:"
 
 #. translators: %s: product price
 #: includes/class-woo-integration.php:120
 msgid "Price: %s"
-msgstr "Цена: %s"
+msgstr "Бағасы: %s"
 
 #: includes/class-woo-integration.php:125
 msgid "In Stock"
-msgstr "В наличии"
+msgstr "Қоймада бар"
 
 #: includes/class-woo-integration.php:126
 msgid "Out of Stock"
-msgstr "Нет в наличии"
+msgstr "Қоймада жоқ"
 
 #: includes/class-woo-integration.php:135
 msgid "Product not found"
-msgstr "Товар не найден"
+msgstr "Тауар табылмады"
 
 #: includes/class-meta-box.php:40
 msgid "Brief summary for AI systems..."
-msgstr "Краткое описание для AI-систем..."
+msgstr "AI жүйелері үшін қысқаша сипаттама..."
 
 #: includes/class-meta-box.php:45
 msgid "Concise description for LLMs (max 200 characters)"
-msgstr "Краткое описание для LLM (максимум 200 символов)"
+msgstr "LLM үшін қысқаша сипаттама (ең көбі 200 таңба)"
 
 #: includes/class-meta-box.php:60
 msgid "Comma-separated topics for context"
-msgstr "Темы через запятую для контекста"
+msgstr "Контекст үшін үтірмен бөлінген тақырыптар"
 
 #: includes/class-meta-box.php:65
 msgid "Exclude from AI indexing"
-msgstr "Исключить из AI-индексации"
+msgstr "AI индекстеуден алып тастау"
 
 #: includes/class-meta-box.php:70
 msgid "This content will not appear in llms.txt"
-msgstr "Этот контент не будет отображаться в llms.txt"
+msgstr "Бұл мазмұн llms.txt файлында көрінбейді"

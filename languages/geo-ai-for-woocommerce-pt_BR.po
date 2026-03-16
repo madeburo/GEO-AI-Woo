@@ -1,73 +1,73 @@
-# Turkish translation for GEO AI Woo
+# Brazilian Portuguese translation for GEO AI Woo
 # Copyright (C) 2026 GEO AI Woo
 # This file is distributed under the same license as the GEO AI Woo package.
 msgid ""
 msgstr ""
 "Project-Id-Version: GEO AI Woo 0.4.0\n"
-"Report-Msgid-Bugs-To: https://github.com/madeburo/geo-ai-woo/issues\n"
+"Report-Msgid-Bugs-To: https://www.geoai.run\n"
 "POT-Creation-Date: 2026-03-02 12:00+0000\n"
 "PO-Revision-Date: 2026-03-03 12:00+0000\n"
 "Last-Translator: \n"
-"Language-Team: Turkish\n"
-"Language: tr_TR\n"
+"Language-Team: Portuguese (Brazil)\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: WP-CLI\n"
-"X-Domain: geo-ai-woo\n"
+"X-Domain: geo-ai-for-woocommerce\n"
 
-#: geo-ai-woo.php
+#: geo-ai-for-woocommerce.php
 msgid "Settings"
-msgstr "Ayarlar"
+msgstr "Configurações"
 
 #: assets/js/admin.js
 msgid "Regenerating..."
-msgstr "Yeniden oluşturuluyor..."
+msgstr "Regenerando..."
 
 #: assets/js/admin.js
 msgid "Done!"
-msgstr "Tamamlandı!"
+msgstr "Pronto!"
 
 #: assets/js/admin.js
 msgid "Error"
-msgstr "Hata"
+msgstr "Erro"
 
 #: assets/js/admin.js
 msgid "Loading preview..."
-msgstr "Önizleme yükleniyor..."
+msgstr "Carregando pré-visualização..."
 
 #: includes/class-llms-generator.php
 msgid "Pages"
-msgstr "Sayfalar"
+msgstr "Páginas"
 
 #: includes/class-llms-generator.php
 msgid "Blog Posts"
-msgstr "Blog Yazıları"
+msgstr "Posts do blog"
 
 #: includes/class-llms-generator.php
 msgid "Products"
-msgstr "Ürünler"
+msgstr "Produtos"
 
 #: includes/class-llms-generator.php
 msgid "Categories"
-msgstr "Kategoriler"
+msgstr "Categorias"
 
 #: includes/class-llms-generator.php
 msgid "Tags"
-msgstr "Etiketler"
+msgstr "Tags"
 
 #: includes/class-llms-generator.php
 msgid "Product Categories"
-msgstr "Ürün Kategorileri"
+msgstr "Categorias de produtos"
 
 #: includes/class-llms-generator.php
 msgid "Product Tags"
-msgstr "Ürün Etiketleri"
+msgstr "Tags de produtos"
 
 #: includes/class-settings.php
 msgid "GEO AI Woo Settings"
-msgstr "GEO AI Woo Ayarları"
+msgstr "Configurações do GEO AI Woo"
 
 #: includes/class-settings.php
 msgid "GEO AI Woo"
@@ -75,127 +75,127 @@ msgstr "GEO AI Woo"
 
 #: includes/class-settings.php
 msgid "General Settings"
-msgstr "Genel Ayarlar"
+msgstr "Configurações gerais"
 
 #: includes/class-settings.php
 msgid "Site Description"
-msgstr "Site Açıklaması"
+msgstr "Descrição do site"
 
 #: includes/class-settings.php
 msgid "Content Types"
-msgstr "İçerik Türleri"
+msgstr "Tipos de conteúdo"
 
 #: includes/class-settings.php
 msgid "Include Taxonomies"
-msgstr "Taksonomileri Dahil Et"
+msgstr "Incluir taxonomias"
 
 #: includes/class-settings.php
 msgid "Out-of-Stock Products"
-msgstr "Stokta Olmayan Ürünler"
+msgstr "Produtos fora de estoque"
 
 #: includes/class-settings.php
 msgid "AI Bot Rules"
-msgstr "AI Bot Kuralları"
+msgstr "Regras de bots de IA"
 
 #: includes/class-settings.php
 msgid "Crawler Permissions"
-msgstr "Tarayıcı İzinleri"
+msgstr "Permissões de rastreadores"
 
 #: includes/class-settings.php
 msgid "robots.txt Integration"
-msgstr "robots.txt Entegrasyonu"
+msgstr "Integração com robots.txt"
 
 #: includes/class-settings.php
 msgid "SEO & AI Visibility"
-msgstr "SEO ve AI Görünürlüğü"
+msgstr "Visibilidade SEO e IA"
 
 #: includes/class-settings.php
 msgid "Meta Tags"
-msgstr "Meta Etiketleri"
+msgstr "Meta tags"
 
 #: includes/class-settings.php
 msgid "HTTP Link Header"
-msgstr "HTTP Link Başlığı"
+msgstr "Cabeçalho HTTP Link"
 
 #: includes/class-settings.php
 msgid "JSON-LD Schema"
-msgstr "JSON-LD Şeması"
+msgstr "Esquema JSON-LD"
 
 #: includes/class-settings.php
 msgid "Cache Settings"
-msgstr "Önbellek Ayarları"
+msgstr "Configurações de cache"
 
 #: includes/class-settings.php
 msgid "Regeneration Frequency"
-msgstr "Yenileme Sıklığı"
+msgstr "Frequência de regeneração"
 
 #: includes/class-settings.php
 msgid "Your llms.txt Files"
-msgstr "llms.txt Dosyalarınız"
+msgstr "Seus arquivos llms.txt"
 
 #: includes/class-settings.php
 msgid "Standard:"
-msgstr "Standart:"
+msgstr "Padrão:"
 
 #: includes/class-settings.php
 msgid "Static file active"
-msgstr "Statik dosya aktif"
+msgstr "Arquivo estático ativo"
 
 #: includes/class-settings.php
 msgid "Dynamic (rewrite rules)"
-msgstr "Dinamik (yönlendirme kuralları)"
+msgstr "Dinâmico (regras de reescrita)"
 
 #: includes/class-settings.php
 msgid "Full version:"
-msgstr "Tam sürüm:"
+msgstr "Versão completa:"
 
 #: includes/class-settings.php
 msgid "Regenerate Now"
-msgstr "Şimdi Yeniden Oluştur"
+msgstr "Regenerar agora"
 
 #: includes/class-settings.php
 msgid "llms.txt Preview"
-msgstr "llms.txt Önizleme"
+msgstr "Pré-visualização do llms.txt"
 
 #: includes/class-settings.php
 msgid "Load Preview"
-msgstr "Önizlemeyi Yükle"
+msgstr "Carregar pré-visualização"
 
 #: includes/class-settings.php
 msgid "Click \"Load Preview\" to see your llms.txt content."
-msgstr "llms.txt içeriğinizi görmek için \"Önizlemeyi Yükle\" düğmesine tıklayın."
+msgstr "Clique em \"Carregar pré-visualização\" para ver o conteúdo do seu llms.txt."
 
 #: includes/class-settings.php
 msgid "Configure how your content appears in llms.txt for AI search engines."
-msgstr "İçeriğinizin AI arama motorları için llms.txt'de nasıl görüneceğini yapılandırın."
+msgstr "Configure como seu conteúdo aparece no llms.txt para mecanismos de busca de IA."
 
 #: includes/class-settings.php
 msgid "Brief description of your site for AI systems."
-msgstr "AI sistemleri için sitenizin kısa açıklaması."
+msgstr "Descrição breve do seu site para sistemas de IA."
 
 #: includes/class-settings.php
 msgid "Include categories, tags, and product taxonomies in llms.txt"
-msgstr "Kategorileri, etiketleri ve ürün taksonomilerini llms.txt'ye dahil et"
+msgstr "Incluir categorias, tags e taxonomias de produtos no llms.txt"
 
 #: includes/class-settings.php
 msgid "Use WooCommerce setting"
-msgstr "WooCommerce ayarını kullan"
+msgstr "Usar configuração do WooCommerce"
 
 #: includes/class-settings.php
 msgid "Always hide out-of-stock products"
-msgstr "Stokta olmayan ürünleri her zaman gizle"
+msgstr "Sempre ocultar produtos fora de estoque"
 
 #: includes/class-settings.php
 msgid "Always show all products"
-msgstr "Tüm ürünleri her zaman göster"
+msgstr "Sempre mostrar todos os produtos"
 
 #: includes/class-settings.php
 msgid "Control whether out-of-stock products appear in llms.txt."
-msgstr "Stokta olmayan ürünlerin llms.txt'de görünüp görünmeyeceğini kontrol edin."
+msgstr "Controle se os produtos fora de estoque aparecem no llms.txt."
 
 #: includes/class-settings.php
 msgid "Control which AI crawlers can access your content."
-msgstr "Hangi AI tarayıcılarının içeriğinize erişebileceğini kontrol edin."
+msgstr "Controle quais rastreadores de IA podem acessar seu conteúdo."
 
 #: includes/class-settings.php
 msgid "Bot"
@@ -203,95 +203,95 @@ msgstr "Bot"
 
 #: includes/class-settings.php
 msgid "Provider"
-msgstr "Sağlayıcı"
+msgstr "Provedor"
 
 #: includes/class-settings.php
 msgid "Permission"
-msgstr "İzin"
+msgstr "Permissão"
 
 #: includes/class-settings.php
 msgid "Allow"
-msgstr "İzin Ver"
+msgstr "Permitir"
 
 #: includes/class-settings.php
 msgid "Disallow"
-msgstr "Engelle"
+msgstr "Negar"
 
 #: includes/class-settings.php
 msgid "Add AI bot rules to robots.txt automatically"
-msgstr "AI bot kurallarını robots.txt'ye otomatik ekle"
+msgstr "Adicionar regras de bots de IA ao robots.txt automaticamente"
 
 #: includes/class-settings.php
 msgid "Adds User-agent/Allow/Disallow directives for each AI crawler based on the permissions above."
-msgstr "Yukarıdaki izinlere göre her AI tarayıcısı için User-agent/Allow/Disallow yönergeleri ekler."
+msgstr "Adiciona diretivas User-agent/Allow/Disallow para cada rastreador de IA com base nas permissões acima."
 
 #: includes/class-settings.php
 msgid "Configure how your site communicates with AI systems through meta tags, HTTP headers, and structured data."
-msgstr "Sitenizin meta etiketleri, HTTP başlıkları ve yapılandırılmış veriler aracılığıyla AI sistemleriyle nasıl iletişim kurduğunu yapılandırın."
+msgstr "Configure como seu site se comunica com sistemas de IA por meio de meta tags, cabeçalhos HTTP e dados estruturados."
 
 #: includes/class-settings.php
 msgid "Add AI meta tags to page head"
-msgstr "Sayfa başlığına AI meta etiketleri ekle"
+msgstr "Adicionar meta tags de IA ao cabeçalho da página"
 
 #: includes/class-settings.php
 msgid "Outputs <meta name=\"llms\"> and <meta name=\"ai-description\"> tags."
-msgstr "<meta name=\"llms\"> ve <meta name=\"ai-description\"> etiketlerini çıktılar."
+msgstr "Gera as tags <meta name=\"llms\"> e <meta name=\"ai-description\">."
 
 #: includes/class-settings.php
 msgid "Send HTTP Link header pointing to llms.txt"
-msgstr "llms.txt'ye işaret eden HTTP Link başlığı gönder"
+msgstr "Enviar cabeçalho HTTP Link apontando para llms.txt"
 
 #: includes/class-settings.php
 msgid "Adds %s to HTTP response headers."
-msgstr "HTTP yanıt başlıklarına %s ekler."
+msgstr "Adiciona %s aos cabeçalhos de resposta HTTP."
 
 #: includes/class-settings.php
 msgid "Add JSON-LD structured data for AI"
-msgstr "AI için JSON-LD yapılandırılmış veri ekle"
+msgstr "Adicionar dados estruturados JSON-LD para IA"
 
 #: includes/class-settings.php
 msgid "Adds Schema.org WebSite/Article markup with AI descriptions. Skipped if Yoast, Rank Math, or other SEO plugins are detected."
-msgstr "AI açıklamalarıyla Schema.org WebSite/Article işaretlemesi ekler. Yoast, Rank Math veya diğer SEO eklentileri algılanırsa atlanır."
+msgstr "Adiciona marcação Schema.org WebSite/Article com descrições de IA. Ignorado se Yoast, Rank Math ou outros plugins de SEO forem detectados."
 
 #: includes/class-settings.php
 msgid "Control how often llms.txt is regenerated."
-msgstr "llms.txt'nin ne sıklıkla yeniden oluşturulacağını kontrol edin."
+msgstr "Controle com que frequência o llms.txt é regenerado."
 
 #: includes/class-settings.php
 msgid "On every post update"
-msgstr "Her yazı güncellemesinde"
+msgstr "A cada atualização de post"
 
 #: includes/class-settings.php
 msgid "Hourly"
-msgstr "Saatlik"
+msgstr "A cada hora"
 
 #: includes/class-settings.php
 msgid "Daily"
-msgstr "Günlük"
+msgstr "Diariamente"
 
 #: includes/class-settings.php
 msgid "Weekly"
-msgstr "Haftalık"
+msgstr "Semanalmente"
 
 #: includes/class-settings.php
 msgid "AI Description Generation"
-msgstr "AI Açıklama Oluşturma"
+msgstr "Geração de descrições com IA"
 
 #: includes/class-settings.php
 msgid "Use Claude or OpenAI to automatically generate AI descriptions for your posts and products."
-msgstr "Yazılarınız ve ürünleriniz için otomatik olarak AI açıklamaları oluşturmak üzere Claude veya OpenAI kullanın."
+msgstr "Use Claude ou OpenAI para gerar automaticamente descrições de IA para seus posts e produtos."
 
 #: includes/class-settings.php
 msgid "When enabled, this feature sends your post titles and content excerpts to your chosen AI provider to generate descriptions. Review their privacy policies: <a href=\"https://www.anthropic.com/privacy\" target=\"_blank\" rel=\"noopener\">Anthropic</a> | <a href=\"https://openai.com/privacy\" target=\"_blank\" rel=\"noopener\">OpenAI</a>."
-msgstr "Etkinleştirildiğinde, bu özellik açıklama oluşturmak için yazı başlıklarınızı ve içerik özetlerinizi seçtiğiniz AI sağlayıcısına gönderir. Gizlilik politikalarını inceleyin: <a href=\"https://www.anthropic.com/privacy\" target=\"_blank\" rel=\"noopener\">Anthropic</a> | <a href=\"https://openai.com/privacy\" target=\"_blank\" rel=\"noopener\">OpenAI</a>."
+msgstr "Quando habilitado, este recurso envia os títulos e trechos de conteúdo dos seus posts ao provedor de IA escolhido para gerar descrições. Revise as políticas de privacidade: <a href=\"https://www.anthropic.com/privacy\" target=\"_blank\" rel=\"noopener\">Anthropic</a> | <a href=\"https://openai.com/privacy\" target=\"_blank\" rel=\"noopener\">OpenAI</a>."
 
 #: includes/class-settings.php
 msgid "AI Provider"
-msgstr "AI Sağlayıcı"
+msgstr "Provedor de IA"
 
 #: includes/class-settings.php
 msgid "Disabled"
-msgstr "Devre Dışı"
+msgstr "Desabilitado"
 
 #: includes/class-settings.php
 msgid "Claude (Anthropic)"
@@ -303,87 +303,87 @@ msgstr "OpenAI"
 
 #: includes/class-settings.php
 msgid "API Key"
-msgstr "API Anahtarı"
+msgstr "Chave da API"
 
 #: includes/class-settings.php
 msgid "API key is saved. Enter a new key to replace it, or leave as-is."
-msgstr "API anahtarı kaydedildi. Değiştirmek için yeni bir anahtar girin veya olduğu gibi bırakın."
+msgstr "A chave da API está salva. Insira uma nova chave para substituí-la ou deixe como está."
 
 #: includes/class-settings.php
 msgid "Enter your API key. It will be stored encrypted."
-msgstr "API anahtarınızı girin. Şifrelenmiş olarak saklanacaktır."
+msgstr "Insira sua chave da API. Ela será armazenada criptografada."
 
 #: includes/class-settings.php
 msgid "Model"
-msgstr "Model"
+msgstr "Modelo"
 
 #: includes/class-settings.php
 msgid "Leave empty to use the default model for your provider."
-msgstr "Sağlayıcınız için varsayılan modeli kullanmak üzere boş bırakın."
+msgstr "Deixe vazio para usar o modelo padrão do seu provedor."
 
 #: includes/class-settings.php
 msgid "Max Tokens"
-msgstr "Maksimum Token"
+msgstr "Tokens máximos"
 
 #: includes/class-settings.php
 msgid "Maximum tokens for generated descriptions (50-500)."
-msgstr "Oluşturulan açıklamalar için maksimum token sayısı (50-500)."
+msgstr "Tokens máximos para descrições geradas (50-500)."
 
 #: includes/class-settings.php
 msgid "Prompt Template"
-msgstr "İstem Şablonu"
+msgstr "Modelo de prompt"
 
 #: includes/class-settings.php
 msgid "Available placeholders: %s"
-msgstr "Kullanılabilir yer tutucular: %s"
+msgstr "Marcadores disponíveis: %s"
 
 #: includes/class-settings.php
 msgid "Bulk Generate"
-msgstr "Toplu Oluştur"
+msgstr "Geração em massa"
 
 #: includes/class-settings.php
 msgid "Generate AI Descriptions for All Posts"
-msgstr "Tüm Yazılar İçin AI Açıklamaları Oluştur"
+msgstr "Gerar descrições de IA para todos os posts"
 
 #: includes/class-settings.php
 msgid "Generate descriptions for all published posts that do not have one yet. Processes up to 50 posts."
-msgstr "Henüz açıklaması olmayan tüm yayınlanmış yazılar için açıklama oluşturun. En fazla 50 yazı işlenir."
+msgstr "Gera descrições para todos os posts publicados que ainda não possuem uma. Processa até 50 posts."
 
 #: includes/class-settings.php
 msgid "Advanced Settings"
-msgstr "Gelişmiş Ayarlar"
+msgstr "Configurações avançadas"
 
 #: includes/class-settings.php
 msgid "Additional features for multilingual sites and bot tracking."
-msgstr "Çok dilli siteler ve bot takibi için ek özellikler."
+msgstr "Recursos adicionais para sites multilíngues e rastreamento de bots."
 
 #: includes/class-settings.php
 msgid "Multilingual Support"
-msgstr "Çok Dilli Destek"
+msgstr "Suporte multilíngue"
 
 #: includes/class-settings.php
 msgid "Generate separate llms.txt files for each language"
-msgstr "Her dil için ayrı llms.txt dosyaları oluştur"
+msgstr "Gerar arquivos llms.txt separados para cada idioma"
 
 #: includes/class-settings.php
 msgid "No multilingual plugin detected. Install WPML, Polylang, or TranslatePress to enable."
-msgstr "Çok dilli eklenti algılanmadı. Etkinleştirmek için WPML, Polylang veya TranslatePress yükleyin."
+msgstr "Nenhum plugin multilíngue detectado. Instale WPML, Polylang ou TranslatePress para habilitar."
 
 #: includes/class-settings.php
 msgid "Detected: %s"
-msgstr "Algılanan: %s"
+msgstr "Detectado: %s"
 
 #: includes/class-settings.php
 msgid "Crawl Tracking"
-msgstr "Tarama Takibi"
+msgstr "Rastreamento de visitas"
 
 #: includes/class-settings.php
 msgid "Track AI bot visits to llms.txt files"
-msgstr "AI bot ziyaretlerini llms.txt dosyalarına takip et"
+msgstr "Rastrear visitas de bots de IA aos arquivos llms.txt"
 
 #: includes/class-settings.php
 msgid "Logs bot visits for the dashboard widget. IP addresses are anonymized (GDPR-compliant)."
-msgstr "Kontrol paneli widget'ı için bot ziyaretlerini kaydeder. IP adresleri anonimleştirilir (KVKK uyumlu)."
+msgstr "Registra visitas de bots para o widget do painel. Endereços IP são anonimizados (compatível com LGPD)."
 
 #: includes/class-woocommerce.php
 msgid "GEO AI"
@@ -391,79 +391,79 @@ msgstr "GEO AI"
 
 #: includes/class-woocommerce.php
 msgid "AI Optimization Settings"
-msgstr "AI Optimizasyon Ayarları"
+msgstr "Configurações de otimização de IA"
 
 #: includes/class-woocommerce.php
 msgid "Auto-generate AI Description"
-msgstr "AI Açıklamasını Otomatik Oluştur"
+msgstr "Gerar descrição de IA automaticamente"
 
 #: includes/class-woocommerce.php
 msgid "Generate description from product data"
-msgstr "Ürün verilerinden açıklama oluştur"
+msgstr "Gerar descrição a partir dos dados do produto"
 
 #: includes/class-woocommerce.php includes/class-meta-box.php
 msgid "AI Description"
-msgstr "AI Açıklaması"
+msgstr "Descrição de IA"
 
 #: includes/class-woocommerce.php
 msgid "Custom description for AI systems..."
-msgstr "AI sistemleri için özel açıklama..."
+msgstr "Descrição personalizada para sistemas de IA..."
 
 #: includes/class-woocommerce.php
 msgid "Leave empty to auto-generate from product data."
-msgstr "Ürün verilerinden otomatik oluşturmak için boş bırakın."
+msgstr "Deixe vazio para gerar automaticamente a partir dos dados do produto."
 
 #: includes/class-woocommerce.php includes/class-meta-box.php
 msgid "AI Keywords"
-msgstr "AI Anahtar Kelimeleri"
+msgstr "Palavras-chave de IA"
 
 #: includes/class-woocommerce.php includes/class-meta-box.php
 msgid "keyword1, keyword2, keyword3"
-msgstr "anahtarkelime1, anahtarkelime2, anahtarkelime3"
+msgstr "palavrachave1, palavrachave2, palavrachave3"
 
 #: includes/class-woocommerce.php
 msgid "Comma-separated keywords for AI context."
-msgstr "AI bağlamı için virgülle ayrılmış anahtar kelimeler."
+msgstr "Palavras-chave separadas por vírgula para contexto de IA."
 
 #: includes/class-woocommerce.php
 msgid "Exclude from AI"
-msgstr "AI'dan Hariç Tut"
+msgstr "Excluir da IA"
 
 #: includes/class-woocommerce.php
 msgid "Do not include this product in llms.txt"
-msgstr "Bu ürünü llms.txt'ye dahil etme"
+msgstr "Não incluir este produto no llms.txt"
 
 #: includes/class-woocommerce.php
 msgid "Preview"
-msgstr "Önizleme"
+msgstr "Pré-visualização"
 
 #: includes/class-woocommerce.php
 msgid "This is how your product will appear in llms.txt:"
-msgstr "Ürününüz llms.txt'de şu şekilde görünecek:"
+msgstr "É assim que seu produto aparecerá no llms.txt:"
 
 #: includes/class-woocommerce.php
 msgid "Price: %s"
-msgstr "Fiyat: %s"
+msgstr "Preço: %s"
 
 #: includes/class-woocommerce.php
 msgid "Price: %1$s – %2$s"
-msgstr "Fiyat: %1$s – %2$s"
+msgstr "Preço: %1$s – %2$s"
 
 #: includes/class-woocommerce.php
 msgid "Price: %1$s (was %2$s)"
-msgstr "Fiyat: %1$s (eski fiyat %2$s)"
+msgstr "Preço: %1$s (era %2$s)"
 
 #: includes/class-woocommerce.php
 msgid "In Stock"
-msgstr "Stokta"
+msgstr "Em estoque"
 
 #: includes/class-woocommerce.php
 msgid "Out of Stock"
-msgstr "Stokta Yok"
+msgstr "Fora de estoque"
 
 #: includes/class-woocommerce.php
 msgid "Rating: %1$s/5 (%2$d reviews)"
-msgstr "Değerlendirme: %1$s/5 (%2$d yorum)"
+msgstr "Avaliação: %1$s/5 (%2$d avaliações)"
 
 #: includes/class-woocommerce.php
 msgid "%1$s: %2$s"
@@ -471,180 +471,180 @@ msgstr "%1$s: %2$s"
 
 #: includes/class-woocommerce.php
 msgid "Product not found"
-msgstr "Ürün bulunamadı"
+msgstr "Produto não encontrado"
 
 #: includes/class-meta-box.php
 msgid "Brief summary for AI systems..."
-msgstr "AI sistemleri için kısa özet..."
+msgstr "Resumo breve para sistemas de IA..."
 
 #: includes/class-meta-box.php
 msgid "Concise description for LLMs (max 200 characters)"
-msgstr "LLM'ler için kısa açıklama (maks 200 karakter)"
+msgstr "Descrição concisa para LLMs (máx. 200 caracteres)"
 
 #: includes/class-meta-box.php
 msgid "Comma-separated topics for context"
-msgstr "Bağlam için virgülle ayrılmış konular"
+msgstr "Tópicos separados por vírgula para contexto"
 
 #: includes/class-meta-box.php
 msgid "Exclude from AI indexing"
-msgstr "AI indekslemesinden hariç tut"
+msgstr "Excluir da indexação de IA"
 
 #: includes/class-meta-box.php
 msgid "This content will not appear in llms.txt"
-msgstr "Bu içerik llms.txt'de görünmeyecek"
+msgstr "Este conteúdo não aparecerá no llms.txt"
 
 #: includes/class-bulk-edit.php
 msgid "AI Status"
-msgstr "AI Durumu"
+msgstr "Status de IA"
 
 #: includes/class-bulk-edit.php
 msgid "Excluded from AI indexing"
-msgstr "AI indekslemesinden hariç tutuldu"
+msgstr "Excluído da indexação de IA"
 
 #: includes/class-bulk-edit.php
 msgid "Excluded"
-msgstr "Hariç"
+msgstr "Excluído"
 
 #: includes/class-bulk-edit.php
 msgid "Included in AI indexing"
-msgstr "AI indekslemesine dahil"
+msgstr "Incluído na indexação de IA"
 
 #: includes/class-bulk-edit.php
 msgid "Auto"
-msgstr "Otomatik"
+msgstr "Automático"
 
 #: includes/class-admin-notices.php
 msgid "GEO AI Woo activated!"
-msgstr "GEO AI Woo etkinleştirildi!"
+msgstr "GEO AI Woo ativado!"
 
 #: includes/class-admin-notices.php
 msgid "Visit <a href=\"%s\">Settings</a> to configure AI optimization for your site."
-msgstr "Siteniz için AI optimizasyonunu yapılandırmak üzere <a href=\"%s\">Ayarlar</a>'ı ziyaret edin."
+msgstr "Visite <a href=\"%s\">Configurações</a> para configurar a otimização de IA do seu site."
 
 #: includes/class-admin-notices.php
 msgid "GEO AI Woo: The %s file has not been generated yet. Click \"Regenerate Now\" in Settings to create it."
-msgstr "GEO AI Woo: %s dosyası henüz oluşturulmadı. Oluşturmak için Ayarlar'da \"Şimdi Yeniden Oluştur\" düğmesine tıklayın."
+msgstr "GEO AI Woo: O arquivo %s ainda não foi gerado. Clique em \"Regenerar agora\" nas Configurações para criá-lo."
 
 #: includes/class-admin-notices.php
 msgid "GEO AI Woo: Your llms.txt file hasn't been updated in %d days. Consider regenerating it from Settings."
-msgstr "GEO AI Woo: llms.txt dosyanız %d gündür güncellenmedi. Ayarlar'dan yeniden oluşturmayı düşünün."
+msgstr "GEO AI Woo: Seu arquivo llms.txt não é atualizado há %d dias. Considere regenerá-lo nas Configurações."
 
 #: includes/class-admin-notices.php
 msgid "GEO AI Woo: Your permalink structure is set to \"Plain\". While the plugin uses static files, we recommend using pretty permalinks for best SEO results. <a href=\"%s\">Change permalink settings</a>"
-msgstr "GEO AI Woo: Kalıcı bağlantı yapınız \"Düz\" olarak ayarlanmış. Eklenti statik dosyalar kullansa da, en iyi SEO sonuçları için güzel kalıcı bağlantılar kullanmanızı öneririz. <a href=\"%s\">Kalıcı bağlantı ayarlarını değiştir</a>"
+msgstr "GEO AI Woo: Sua estrutura de links permanentes está definida como \"Simples\". Embora o plugin use arquivos estáticos, recomendamos usar links permanentes amigáveis para melhores resultados de SEO. <a href=\"%s\">Alterar configurações de links permanentes</a>"
 
-#: geo-ai-woo.php
+#: geo-ai-for-woocommerce.php
 msgid "Generating..."
-msgstr "Oluşturuluyor..."
+msgstr "Gerando..."
 
-#: geo-ai-woo.php
+#: geo-ai-for-woocommerce.php
 msgid "Generated!"
-msgstr "Oluşturuldu!"
+msgstr "Gerado!"
 
-#: geo-ai-woo.php
+#: geo-ai-for-woocommerce.php
 msgid "Processing..."
-msgstr "İşleniyor..."
+msgstr "Processando..."
 
-#: geo-ai-woo.php
+#: geo-ai-for-woocommerce.php
 msgid "Complete!"
-msgstr "Tamamlandı!"
+msgstr "Concluído!"
 
 #: includes/class-meta-box.php includes/class-woocommerce.php
 msgid "Generate with AI"
-msgstr "AI ile Oluştur"
+msgstr "Gerar com IA"
 
 #: includes/class-ai-generator.php
 msgid "AI generation is not configured."
-msgstr "AI oluşturma yapılandırılmamış."
+msgstr "A geração com IA não está configurada."
 
 #: includes/class-ai-generator.php
 msgid "Rate limit exceeded. Please wait before generating more descriptions."
-msgstr "Hız sınırı aşıldı. Daha fazla açıklama oluşturmadan önce lütfen bekleyin."
+msgstr "Limite de taxa excedido. Aguarde antes de gerar mais descrições."
 
 #: includes/class-ai-generator.php
 msgid "Post not found."
-msgstr "Yazı bulunamadı."
+msgstr "Post não encontrado."
 
 #: includes/class-ai-generator.php
 msgid "Invalid AI provider."
-msgstr "Geçersiz AI sağlayıcı."
+msgstr "Provedor de IA inválido."
 
 #: includes/class-ai-generator.php
 msgid "Claude API error."
-msgstr "Claude API hatası."
+msgstr "Erro na API do Claude."
 
 #: includes/class-ai-generator.php
 msgid "OpenAI API error."
-msgstr "OpenAI API hatası."
+msgstr "Erro na API da OpenAI."
 
 #: includes/class-ai-generator.php
 msgid "Unexpected API response format."
-msgstr "Beklenmeyen API yanıt biçimi."
+msgstr "Formato de resposta da API inesperado."
 
 #: includes/class-ai-generator.php
 msgid "Permission denied."
-msgstr "İzin reddedildi."
+msgstr "Permissão negada."
 
 #: includes/class-ai-generator.php
 msgid "All posts already have AI descriptions."
-msgstr "Tüm yazıların zaten AI açıklamaları var."
+msgstr "Todos os posts já possuem descrições de IA."
 
 #: includes/class-rest-api.php
 msgid "You do not have permission to access this resource."
-msgstr "Bu kaynağa erişim izniniz yok."
+msgstr "Você não tem permissão para acessar este recurso."
 
 #: includes/class-rest-api.php
 msgid "Please wait at least 60 seconds between regeneration requests."
-msgstr "Yeniden oluşturma istekleri arasında en az 60 saniye bekleyin."
+msgstr "Aguarde pelo menos 60 segundos entre solicitações de regeneração."
 
 #: includes/class-rest-api.php
 msgid "llms.txt files regenerated successfully."
-msgstr "llms.txt dosyaları başarıyla yeniden oluşturuldu."
+msgstr "Arquivos llms.txt regenerados com sucesso."
 
 #: includes/class-dashboard-widget.php
 msgid "Indexed Posts"
-msgstr "İndekslenen Yazılar"
+msgstr "Posts indexados"
 
 #: includes/class-dashboard-widget.php
 msgid "Excluded Posts"
-msgstr "Hariç Tutulan Yazılar"
+msgstr "Posts excluídos"
 
 #: includes/class-dashboard-widget.php
 msgid "llms.txt Files"
-msgstr "llms.txt Dosyaları"
+msgstr "Arquivos llms.txt"
 
 #: includes/class-dashboard-widget.php
 msgid "Last Regenerated"
-msgstr "Son Yeniden Oluşturma"
+msgstr "Última regeneração"
 
 #: includes/class-dashboard-widget.php
 msgid "Never"
-msgstr "Hiçbir zaman"
+msgstr "Nunca"
 
 #: includes/class-dashboard-widget.php
 msgid "Recent Bot Activity"
-msgstr "Son Bot Etkinliği"
+msgstr "Atividade recente de bots"
 
 #: includes/class-dashboard-widget.php
 msgid "No bot activity recorded yet."
-msgstr "Henüz bot etkinliği kaydedilmedi."
+msgstr "Nenhuma atividade de bot registrada ainda."
 
 #: includes/class-dashboard-widget.php
 msgid "Bot Name"
-msgstr "Bot Adı"
+msgstr "Nome do bot"
 
 #: includes/class-dashboard-widget.php
 msgid "Visits"
-msgstr "Ziyaretler"
+msgstr "Visitas"
 
 #: includes/class-dashboard-widget.php
 msgid "Last Visit"
-msgstr "Son Ziyaret"
+msgstr "Última visita"
 
 #: includes/class-dashboard-widget.php
 msgid "%s ago"
-msgstr "%s önce"
+msgstr "%s atrás"
 
 #: includes/class-dashboard-widget.php
 msgid "View llms.txt"
-msgstr "llms.txt'yi Görüntüle"
+msgstr "Ver llms.txt"

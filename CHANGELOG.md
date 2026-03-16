@@ -1,6 +1,43 @@
 # Changelog
 
-All notable changes to GEO AI Woo will be documented in this file.
+All notable changes to GEO AI for WooCommerce will be documented in this file.
+
+## [0.6.0] - 2026-03-16
+
+### Changed — Plugin Rename (WordPress Plugin Review)
+- Plugin renamed from "GEO AI Woo" to "GEO AI for WooCommerce"
+- Slug changed from `geo-ai-woo` to `geo-ai-for-woocommerce`
+- Text domain changed from `geo-ai-woo` to `geo-ai-for-woocommerce`
+- Main plugin file renamed from `geo-ai-woo.php` to `geo-ai-for-woocommerce.php`
+- REST API namespace changed from `geo-ai-woo/v1` to `geo-ai-for-woocommerce/v1`
+- WP-CLI command changed from `wp geo-ai-woo` to `wp geo-ai-for-woocommerce`
+- All asset handles, CSS classes, HTML IDs, and admin page slugs updated
+- Language files renamed from `geo-ai-woo-*.po/mo` to `geo-ai-for-woocommerce-*.po/mo`
+- Internal prefixes (`geo_ai_woo_`, `_geo_ai_woo_`, `Geo_Ai_Woo_`) intentionally preserved for backward compatibility with existing installations
+
+### Added — WordPress Plugin Review Compliance
+- Added `Requires Plugins: woocommerce` header to main plugin file
+- CLI export now writes to `wp_upload_dir()/geo-ai-for-woocommerce/` instead of arbitrary paths
+
+### Fixed — Security
+- Removed `JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT` flags from `wp_json_encode()` in JSON-LD output (`class-seo-headers.php`)
+- Fixed unescaped API key field output in settings page (`class-settings.php`)
+
+### Fixed — UTF-8 Encoding
+- Fixed Cyrillic and multibyte character corruption (mojibake) in static llms.txt and llms-full.txt files
+- Replaced `WP_Filesystem::put_contents()` with direct `file_put_contents()` — FTP transport was corrupting multibyte characters during file write
+- Added `decode_text()` helper — decodes HTML entities to UTF-8 per-field (titles, descriptions, keywords, taxonomy names) instead of relying on a single pass at the end
+
+### Improved — Duplicate Plugin Protection
+- Added `defined('GEO_AI_WOO_VERSION')` guard in main plugin file — prevents fatal error when two copies of the plugin are installed
+- Added admin notice that detects and warns about duplicate plugin copies
+
+### Changed
+- Default OpenAI model placeholder updated from `gpt-4o-mini` to `gpt-5`
+
+### Added — Localization
+- German (de_DE) translation
+- French (fr_FR) translation
 
 ## [0.5.5] - 2026-03-07
 
@@ -138,17 +175,17 @@ All notable changes to GEO AI Woo will be documented in this file.
 - Configurable crawl tracking toggle in Advanced Settings
 
 ### Added — REST API
-- `GET /wp-json/geo-ai-woo/v1/llms` — public llms.txt content
-- `GET /wp-json/geo-ai-woo/v1/llms/full` — public llms-full.txt content
-- `GET /wp-json/geo-ai-woo/v1/status` — admin-only file status and statistics
-- `POST /wp-json/geo-ai-woo/v1/regenerate` — admin-only force regeneration (rate-limited)
-- `GET /wp-json/geo-ai-woo/v1/settings` — admin-only current settings (API key masked)
+- `GET /wp-json/geo-ai-for-woocommerce/v1/llms` — public llms.txt content
+- `GET /wp-json/geo-ai-for-woocommerce/v1/llms/full` — public llms-full.txt content
+- `GET /wp-json/geo-ai-for-woocommerce/v1/status` — admin-only file status and statistics
+- `POST /wp-json/geo-ai-for-woocommerce/v1/regenerate` — admin-only force regeneration (rate-limited)
+- `GET /wp-json/geo-ai-for-woocommerce/v1/settings` — admin-only current settings (API key masked)
 
 ### Added — WP-CLI Commands
-- `wp geo-ai-woo regenerate` — regenerate all llms.txt files
-- `wp geo-ai-woo status` — show file status, content counts, multilingual info
-- `wp geo-ai-woo export [--file=path]` — export settings to JSON (excludes API keys)
-- `wp geo-ai-woo import <file> [--regenerate]` — import settings with key validation
+- `wp geo-ai-for-woocommerce regenerate` — regenerate all llms.txt files
+- `wp geo-ai-for-woocommerce status` — show file status, content counts, multilingual info
+- `wp geo-ai-for-woocommerce export [--file=path]` — export settings to JSON (excludes API keys)
+- `wp geo-ai-for-woocommerce import <file> [--regenerate]` — import settings with key validation
 
 ### Added — AI Auto-Generation
 - Claude (Anthropic) and OpenAI API integration for AI description generation
@@ -233,7 +270,7 @@ All notable changes to GEO AI Woo will be documented in this file.
 - Auto-generate product descriptions from product data
 - Enhanced product schema for AI readability
 - Configurable cache with 4 frequency options
-- Settings page under Settings > GEO AI Woo
+- Settings page under Settings > GEO AI for WooCommerce
 - Plugin action link for quick access to settings
 - Multilingual support with 7 languages (EN, RU, KK, UZ, ZH, ID, HI)
 - Uninstall cleanup for options, transients, and post meta

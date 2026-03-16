@@ -1,17 +1,18 @@
 <?php
 /**
- * Plugin Name: GEO AI Woo
- * Plugin URI: https://github.com/madeburo/geo-ai-woo
- * Description: AI Search Optimization for WordPress & WooCommerce. Optimize your site for AI search engines like ChatGPT, Claude, Gemini, Perplexity, YandexGPT, GigaChat, and more.
- * Version: 0.5.5
+ * Plugin Name: GEO AI for WooCommerce
+ * Plugin URI: https://www.geoai.run
+ * Description: AI Search Optimization for WooCommerce – optimize your site for ChatGPT, Claude, Gemini, Perplexity, Grok, DeepSeek and more.
+ * Version: 0.6.0
  * Author: Made Büro
  * Author URI: https://madeburo.com
  * License: GPL v2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: geo-ai-woo
+ * Text Domain: geo-ai-for-woocommerce
  * Domain Path: /languages
  * Requires at least: 6.2
  * Requires PHP: 7.4
+ * Requires Plugins: woocommerce
  * WC requires at least: 7.0
  * WC tested up to: 9.6
  *
@@ -20,8 +21,13 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// Prevent loading if another version of the plugin is already active.
+if ( defined( 'GEO_AI_WOO_VERSION' ) ) {
+	return;
+}
+
 // Plugin constants
-define( 'GEO_AI_WOO_VERSION', '0.5.5' );
+define( 'GEO_AI_WOO_VERSION', '0.6.0' );
 define( 'GEO_AI_WOO_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'GEO_AI_WOO_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'GEO_AI_WOO_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
@@ -81,7 +87,7 @@ final class Geo_Ai_Woo {
         // WP-CLI commands
         if ( defined( 'WP_CLI' ) && WP_CLI ) {
             require_once GEO_AI_WOO_PLUGIN_DIR . 'includes/class-cli.php';
-            WP_CLI::add_command( 'geo-ai-woo', 'Geo_Ai_Woo_CLI' );
+            WP_CLI::add_command( 'geo-ai-for-woocommerce', 'Geo_Ai_Woo_CLI' );
         }
     }
 
@@ -176,7 +182,7 @@ final class Geo_Ai_Woo {
         $screen = get_current_screen();
 
         // Load on settings page, post/product edit screens, and list tables
-        $is_settings  = ( 'settings_page_geo-ai-woo' === $hook );
+        $is_settings  = ( 'settings_page_geo-ai-for-woocommerce' === $hook );
         $is_editor    = ( $screen && 'post' === $screen->base );
         $is_list_page = ( $screen && 'edit' === $screen->base );
 
@@ -185,33 +191,33 @@ final class Geo_Ai_Woo {
         }
 
         wp_enqueue_style(
-            'geo-ai-woo-admin',
+            'geo-ai-for-woocommerce-admin',
             GEO_AI_WOO_PLUGIN_URL . 'assets/css/admin.css',
             array(),
             GEO_AI_WOO_VERSION
         );
 
         wp_enqueue_script(
-            'geo-ai-woo-admin',
+            'geo-ai-for-woocommerce-admin',
             GEO_AI_WOO_PLUGIN_URL . 'assets/js/admin.js',
             array( 'jquery' ),
             GEO_AI_WOO_VERSION,
             true
         );
 
-        wp_localize_script( 'geo-ai-woo-admin', 'geo_ai_woo_admin', array(
+        wp_localize_script( 'geo-ai-for-woocommerce-admin', 'geo_ai_woo_admin', array(
             'nonce'            => wp_create_nonce( 'geo_ai_woo_regenerate' ),
             'preview_nonce'    => wp_create_nonce( 'geo_ai_woo_preview' ),
             'ai_nonce'         => wp_create_nonce( 'geo_ai_woo_ai_generate' ),
             'ai_bulk_nonce'    => wp_create_nonce( 'geo_ai_woo_ai_bulk' ),
-            'regenerating'     => __( 'Regenerating...', 'geo-ai-woo' ),
-            'done'             => __( 'Done!', 'geo-ai-woo' ),
-            'error'            => __( 'Error', 'geo-ai-woo' ),
-            'loading'          => __( 'Loading preview...', 'geo-ai-woo' ),
-            'ai_generating'    => __( 'Generating...', 'geo-ai-woo' ),
-            'ai_generated'     => __( 'Generated!', 'geo-ai-woo' ),
-            'ai_bulk_running'  => __( 'Processing...', 'geo-ai-woo' ),
-            'ai_bulk_complete' => __( 'Complete!', 'geo-ai-woo' ),
+            'regenerating'     => __( 'Regenerating...', 'geo-ai-for-woocommerce' ),
+            'done'             => __( 'Done!', 'geo-ai-for-woocommerce' ),
+            'error'            => __( 'Error', 'geo-ai-for-woocommerce' ),
+            'loading'          => __( 'Loading preview...', 'geo-ai-for-woocommerce' ),
+            'ai_generating'    => __( 'Generating...', 'geo-ai-for-woocommerce' ),
+            'ai_generated'     => __( 'Generated!', 'geo-ai-for-woocommerce' ),
+            'ai_bulk_running'  => __( 'Processing...', 'geo-ai-for-woocommerce' ),
+            'ai_bulk_complete' => __( 'Complete!', 'geo-ai-for-woocommerce' ),
         ) );
     }
 
@@ -223,7 +229,7 @@ final class Geo_Ai_Woo {
      */
     public function plugin_action_links( $links ) {
         $plugin_links = array(
-            '<a href="' . admin_url( 'options-general.php?page=geo-ai-woo' ) . '">' . __( 'Settings', 'geo-ai-woo' ) . '</a>',
+            '<a href="' . admin_url( 'options-general.php?page=geo-ai-for-woocommerce' ) . '">' . __( 'Settings', 'geo-ai-for-woocommerce' ) . '</a>',
         );
         return array_merge( $plugin_links, $links );
     }
