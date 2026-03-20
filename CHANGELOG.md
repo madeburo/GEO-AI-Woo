@@ -2,6 +2,11 @@
 
 All notable changes to GEO AI Search Optimization will be documented in this file.
 
+## [0.7.1] - 2026-03-20
+
+### Fixed — WooCommerce HPOS Compatibility
+- Fixed incorrect feature key `custom_order_storage` → `custom_order_tables` in `FeaturesUtil::declare_compatibility()`, which caused WooCommerce to flag the plugin as incompatible with High-Performance Order Storage
+
 ## [0.7.0] - 2026-03-16
 
 ### Changed — Plugin Rename
