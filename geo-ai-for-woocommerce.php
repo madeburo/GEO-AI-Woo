@@ -3,7 +3,7 @@
  * Plugin Name: GEO AI Search Optimization
  * Plugin URI: https://www.geoai.run
  * Description: AI Search Optimization for WordPress & WooCommerce – optimize your site for ChatGPT, Claude, Gemini, Perplexity, Grok, DeepSeek and more.
- * Version: 0.7.0
+ * Version: 0.7.1
  * Author: Made Büro
  * Author URI: https://madeburo.com
  * License: GPL v2 or later
@@ -26,7 +26,7 @@ if ( defined( 'GEO_AI_WOO_VERSION' ) ) {
 }
 
 // Plugin constants
-define( 'GEO_AI_WOO_VERSION', '0.7.0' );
+define( 'GEO_AI_WOO_VERSION', '0.7.1' );
 define( 'GEO_AI_WOO_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'GEO_AI_WOO_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'GEO_AI_WOO_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
