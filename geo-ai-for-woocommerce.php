@@ -119,7 +119,7 @@ final class Geo_Ai_Woo {
     public function declare_hpos_compatibility() {
         if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
             \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility(
-                'custom_order_storage',
+                'custom_order_tables',
                 __FILE__,
                 true
             );
